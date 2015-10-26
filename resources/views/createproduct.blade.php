@@ -5,6 +5,7 @@
 
 @section('content')
     <div class="container"">
+    TEST 2
     	<form method="post" action="">
     		<div css="form-group">
     			<label for="inputGameTitle">Game title</label>
