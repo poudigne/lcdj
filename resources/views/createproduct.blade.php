@@ -19,6 +19,15 @@
     			<label for="inputGameCategory">Description</label>
     			<textarea id="" name="Catergory" type="text" class="form-control" placeHolder="Description"></textarea>
     		</div>
+    		 <div class="form-group">
+		    <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+		    <div class="input-group">
+		      <div class="input-group-addon">$</div>
+		      <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+		      <div class="input-group-addon">.00</div>
+		    </div>
+		  </div>
+		  <button type="submit" class="btn btn-primary">Submit</button>
     	</form>
     </div>
 @stop
