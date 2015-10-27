@@ -21,6 +21,7 @@ Route::get('/home/{id}', 'HomeController@show');
 
 //Product
 Route::get('/CreateProduct', 'ProductController@index');
+Route::post('/CreateProduct', 'ProductController@store');
 
 
 //login 

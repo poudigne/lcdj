@@ -37,10 +37,7 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
-        $product = new Product;
-        $product->name = $request->get('firstname');
-        $product->save();
-        return $product;
+        
         //
     }
 

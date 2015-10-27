@@ -37,7 +37,12 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-
+        $product = new Product;
+        $product->name = $request->get('Title');
+        $product->price = $request->get('Price');
+        $product->category = $request->get('Price');
+        $product->save();
+        return view('createproduct')->with('success',1);
         //
     }
 
