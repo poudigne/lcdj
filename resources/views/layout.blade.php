@@ -3,7 +3,10 @@
 @include('head')
 </head>
 <body>
-@yield('content')
-@yield('footer')
+	<!-- Navigation Bar -->
+	@include('navbar')
+	@include('content')
+	@include('footer')
+
 </body>
 </html>
