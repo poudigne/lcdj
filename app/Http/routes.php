@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 //home 
+Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
 Route::get('/home/{id}', 'HomeController@show');
 
@@ -23,6 +24,9 @@ Route::get('/home/{id}', 'HomeController@show');
 Route::get('/CreateProduct', 'ProductController@index');
 Route::post('/CreateProduct', 'ProductController@store');
 
+//Category
+Route::get('/CreateCategory', 'CategoryController@index');
+Route::post('/CreateCategory', 'CategoryController@store');
 
 //login 
 Route::get('/login','Auth\AuthController@getLogin');
