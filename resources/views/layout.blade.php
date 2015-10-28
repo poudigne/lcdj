@@ -1,12 +1,10 @@
 <html>
 <head>
-@include('head')
+@include('meta')
 </head>
 <body>
-	<!-- Navigation Bar -->
-	@include('navbar')
-	@include('content')
-	@include('footer')
-
+		@include('navbar')
+		@include('content')
+		@include('footer')
 </body>
 </html>
