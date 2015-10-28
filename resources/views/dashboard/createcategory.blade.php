@@ -1,12 +1,13 @@
-@extends('layout')
+@extends('dashboard/layout')
 
 @section('title', 'Page Title')
 
 
-@section('content')
-    <div class="container"">
+@section('dashboard/content')
       @if (isset($success) && $success == '1')
-        <p>Category added added !</p>
+        <script type="text/javascript">
+          Materialize.toast('Category added added !', 4000);
+        </script>
       @endif
       
     	<form method="post" action="CreateCategory">
@@ -21,5 +22,4 @@
 		  	<button type="submit" class="btn btn-primary">Submit</button>
      	 	{!! csrf_field() !!}
     	</form>
-    </div>
 @stop

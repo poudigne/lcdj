@@ -17,7 +17,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('createcategory');
+        return view('dashboard/createcategory');
     }
 
     /**
@@ -42,7 +42,7 @@ class CategoryController extends Controller
         $category->name = $request->get('Name');
         $category->description = $request->get('Description');
         $category->save();
-        return view('createcategory')->with('success',1);
+        return view('dashboard/createcategory')->with('success',1);
         //
     }
 

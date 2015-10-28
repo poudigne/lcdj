@@ -1,12 +1,13 @@
-@extends('layout')
+@extends('dashboard/layout')
 
 @section('title', 'Page Title')
 
 
-@section('content')
-    <div class="container"">
+@section('dashboard/content')
       @if (isset($success) && $success == '1')
-        Product added !
+        <script type="text/javascript">
+          Materialize.toast('Product added successfuly!', 4000);
+        </script>
       @endif
       
     	<form method="post" action="CreateProduct">
@@ -19,19 +20,18 @@
     			<input id="inputGameCategory" name="Catergory" type="text" class="form-control" placeHolder="Category"/>
     		</div>
     		<div css="form-group">
-    			<label for="inputGameCategory">Description</label>
-    			<textarea id="" name="Category" type="text" class="form-control" placeHolder="Description"></textarea>
+    			<label for="inputGameDescription">Description</label>
+    			<textarea id="inputGameDescription" name="Description" type="text" class="form-control" placeHolder="Description"></textarea>
     		</div>
     		 <div class="form-group">
-		    <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+		    <label class="sr-only" for="InputAmount">Amount (in dollars)</label>
 		    <div class="input-group">
 		      <div class="input-group-addon">$</div>
-		      <input name="Price" type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+		      <input name="Price" type="text" class="form-control" id="InputAmount" placeholder="Amount">
 		      <div class="input-group-addon">.00</div>
 		    </div>
 		  </div>
 		  <button type="submit" class="btn btn-primary">Submit</button>
       {!! csrf_field() !!}
     	</form>
-    </div>
 @stop

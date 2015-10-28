@@ -21,12 +21,17 @@ Route::get('/home', 'HomeController@index');
 Route::get('/home/{id}', 'HomeController@show');
 
 //Product
-Route::get('/CreateProduct', 'ProductController@index');
-Route::post('/CreateProduct', 'ProductController@store');
+Route::get('/CreateProduct', 'ProductCreationController@index');
+Route::post('/CreateProduct', 'ProductCreationController@store');
+Route::get('/Products', 'ProductController@index');
 
 //Category
 Route::get('/CreateCategory', 'CategoryController@index');
 Route::post('/CreateCategory', 'CategoryController@store');
+Route::get('/Dashboard', 'DashboardController@index');
+
+//Dashboard
+
 
 //login 
 Route::get('/login','Auth\AuthController@getLogin');

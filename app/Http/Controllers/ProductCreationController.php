@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class ProductController extends Controller
+class ProductCreationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $product = new Product;
-        $results = $product->get();
-        return view('dashboard/products')->with("ProductList",$results);
+        return view('dashboard/createproduct');
     }
 
     /**
@@ -39,7 +37,14 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $product = new Product;
+        $product->title = $request->get('Title');
+        $product->description = $request->get('Description');
+        $product->price = $request->get('Price');
+        $product->category_id = '1';
+        $product->save();
+        return view('dashboard/createproduct')->with('success',1);
+        //
     }
 
     /**
