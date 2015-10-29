@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -32,8 +33,7 @@ class ProductController extends Controller
     public function create()
     {
         $category = new Category;
-        $res = $category->get();
-        return view('dashboard/createproduct')->with("categoryList",$res);
+        return view('dashboard/createproduct')->with("categoryList",$category->get());
     }
 
     /**
@@ -50,7 +50,9 @@ class ProductController extends Controller
         $product->price = $request->get('Price');
         $product->category_id = '1';
         $product->save();
-        return view('dashboard/createproduct')->with('success',1);
+        $category = new Category;
+        
+        return view('dashboard/createproduct')->with('success',1)->with('categoryList',$category->get());
     }
 
     /**
@@ -101,6 +103,8 @@ class ProductController extends Controller
             ->join('categories', 'products.category_id', '=', 'categories.id')
             ->select('products.title', 'products.description', 'products.price','products.id','categories.name')
             ->get();
-        return view('dashboard/products')->with('ProductList',$getRes);
+
+        $category = new Category;
+        return view('dashboard/products')->with('ProductList',$getRes)->with('categoryList',$category->get());
     }
 }
