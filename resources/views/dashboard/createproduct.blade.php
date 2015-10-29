@@ -38,4 +38,10 @@
 		  <button type="submit" class="btn btn-primary">Submit</button>
       {!! csrf_field() !!}
     	</form>
+<script type"text/javascript">
+    $(document).ready(function() {
+        $('select').material_select();
+    });
+</script>
 @stop
+
