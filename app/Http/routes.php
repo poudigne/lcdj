@@ -20,19 +20,20 @@ Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
 Route::get('/home/{id}', 'HomeController@show');
 
+//Dashboard
+Route::get('/Dashboard', 'DashboardController@index');
+
 //Product
-Route::get('/CreateProduct', 'ProductCreationController@index');
-Route::post('/CreateProduct', 'ProductCreationController@store');
+Route::get('/CreateProduct', 'ProductController@create');
+Route::post('/CreateProduct', 'ProductController@store');
 Route::get('/Products', 'ProductController@index');
 Route::get("/Products/delete/{id}", 'ProductController@destroy');
 
 //Category
-Route::get('/CreateCategory', 'CategoryController@index');
+Route::get('/CreateCategory', 'CategoryController@create');
 Route::post('/CreateCategory', 'CategoryController@store');
-Route::get('/Dashboard', 'DashboardController@index');
-
-//Dashboard
-
+Route::get('/Categories', 'CategoryController@index');
+Route::get("/Categories/delete/{id}", 'CategoryController@destroy');
 
 //login 
 Route::get('/login','Auth\AuthController@getLogin');

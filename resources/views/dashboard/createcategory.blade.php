@@ -2,7 +2,7 @@
 
 @section('title', 'Page Title')
 
-@section('dashboard/content')
+@section('content')
       @if (isset($success) && $success == '1')
         <script type="text/javascript">
           Materialize.toast('Category added added !', 4000);
@@ -10,14 +10,16 @@
       @endif
       
     	<form method="post" action="CreateCategory">
-    		<div css="form-group">
-    			<label for="inputGameTitle">Category</label>
-    			<input id="inputGameTitle" name="Name" type="text" class="form-control" placeHolder="Title"/>
+    		<div class="row">
+          <div class="col s6">
+      			<input id="inputCategoryName" name="categoryName" type="text" class="form-control" placeHolder="Category"/>
+          </div>
     		</div>
-    		<div css="form-group">
-    			<label for="inputGameCategory">Description</label>
-    			<textarea id="" name="Description" type="text" class="form-control" placeHolder="Description"></textarea>
-    		</div>
+    		<div class="row">
+          <div class="input-field col s6">
+            <textarea id="inputGameDescription" name="categoryDescription" type="text" class="materialize-textarea" placeHolder="Description"></textarea>
+          </div>
+        </div>
 		  	<button type="submit" class="btn btn-primary">Submit</button>
      	 	{!! csrf_field() !!}
     	</form>

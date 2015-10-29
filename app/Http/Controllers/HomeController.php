@@ -49,8 +49,8 @@ class HomeController extends Controller
      */
     public function show($id)
     {
-        $products = Product::where('id', '>', '1')->get();
-        return $products->first();
+        $product = Product::find($id);
+        return $product;
     }
 
     /**

@@ -31,7 +31,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $category = new Category;
+        $res = $category->get();
+        return view('dashboard/createproduct')->with("categoryList",$res);
     }
 
     /**
@@ -42,7 +44,13 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $product = new Product;
+        $product->title = $request->get('Title');
+        $product->description = $request->get('Description');
+        $product->price = $request->get('Price');
+        $product->category_id = '1';
+        $product->save();
+        return view('dashboard/createproduct')->with('success',1);
     }
 
     /**
@@ -87,8 +95,8 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
+        $results = Product::find($id)->delete();
         $product = new Product;
-        $results = $product->where("id","=",$id)->delete();
         $getRes = $product
             ->join('categories', 'products.category_id', '=', 'categories.id')
             ->select('products.title', 'products.description', 'products.price','products.id','categories.name')

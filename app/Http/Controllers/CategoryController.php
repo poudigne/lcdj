@@ -17,7 +17,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('dashboard/createcategory');
+        $category = new Category;
+        return view('dashboard/categories')->with('categoryList',$category->get());
     }
 
     /**
@@ -27,7 +28,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard/createcategory');
     }
 
     /**
@@ -39,8 +40,8 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $category = new Category;
-        $category->name = $request->get('Name');
-        $category->description = $request->get('Description');
+        $category->name = $request->get('categoryName');
+        $category->description = $request->get('categoryDescription');
         $category->save();
         return view('dashboard/createcategory')->with('success',1);
         //
@@ -88,6 +89,12 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = new Category;
+        try {
+            Category::find($id)->delete();
+            return view('dashboard/categories')->with('categoryList',$category->get())->with('deleted',1);
+        }catch(\Exception $e){
+            return view('dashboard/categories')->with('categoryList',$category->get())->with('deleted','Category cannot be deleted because some products are associated to it.');
+        }
     }
 }
