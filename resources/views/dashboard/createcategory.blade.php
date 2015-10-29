@@ -2,6 +2,9 @@
 
 @section('title', 'Page Title')
 
+@section('left-menu')
+
+@stop
 
 @section('dashboard/content')
       @if (isset($success) && $success == '1')
