@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -16,7 +17,9 @@ class ProductCreationController extends Controller
      */
     public function index()
     {
-        return view('dashboard/createproduct');
+        $category = new Category;
+        $res = $category->get();
+        return view('dashboard/createproduct')->with("categoryList",$res);
     }
 
     /**

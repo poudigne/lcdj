@@ -10,26 +10,31 @@
       @endif
       
     	<form method="post" action="CreateProduct">
-    		<div css="form-group">
-    			<label for="inputGameTitle">Game title</label>
-    			<input id="inputGameTitle" name="Title" type="text" class="form-control" placeHolder="Title"/>
+    		<div class="row">
+                <div class="input-field col s6">
+                    <input id="inputGameTitle" name="Title" type="text" class="form-control" placeHolder="Title"/>
+                </div>
+            </div>
+    		<div class="row">
+                <div class="input-field col s6">
+                    <select>
+                        @foreach ($categoryList as $cat)
+                            <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                        @endforeach 
+                    </select>
+                </div>
     		</div>
-    		<div css="form-group">
-    			<label for="inputGameCategory">Category</label>
-    			<input id="inputGameCategory" name="Catergory" type="text" class="form-control" placeHolder="Category"/>
+    		<div class="row">
+                <div class="input-field col s6">
+        			<textarea id="inputGameDescription" name="Description" type="text" class="materialize-textarea" placeHolder="Description"></textarea>
+
+                </div>
     		</div>
-    		<div css="form-group">
-    			<label for="inputGameDescription">Description</label>
-    			<textarea id="inputGameDescription" name="Description" type="text" class="form-control" placeHolder="Description"></textarea>
-    		</div>
-    		 <div class="form-group">
-		    <label class="sr-only" for="InputAmount">Amount (in dollars)</label>
-		    <div class="input-group">
-		      <div class="input-group-addon">$</div>
-		      <input name="Price" type="text" class="form-control" id="InputAmount" placeholder="Amount">
-		      <div class="input-group-addon">.00</div>
-		    </div>
-		  </div>
+    		<div class="row">
+                <div class="input-field col s6">
+                    <input name="Price" type="text" class="form-control" id="InputAmount" placeholder="Amount">
+                </div>
+	        </div>
 		  <button type="submit" class="btn btn-primary">Submit</button>
       {!! csrf_field() !!}
     	</form>
