@@ -2,8 +2,7 @@
 
 @section('title', 'Page Title')
 
-
-@section('dashboard/content')
+@section('content')
       @if (isset($success) && $success == '1')
         <script type="text/javascript">
           Materialize.toast('Product added successfuly!', 4000);

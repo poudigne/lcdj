@@ -17,7 +17,10 @@ class ProductController extends Controller
     public function index()
     {
         $product = new Product;
-        $results = $product->get();
+        $results = $product
+            ->join('categories', 'products.category_id', '=', 'categories.id')
+            ->select('products.title', 'products.description', 'products.price','products.id','categories.name')
+            ->get();
         return view('dashboard/products')->with("ProductList",$results);
     }
 
@@ -84,6 +87,12 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = new Product;
+        $results = $product->where("id","=",$id)->delete();
+        $getRes = $product
+            ->join('categories', 'products.category_id', '=', 'categories.id')
+            ->select('products.title', 'products.description', 'products.price','products.id','categories.name')
+            ->get();
+        return view('dashboard/products')->with('ProductList',$getRes);
     }
 }

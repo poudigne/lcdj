@@ -24,6 +24,7 @@ Route::get('/home/{id}', 'HomeController@show');
 Route::get('/CreateProduct', 'ProductCreationController@index');
 Route::post('/CreateProduct', 'ProductCreationController@store');
 Route::get('/Products', 'ProductController@index');
+Route::get("/Products/delete/{id}", 'ProductController@destroy');
 
 //Category
 Route::get('/CreateCategory', 'CategoryController@index');

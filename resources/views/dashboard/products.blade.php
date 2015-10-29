@@ -2,25 +2,34 @@
 
 @section('title', 'Page Title')
 
+@section('content')
+<a class="btn-floating disabled" href="/CreateProduct"><i class="small material-icons">add</i></a>
+<table class="highlight responsive-table bordered">
+  <thead>
+    <tr>
+      <th data-field="title">Name</th>
+      <th data-field="description">Description</th>
+      <th data-field="price">Item Price</th>
+      <th data-field="category_id">Item Category</th>
+      <th data-field="action">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach ($ProductList as $set)
+      <tr>
+        <td>{{ $set->title }}</td>
+        <td>{{ $set->description }}</td>
+        <td>{{ $set->price }}</td>
+        <td>{{ $set->name }}</td>
+        <td>
+          <a href="/Products/delete/{{ $set->id }}" data-method="delete" data-request="Are you sure?">Delete</a>
+          <a href=""></a>
+        </td>
+      </tr>
+    @endforeach
+  </tbody>
+</table>
 
-@section('dashboard/content')
-<div class="row">
-    <div class="col s3">
-        <nav>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="#!">First Sidebar Link</a></li>
-                <li><a href="#!">Second Sidebar Link</a></li>
-            </ul>
-            <ul id="slide-out" class="side-nav">
-                <li><a href="#!">First Sidebar Link</a></li>
-                <li><a href="#!">Second Sidebar Link</a></li>
-            </ul>
-        </nav>
-    </div>
-    <div class="col s9">
-        @if (isset($result))
-        dd({{ $result }})
-        @endif
-    </div>
-</div>
+       
+        
 @stop
