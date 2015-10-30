@@ -3,6 +3,18 @@
 @section('title', 'Page Title')
 
 @section('content')
+@if (isset($deleted))
+  @if ($deleted == '1')
+    <script type="text/javascript">
+      Materialize.toast('Product successfuly deleted !', 4000);
+    </script>
+  @else
+    <script type="text/javascript">
+      Materialize.toast('Error has occured : {{ $deleted }}', 4000);
+    </script>
+  @endif
+@endif
+
 <a class="btn-floating disabled" href="/CreateProduct"><i class="small material-icons">add</i></a>
 <table class="highlight responsive-table bordered">
   <thead>

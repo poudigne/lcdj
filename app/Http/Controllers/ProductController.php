@@ -51,7 +51,7 @@ class ProductController extends Controller
         $product->category_id = '1';
         $product->save();
         $category = new Category;
-        
+
         return view('dashboard/createproduct')->with('success',1)->with('categoryList',$category->get());
     }
 
@@ -97,14 +97,13 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        $results = Product::find($id)->delete();
         $product = new Product;
+        Product::find($id)->delete();
         $getRes = $product
-            ->join('categories', 'products.category_id', '=', 'categories.id')
-            ->select('products.title', 'products.description', 'products.price','products.id','categories.name')
-            ->get();
-
+        ->join('categories', 'products.category_id', '=', 'categories.id')
+        ->select('products.title', 'products.description', 'products.price','products.id','categories.name')
+        ->get();
         $category = new Category;
-        return view('dashboard/products')->with('ProductList',$getRes)->with('categoryList',$category->get());
+        return view('dashboard/products')->with('ProductList',$getRes)->with('categoryList',$category->get())->with('deleted',1);
     }
 }
