@@ -51,6 +51,21 @@ class ProductController extends Controller
         $product->category_id = '1';
         $product->save();
         $category = new Category;
+        
+        $files = $request->file('images');
+        //dd($files);
+        foreach($files as $file) {
+            $imageName = $file->getFilename();
+            $folder = $product->title . "_" . $product->id;
+            $fulldir = 'uploads/'. $folder . "/";
+
+            $md5 = md5($folder . "/" . $imageName);
+            if (!is_dir($fulldir)) {
+                mkdir($fulldir);         
+            }    
+            
+            $file->move($fulldir,$md5 . ".jpg");
+        }
 
         return view('dashboard/createproduct')->with('success',1)->with('categoryList',$category->get());
     }

@@ -9,7 +9,7 @@
         </script>
       @endif
       
-    	<form method="post" action="CreateProduct">
+    	<form method="post" action="CreateProduct" files="true" enctype="multipart/form-data">
     		<div class="row">
                 <div class="input-field col s6">
                     <input id="inputGameTitle" name="Title" type="text" class="form-control" placeHolder="Title"/>
@@ -32,7 +32,7 @@
     		</div>
     		<div class="row">
                 <div class="input-field col s6">
-                    <input name="Price" type="text" class="form-control" id="InputAmount" placeholder="Amount">
+                    <input type="file" name="images[]" class="form-control" multiple>
                 </div>
 	        </div>
 		  <button type="submit" class="btn btn-primary">Submit</button>
