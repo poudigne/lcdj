@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use App\Category;
+use App\UploadedFile;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -53,21 +54,23 @@ class ProductController extends Controller
         $category = new Category;
         
         $files = $request->file('images');
-        //dd($files);
         foreach($files as $file) {
-            $imageName = $file->getFilename();
             $folder = $product->title . "_" . $product->id;
             $fulldir = 'uploads/'. $folder . "/";
 
-            $md5 = md5($folder . "/" . $imageName);
-            if (!is_dir($fulldir)) {
+            if (!is_dir($fulldir)) 
                 mkdir($fulldir);         
-            }    
-            
-            $file->move($fulldir,$md5 . ".jpg");
-        }
+
+            $md5 = md5($folder . "/" . $$file->getFilename());
+            $file->move($fulldir, $md5 . ".jpg");
+            InsertFileInDatabase($product, $md5);
+        } 
 
         return view('dashboard/createproduct')->with('success',1)->with('categoryList',$category->get());
+    }
+
+    public function InsertFileInDatabase(Product $product, $md5){
+        $images = new Images;
     }
 
     /**
