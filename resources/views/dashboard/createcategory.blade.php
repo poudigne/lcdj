@@ -8,7 +8,7 @@
           Materialize.toast('Category added added !', 4000);
         </script>
       @endif
-      
+      <h2 class="header">Create new category</h2>
     	<form method="post" action="CreateCategory">
     		<div class="row">
           <div class="col s6">

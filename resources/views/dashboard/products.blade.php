@@ -15,6 +15,7 @@
   @endif
 @endif
 
+<h2 class="header">List of products</h2>
 <a class="btn-floating disabled" href="/CreateProduct"><i class="small material-icons">add</i></a>
 <table class="highlight responsive-table bordered">
   <thead>

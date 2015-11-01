@@ -3,7 +3,6 @@
 @section('title', 'Page Title')
 
 @section('content')
-
 @if (isset($deleted))
   @if ($deleted == '1')
     <script type="text/javascript">
@@ -16,6 +15,7 @@
   @endif
 @endif
 
+<h2 class="header">List of categories</h2>
 <a class="btn-floating disabled" href="/CreateCategory"><i class="small material-icons">add</i></a>
 <table class="highlight responsive-table bordered">
   <thead>

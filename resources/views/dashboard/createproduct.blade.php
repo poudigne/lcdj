@@ -8,7 +8,7 @@
           Materialize.toast('Product added successfuly!', 4000);
         </script>
       @endif
-      
+      <h2 class="header">Create new products</h2>
     	<form method="post" action="CreateProduct" files="true" enctype="multipart/form-data">
     		<div class="row">
                 <div class="input-field col s6">
