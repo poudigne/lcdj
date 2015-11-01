@@ -21,20 +21,20 @@ Route::get('/home', 'HomeController@index');
 Route::get('/home/{id}', 'HomeController@show');
 
 //Dashboard
-Route::get('/Dashboard', 'DashboardController@index');
+Route::get('/Dashboard', ['middleware' => 'auth', 'uses' => 'DashboardController@index']);
 
 //Product
-Route::get('/product/view/{id}', 'ProductController@show');
-Route::get('/CreateProduct', 'ProductController@create');
-Route::post('/CreateProduct', 'ProductController@store');
-Route::get('/Products', 'ProductController@index');
-Route::get("/Products/delete/{id}", 'ProductController@destroy');
+Route::get('/product/view/{id}', ['middleware' => 'auth', 'uses' => 'ProductController@show']);
+Route::get('/CreateProduct', ['middleware' => 'auth', 'uses' => 'ProductController@create']);
+Route::post('/CreateProduct', ['middleware' => 'auth', 'uses' => 'ProductController@store']);
+Route::get('/Products', ['middleware' => 'auth', 'uses' => 'ProductController@index']);
+Route::get("/Products/delete/{id}", ['middleware' => 'auth', 'uses' => 'ProductController@destroy']);
 
 //Category
-Route::get('/CreateCategory', 'CategoryController@create');
-Route::post('/CreateCategory', 'CategoryController@store');
-Route::get('/Categories', 'CategoryController@index');
-Route::get("/Categories/delete/{id}", 'CategoryController@destroy');
+Route::get('/CreateCategory', ['middleware' => 'auth', 'uses' => 'CategoryController@create']);
+Route::post('/CreateCategory', ['middleware' => 'auth', 'uses' => 'CategoryController@store']);
+Route::get('/Categories', ['middleware' => 'auth', 'uses' => 'CategoryController@index']);
+Route::get("/Categories/delete/{id}", ['middleware' => 'auth', 'uses' => 'CategoryController@destroy']);
 
 //login 
 Route::get('/login','Auth\AuthController@getLogin');

@@ -1,3 +1,9 @@
+@extends('dashboard/layout')
+
+@section('title', 'Page Title')
+
+@section('content')
+
 @if (count($errors) > 0)
         <ul>
             @foreach ($errors->all() as $error)
@@ -11,3 +17,4 @@
 <input type="password" name="password" />
 <input type="submit" />
 </form>
+@stop
