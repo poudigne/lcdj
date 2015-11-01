@@ -145,6 +145,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
+
     ],
 
     /*

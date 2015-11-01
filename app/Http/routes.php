@@ -24,6 +24,7 @@ Route::get('/home/{id}', 'HomeController@show');
 Route::get('/Dashboard', 'DashboardController@index');
 
 //Product
+Route::get('/product/view/{id}', 'ProductController@show');
 Route::get('/CreateProduct', 'ProductController@create');
 Route::post('/CreateProduct', 'ProductController@store');
 Route::get('/Products', 'ProductController@index');

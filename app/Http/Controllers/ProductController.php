@@ -19,7 +19,7 @@ class ProductController extends Controller
     public function index()
     {
         $product = new Product;
-        $productList = $product
+        $products = $product
             ->join('categories', 'products.category_id', '=', 'categories.id')
             ->select('products.title', 'products.description', 'products.price','products.id','categories.name')
             ->get();
@@ -56,15 +56,16 @@ class ProductController extends Controller
         
         $files = $request->file('images');
         foreach($files as $file) {
-            $folder = $product->title . "_" . $product->id;
-            $fulldir = 'uploads/'. $folder . "/";
 
-            if (!is_dir($fulldir)) 
-                mkdir($fulldir);         
+            $product->addMedia($file)->toCollection('images');
 
-            $md5 = md5($folder . "/" . $$file->getFilename());
-            $file->move($fulldir, $md5 . ".jpg");
-            InsertFileInDatabase($product, $md5);
+
+            // $folder = $product->title . "_" . $product->id;
+            // $fulldir = base_path() . '/uploads/'. $folder . "/";
+
+            // $md5 = md5($folder . "/" . $$file->getFilename());
+            // $file->move($fulldir, $md5 . ".jpg");
+            // InsertFileInDatabase($product, $md5);
         } 
         $categories = $category->get();
         return view('dashboard/createproduct')->with('success', 1)->with('categories', $categories);
@@ -82,6 +83,14 @@ class ProductController extends Controller
      */
     public function show($id)
     {
+        $output = "";
+        $product = Product::find($id);
+        foreach($product->getMedia() as $media) {
+            $output = "<img src='" . $media->getUrl() . "' /><br />";
+        }
+
+        return $output;
+
 
     }
 
