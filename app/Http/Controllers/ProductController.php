@@ -19,7 +19,7 @@ class ProductController extends Controller
     public function index()
     {
         $product = new Product;
-        $productList = $product
+        $products = $product
             ->join('categories', 'products.category_id', '=', 'categories.id')
             ->select('products.title', 'products.description', 'products.price','products.id','categories.name')
             ->get();
@@ -57,12 +57,9 @@ class ProductController extends Controller
         $files = $request->file('images');
         foreach($files as $file) {
             $folder = $product->title . "_" . $product->id;
-            $fulldir = 'uploads/'. $folder . "/";
+            $fulldir = 'uploads/'. $folder . "/";  
 
-            if (!is_dir($fulldir)) 
-                mkdir($fulldir);         
-
-            $md5 = md5($folder . "/" . $$file->getFilename());
+            $md5 = md5($folder . "/" . $file->getFilename());
             $file->move($fulldir, $md5 . ".jpg");
             InsertFileInDatabase($product, $md5);
         } 
@@ -72,6 +69,7 @@ class ProductController extends Controller
 
     public function InsertFileInDatabase(Product $product, $md5){
         $images = new Images;
+        $images->
     }
 
     /**
