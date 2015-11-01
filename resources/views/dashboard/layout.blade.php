@@ -19,7 +19,7 @@ header, main, footer {
 	<div class="row">
 		@include('dashboard/header')
 	</div>
-	<div class="container">
+	<!--<div class="container">-->
 		<div class='row'>
 
 			<nav class="col s3">
@@ -29,7 +29,7 @@ header, main, footer {
 				</ul>
 				<ul id="slide-out" class="side-nav">
 					<li><a href="/Products">Manage products</a></li>
-					<li><a href="#!">Manage Second Sidebar Link</a></li>
+					<li><a href="#!">Manage News</a></li>
 				</ul>
 				<a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
 			</nav> 
@@ -37,16 +37,12 @@ header, main, footer {
 				@yield('content')
 			</div>
 		</div>
-	</div>
+	<!--</div>-->
 	<div class='row'>
 		@include('dashboard/footer')
 	</div>
 	<script type="text/javascript">
-		$('.button-collapse').sideNav({
-	      	menuWidth: 300, // Default is 240
-	      	edge: 'right', // Choose the horizontal origin
-	      	closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
-    	});
+		$('.button-collapse').sideNav();
 	</script>
 </body>
 </html>
