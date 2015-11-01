@@ -56,9 +56,7 @@ class ProductController extends Controller
         
         $files = $request->file('images');
         foreach($files as $file) {
-
             $product->addMedia($file)->toCollection('images');
-
         } 
         $categories = $category->get();
         return view('dashboard/createproduct')->with('success', 1)->with('categories', $categories);
@@ -79,8 +77,6 @@ class ProductController extends Controller
         }
 
         return $output;
-
-
     }
 
     /**
