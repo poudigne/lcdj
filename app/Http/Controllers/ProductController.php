@@ -59,20 +59,9 @@ class ProductController extends Controller
 
             $product->addMedia($file)->toCollection('images');
 
-
-            // $folder = $product->title . "_" . $product->id;
-            // $fulldir = base_path() . '/uploads/'. $folder . "/";
-
-            // $md5 = md5($folder . "/" . $$file->getFilename());
-            // $file->move($fulldir, $md5 . ".jpg");
-            // InsertFileInDatabase($product, $md5);
         } 
         $categories = $category->get();
         return view('dashboard/createproduct')->with('success', 1)->with('categories', $categories);
-    }
-
-    public function InsertFileInDatabase(Product $product, $md5){
-        $images = new Images;
     }
 
     /**
