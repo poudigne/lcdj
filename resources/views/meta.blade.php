@@ -11,3 +11,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<style>
+  
+header, main, footer {
+  padding-left: 240px;
+}
+
+@media  only screen and (max-width : 992px) {
+  header, main, footer {
+    padding-left: 0;
+  }
+}
+@media only screen and (min-width : 993px) {
+  .container {
+    width: 85%; 
+  } 
+}
+
+  </style>
