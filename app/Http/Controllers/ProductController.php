@@ -19,11 +19,11 @@ class ProductController extends Controller
     public function index()
     {
         $product = new Product;
-        $results = $product
+        $productList = $product
             ->join('categories', 'products.category_id', '=', 'categories.id')
             ->select('products.title', 'products.description', 'products.price','products.id','categories.name')
             ->get();
-        return view('dashboard/products')->with("ProductList",$results);
+        return view('dashboard/products')->with('products', $products);
     }
 
     /**
@@ -34,7 +34,8 @@ class ProductController extends Controller
     public function create()
     {
         $category = new Category;
-        return view('dashboard/createproduct')->with("categoryList",$category->get());
+        $categories = $category->get();
+        return view('dashboard/createproduct')->with('categories', $categories);
     }
 
     /**
@@ -65,8 +66,8 @@ class ProductController extends Controller
             $file->move($fulldir, $md5 . ".jpg");
             InsertFileInDatabase($product, $md5);
         } 
-
-        return view('dashboard/createproduct')->with('success',1)->with('categoryList',$category->get());
+        $categories = $category->get();
+        return view('dashboard/createproduct')->with('success', 1)->with('categories', $categories);
     }
 
     public function InsertFileInDatabase(Product $product, $md5){
@@ -117,11 +118,12 @@ class ProductController extends Controller
     {
         $product = new Product;
         Product::find($id)->delete();
-        $getRes = $product
+        $products = $product
         ->join('categories', 'products.category_id', '=', 'categories.id')
         ->select('products.title', 'products.description', 'products.price','products.id','categories.name')
         ->get();
         $category = new Category;
-        return view('dashboard/products')->with('ProductList',$getRes)->with('categoryList',$category->get())->with('deleted',1);
+        $categories = $category->get();
+        return view('dashboard/products')->with('products', $products)->with('categories', $categories)->with('deleted', 1);
     }
 }

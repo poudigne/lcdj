@@ -27,7 +27,7 @@
     </tr>
   </thead>
   <tbody>
-    @foreach ($ProductList as $set)
+    @foreach ($products as $set)
       <tr>
         <td>{{ $set->title }}</td>
         <td>{{ $set->description }}</td>

@@ -18,7 +18,7 @@
     		<div class="row">
                 <div class="input-field col s6">
                     <select>
-                        @foreach ($categoryList as $cat)
+                        @foreach ($categories as $cat)
                             <option value="{{ $cat->id }}">{{ $cat->name }}</option>
                         @endforeach 
                     </select>
