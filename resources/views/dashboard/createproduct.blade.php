@@ -27,16 +27,21 @@
     		<div class="row">
                 <div class="input-field col s6">
         			<textarea id="inputGameDescription" name="Description" type="text" class="materialize-textarea" placeHolder="Description"></textarea>
-
                 </div>
     		</div>
     		<div class="row">
-                <div class="input-field col s6">
-                    <input type="file" name="images[]" class="form-control" multiple>
+                <div class="file-field input-field col s6">
+                    <div class="btn">
+                        <span>File</span>
+                        <input type="file" name="images[]" class="form-control" multiple>
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                    </div>
                 </div>
-	        </div>
+            </div>
 		  <button type="submit" class="btn btn-primary">Submit</button>
-      {!! csrf_field() !!}
+          {!! csrf_field() !!}
     	</form>
 <script type"text/javascript">
     $(document).ready(function() {
