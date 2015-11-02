@@ -8,7 +8,9 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <!--  noUiSlider -->
 <link href="noUiSlider/nouislider.min.css" rel="stylesheet">
-<script src="assets/noUiSlider/nouislider.min.js"></script>
+<script src="noUiSlider/nouislider.min.js"></script>
+<!-- wNumbs - Number formatting -->
+<script src="wNumb/wNumb.js"></script>
 
 
 <style>
