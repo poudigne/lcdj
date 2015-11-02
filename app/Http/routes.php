@@ -1,5 +1,5 @@
 <?php
-
+use App\User;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -36,6 +36,18 @@ Route::post('/CreateCategory', ['middleware' => 'auth', 'uses' => 'CategoryContr
 Route::get('/Categories', ['middleware' => 'auth', 'uses' => 'CategoryController@index']);
 Route::get("/Categories/delete/{id}", ['middleware' => 'auth', 'uses' => 'CategoryController@destroy']);
 
+Route::get("/CreateShenrokCredential", function(){
+    return User::create([
+           'name' => 'Marc cantin',
+           'email' => 'shenrok@lcdj.com',
+           'password' => bcrypt('test123'),
+       ]);
+});
+
 //login 
-Route::get('/login','Auth\AuthController@getLogin');
-Route::post('/login','Auth\AuthController@postLogin');
+Route::get('/auth/login','Auth\AuthController@getLogin');
+Route::post('/auth/login','Auth\AuthController@postLogin');
+
+//register
+// Route::get('/auth/register', 'Auth\AuthController@getRegister');
+// Route::post('/auth/register', 'Auth\AuthController@postRegister');
