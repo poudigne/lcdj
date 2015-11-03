@@ -51,6 +51,10 @@ class ProductController extends Controller
         $product->description = $request->get('Description');
         $product->price = $request->get('Price');
         $product->category_id = '1';
+        $product->min_player = $request->get('input-players-min');
+        $product->max_player = $request->get('input-players-max');
+        $product->min_age = $request->get('input-age-min');
+        $product->max_age = $request->get('input-age-max');
         $product->save();
         $category = new Category;
         
