@@ -15,3 +15,4 @@ nav.navbar-findcond ul.dropdown-menu > li > a { color: #444; }
 nav.navbar-findcond ul.dropdown-menu > li > a:hover { background: rgba(207, 227, 230, 1); color: #262532; }
 nav.navbar-findcond span.badge { background:rgba(207, 227, 230, 1); font-weight: normal; font-size: 11px; margin: 0 4px; }
 nav.navbar-findcond span.badge.new { background: rgba(207, 227, 230, 1); color: #262532; }
+
