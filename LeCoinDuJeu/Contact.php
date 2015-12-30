@@ -2,15 +2,12 @@
 $pageTitle = 'Contact';
 include_once 'Layout/Header.php';
 ?>
-    <div class="container">
         <div class="row-fluid">
             <div class="span8">
                 <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2342.73027467845!2d-73.51341549290355!3d45.71120713214138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc8e6c7cc3be94b%3A0x59e5a66c730cf97e!2sLe+coin+du+jeu!5e0!3m2!1sfr!2sca!4v1451435728467"></iframe>
             </div>
         </div>
-    </div>
-    <div class="container">
         <div class="row">
             <div class="col-md-8">
                 <div class="well well-sm">
@@ -70,7 +67,6 @@ include_once 'Layout/Header.php';
                 </div>
             </div>
         </div>
-    </div>
 
 
 <?php

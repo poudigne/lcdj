@@ -1,4 +1,4 @@
-<nav class="navbar navbar-findcond navbar-static-top">
+<nav class="navbar navbar-findcond navbar-static-top" style="margin-bottom:1px; border-color:#262532;">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">

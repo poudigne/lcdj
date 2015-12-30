@@ -1,7 +1,6 @@
 <?php
 $pageTitle = 'Évènements';
 include_once 'Layout/Header.php'; ?>
-    <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-2 col-sm-6 col-xs-12">
                 <div class="panel panel-primary">
@@ -182,7 +181,6 @@ include_once 'Layout/Header.php'; ?>
                 </div>
             </div>
         </div>
-    </div>
 <?php
 include_once 'Layout/Footer.php';
 ?>
