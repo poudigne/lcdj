@@ -11,11 +11,11 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="Accueil.php">Accueil <span class="sr-only">(current)</span></a></li>
-                <li class="active"><a href="Jeux.php">Jeux <span class="sr-only">(current)</span></a></li>
-                <li class="active"><a href="Cartes.php">Cartes <span class="sr-only">(current)</span></a></li>
-                <li class="active"><a href="Evenement.php">Évènements <span class="sr-only">(current)</span></a></li>
-                <li class="active"><a href="Contact.php">Contact <span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="{{ route('public.index') }}">Accueil <span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="{{ route('public.games') }}">Jeux <span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="{{ route('public.cards') }}">Cartes <span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="{{ route('public.events') }}">Ã‰vÃ¨nements <span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="{{ route('public.contact') }}">Contact <span class="sr-only">(current)</span></a></li>
             </ul>
         </div>
     </div>
