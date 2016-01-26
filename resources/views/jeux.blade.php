@@ -18,17 +18,17 @@
     <div class="col-sm-3 col-md-3">
         <div class="list-group">
             <h4><p class="text-center">Type de jeux</p></h4>
-            <button id="search" name="puzzle" class="list-group-item">Casse tête</button>
+            <button id="search" name="puzzle" class="list-group-item">Casse tÃªte</button>
             <button id="search" name="kids" class="list-group-item">Jeunesse</button>
-            <button id="search" name="puzzle" class="list-group-item">Casse tête</button>
+            <button id="search" name="puzzle" class="list-group-item">Casse tÃªte</button>
         </div>
         <div class="list-group">
-            <h4><p class="text-center">Âge</p></h4>
-            <button id="search" name="puzzle" class="list-group-item">1 à 3</button>
-            <button id="search" name="kids" class="list-group-item">4 à 6</button>
-            <button id="search" name="puzzle" class="list-group-item">7 à 9</button>
-            <button id="search" name="puzzle" class="list-group-item">10 à 12</button>
-            <button id="search" name="puzzle" class="list-group-item">13 à 17</button>
+            <h4><p class="text-center">Ã‚ge</p></h4>
+            <button id="search" name="puzzle" class="list-group-item">1 Ã  3</button>
+            <button id="search" name="kids" class="list-group-item">4 Ã  6</button>
+            <button id="search" name="puzzle" class="list-group-item">7 Ã  9</button>
+            <button id="search" name="puzzle" class="list-group-item">10 Ã  12</button>
+            <button id="search" name="puzzle" class="list-group-item">13 Ã  17</button>
             <button id="search" name="puzzle" class="list-group-item">18 et plus</button>
         </div>
     </div>

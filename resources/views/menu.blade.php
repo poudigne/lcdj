@@ -7,7 +7,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="Accueil.php">Le Coin du Jeu</a>
+            <a class="navbar-brand" href="{{ route('public.index') }}">Le Coin du Jeu</a>
         </div>
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="nav navbar-nav navbar-right">
