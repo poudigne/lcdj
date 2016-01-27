@@ -14,10 +14,10 @@ class AddingColumnForAgeRangeAndPlayerNumber extends Migration
     {
         Schema::table('products', function($table)
         {
-            $table->tinyInteger('min_player')->nullable()->unsigned();
-            $table->tinyInteger('max_player')->nullable()->unsigned();
-            $table->tinyInteger('min_age')->nullable()->unsigned();
-            $table->tinyInteger('max_age')->nullable()->unsigned();
+            $table->tinyInteger('min_player')->nullable()->unsigned()->after('price');
+            $table->tinyInteger('max_player')->nullable()->unsigned()->after('price');
+            $table->tinyInteger('min_age')->nullable()->unsigned()->after('price');
+            $table->tinyInteger('max_age')->nullable()->unsigned()->after('price');
         });
     }
 

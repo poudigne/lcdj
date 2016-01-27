@@ -40,8 +40,8 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $category = new Category;
-        $category->name = $request->get('categoryName');
-        $category->description = $request->get('categoryDescription');
+        $category->name = $request->get('category_name');
+        $category->description = $request->get('category_description');
         $category->save();
         return view('dashboard/createcategory')->with('success',1);
         //

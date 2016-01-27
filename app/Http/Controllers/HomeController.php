@@ -14,9 +14,9 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($name)
+    public function index()
     {
-        return view('home')->with('varname', $name)->with('contenu', 'value');
+        return view('dashboard::dashboard');
     }
 
     /**

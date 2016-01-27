@@ -1,119 +1,108 @@
-@extends('dashboard/layout')
+@extends('../dashboard/layout')
 
 @section('title', 'Page Title')
 
 @section('content')
-      @if (isset($success) && $success == '1')
+    @if (isset($success) && $success == '1')
         <script type="text/javascript">
-          Materialize.toast('Product added successfuly!', 4000);
         </script>
-      @endif
-      <h2 class="header">Create new products</h2>
-    	<form method="post" action="CreateProduct" files="true" enctype="multipart/form-data">
-    		<div class="row">
-                <div class="input-field col s6">
-                    <input id="inputGameTitle" name="Title" type="text" class="form-control" placeHolder="Title"/>
-                </div>
+    @endif
+
+
+    <h2 class="header">Create new products</h2>
+	<form method="post" action="{{ route('dashboard::create_product.post') }}" files="true" enctype="multipart/form-data">
+        <!-- Titre du produit -->
+        <div class="form-group row">
+            <label for="product_title" class="col-sm-2 form-control-label">* Titre</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="product_title" id="product_title" placeholder="Titre du produit">
             </div>
-    		<div class="row">
-                <div class="input-field col s6">
-                    <select>
-                        @foreach ($categories as $cat)
-                            <option value="{{ $cat->id }}">{{ $cat->name }}</option>
-                        @endforeach 
-                    </select>
-                </div>
-    		</div>
-    		<div class="row">
-                <div class="input-field col s6">
-        			<textarea id="inputGameDescription" name="Description" type="text" class="materialize-textarea" placeHolder="Description"></textarea>
-                </div>
-    		</div>
-    		<div class="row">
-                <div class="file-field input-field col s6">
-                    <div class="btn">
-                        <span>File</span>
-                        <input type="file" name="images[]" class="form-control" multiple>
-                    </div>
-                    <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text" placeholder="Upload one or more files">
-                    </div>
-                </div>
+        </div>  
+
+        <!-- Titre du produit -->
+        <div class="form-group row">
+            <label for="product_title" class="col-sm-2 form-control-label">Categorie</label>
+            <div class="col-sm-10">
+                <select id="example-getting-started" name="product_categories[]" multiple="multiple" class="form-control">
+                    @foreach ($categories as $cat)
+                        <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                    @endforeach 
+                </select>
             </div>
-            <div class="row">
-                <div class="col s6">
-                    <span id="slider-snap-value-lower-age">0</span>
-                    <span>to</span>
-                    <span id="slider-snap-value-upper-age">100</span>
-                    <div id="slider_age_range"></div>
-                    <input id="input-age-min" type="hidden" name="age-min" value="0" />
-                    <input id="input-age-max" type="hidden" name="age-max" value="100" />
-                </div>
+        </div>  
+
+        <!-- Charger des images -->
+        <div class="form-group row">
+            <label for="product_title" class="col-sm-2 form-control-label">Upload images</label>
+            <div class="col-sm-10">
+                <input type="file" name="product_images[]" class="form-control" multiple>
             </div>
-            <div class="row">
-                <div class="col s6">
-                    <span id="slider-snap-value-lower-players">2</span>
-                    <span>to</span>
-                    <span id="slider-snap-value-upper-players">5</span>
-                    <div id="slider_players_range"></div>
-                    <input id="input-players-min" type="hidden" name="players_min" value="2" />
-                    <input id="input-players-max" type="hidden" name="players_max" value="5" />
-                </div>
+        </div> 
+        <!-- Range du nombre de joueur --> 
+        <div class="form-group row">
+            <label for="product_title" class="col-sm-2 form-control-label">Nombre de joueurs</label>
+            <div class="col-sm-10">
+                <input type="text"  id="player_range" class="form-control slider" data-slider-value="[2,5]" data-slider-min="1" data-slider-max="15" />
+                <span class="flavor-text" id="input-players"></span>
             </div>
-		  <button type="submit" class="btn btn-primary">Submit</button>
-          {!! csrf_field() !!}
-    	</form>
-<script type"text/javascript">
-    $(document).ready(function() {
-        // Select init
-        $('select').material_select();
-        
-        // noUiSlider init
-        initSlider('age',0,100,0,100);
-        initSlider('players',1,15,2,5);
-        
-        var snapValuesAge = [
-            document.getElementById('slider-snap-value-lower-age'),
-            document.getElementById('slider-snap-value-upper-age')
-        ];
-        var hiddenValueAge = [
-            document.getElementById('input-age-min'),
-            document.getElementById('input-age-max')
-        ];
-        var snapValuesPlayers = [
-            document.getElementById('slider-snap-value-lower-players'),
-            document.getElementById('slider-snap-value-upper-players')
-        ];
-        var hiddenValuePlayers = [
-            document.getElementById('input-players-min'),
-            document.getElementById('input-players-max')
-        ];
-        
-        document.getElementById('slider_age_range').noUiSlider.on('update', function( values, handle ) {
-            snapValuesAge[handle].innerHTML = values[handle];
-            hiddenValueAge[handle].innerHTML = values[handle];
-        });
-        document.getElementById('slider_players_range').noUiSlider.on('update', function( values, handle ) {
-            snapValuesPlayers[handle].innerHTML = values[handle];
-            hiddenValuePlayers[handle].innerHTML = values[handle];
-        });
-        
-    });
+        </div> 
     
-    function initSlider(name,min,max,defaultMin,defaultMax){
-        var slider = document.getElementById('slider_'+name+'_range');
-        noUiSlider.create(slider, {
-            start: [defaultMin, defaultMax],
-            connect: true,
-            step: 1,
-            range: {
-                'min': min,
-                'max': max
-            },
-            format: wNumb({
-                decimals: 0
-            })
+        <!-- Range de l'age pour jouer -->
+        <div class="form-group row">
+            <label for="product_title" class="col-sm-2 form-control-label">Ages</label>
+            <div class="col-sm-10">
+                <input type="text" id="age_range" class="form-control slider" data-slider-value="[6,12]" data-slider-min="0" data-slider-max="50">
+                <span class="flavor-text" id="input-age"></span>
+            </div>
+        </div> 
+        
+        <!-- Range de l'age pour jouer -->
+        <div class="form-group row">
+            <label for="product_title" class="col-sm-2 form-control-label">Description</label>
+            <div class="col-sm-10">
+                <textarea id="inputGameDescription" name="product_description" type="text" class="materialize-textarea form-control" placeHolder="Description"></textarea>
+            </div>
+        </div> 
+
+		<div class="row">
+            <div class="input-field col s6">
+    			
+            </div>
+		</div>
+
+        <input type="hidden" id="input-players-min" name="product_input-players-min" value="" />
+        <input type="hidden" id="input-players-max" name="product_input-players-max" value="" />
+        <input type="hidden" id="input-age-min" name="product_input-age-min" value="" />
+        <input type="hidden" id="input-age-max" name="product_input-age-max" value="" />
+        <button type="submit" class="btn btn-primary">Submit</button>
+        {!! csrf_field() !!}
+	</form>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#example-getting-started').multiselect();
+            var player_range = $("input#player_range").bootstrapSlider()
+                .on('slide', update_player_number)
+                .data('slider_player');
+            var age_range = $("input#age_range").bootstrapSlider()
+                .on('slide', update_age_number)
+                .data('slider_age');
+
+            update_player_number();
+            update_age_number();
+
         });
-    }
-</script>
+        var update_range = function(elementId, rangeValue, customText){
+            var values = rangeValue.split(",")
+            $(elementId+"-min").val(values[0]);
+            $(elementId+"-max").val(values[1]);
+            $(elementId).html(customText.replace('%min',values[0]).replace('%max',values[1]));
+        };
+        var update_player_number = function() {
+            update_range("#input-players", player_range.value, "%min à %max joueurs");
+        };
+        var update_age_number = function() {
+            update_range("#input-age", age_range.value, "%min à %max ans");
+        };
+    </script>
 @stop

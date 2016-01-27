@@ -12,4 +12,12 @@ class Product extends Model implements HasMedia
     public function images() { 
     	return $this->hasMany("App/Images");
     }
+
+    /**
+     * 
+     */
+    public function categories()
+    {
+    	return $this->belongsToMany("App\Category", 'categories_products', 'product_id', 'category_id');
+    }
 }

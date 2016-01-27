@@ -1,35 +1,36 @@
+<meta charset="UTF-8">
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<!-- Compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
-<!-- Compiled and minified JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
-<!--Let browser know website is optimized for mobile-->
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<!--  noUiSlider -->
-<link href="noUiSlider/nouislider.min.css" rel="stylesheet">
-<script src="noUiSlider/nouislider.min.js"></script>
-<!-- wNumbs - Number formatting -->
-<script src="wNumb/wNumb.js"></script>
+<script src="https://code.jquery.com/ui/1.10.2/jquery-ui.min.js"></script>
 
 
+<!-- Bootstrap Stylesheet -->
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/CSS/bootstrap.css">
+<link rel="stylesheet" href="/CSS/bootstrap-theme.css">
 
+<!-- Custom Stylesheet -->
+<link rel="stylesheet" href="/CSS/Navbar.css">
+<link rel="stylesheet" href="/CSS/Footer.css">
+<link rel="stylesheet" href="/CSS/Event.css">
+<link rel="stylesheet" href="/CSS/Jumbotron.css">
+
+<!-- Bootstrap Javascript -->
+<script src="/JS/bootstrap.js" type="text/javascript"></script>
+
+<!-- bootstrap Multiselect -->
+<link rel="stylesheet" href="/CSS/bootstrap-multiselect.min.css">
+<script src="/JS/bootstrap-multiselect.js" type="text/javascript"></script>
+
+<!-- Bootstrap slider -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/6.0.9/bootstrap-slider.min.js" type="text/javascript"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/6.0.9/css/bootstrap-slider.min.css">
 
 <style>
-  
-header, main, footer {
-  padding-left: 240px;
+.flavor-text {
+	margin-left: 10px;
 }
 
-@media  only screen and (max-width : 992px) {
-  header, main, footer {
-    padding-left: 0;
-  }
-}
-@media only screen and (min-width : 993px) {
-  .container {
-    width: 85%; 
-  } 
-}
 
-  </style>
+</style>

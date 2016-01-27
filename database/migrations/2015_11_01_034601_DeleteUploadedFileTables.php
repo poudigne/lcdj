@@ -22,10 +22,12 @@ class DeleteUploadedFileTables extends Migration
      */
     public function down()
     {
-        Schema::create('uploaded_files', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('product_id')->references('id')->on('products')->unsigned();
-            $table->string('image_path');
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('password', 60);
+            $table->rememberToken();
             $table->timestamps();
         });
     }

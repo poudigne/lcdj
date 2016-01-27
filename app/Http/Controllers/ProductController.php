@@ -47,21 +47,25 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $product = new Product;
-        $product->title = $request->get('Title');
-        $product->description = $request->get('Description');
-        $product->price = $request->get('Price');
-        $product->category_id = '1';
-        $product->min_player = $request->get('input-players-min');
-        $product->max_player = $request->get('input-players-max');
-        $product->min_age = $request->get('input-age-min');
-        $product->max_age = $request->get('input-age-max');
+        $product->title = $request->get('product_title');
+        $product->description = $request->get('product_description');
+        $product->price = 0;
+        $product->min_player = $request->get('product_input-players-min');
+        $product->max_player = $request->get('product_input-players-max');
+        $product->min_age = $request->get('product_input-age-min');
+        $product->max_age = $request->get('product_input-age-max');
         $product->save();
-        $category = new Category;
-        
-        $files = $request->file('images');
-        foreach($files as $file) {
-            $product->addMedia($file)->toCollection('images');
-        } 
+                
+        foreach ($request->get('product_categories') as $category_id) {
+            $product->categories()->attach($category_id);
+        }
+
+        //$files = $request->file('product_images');
+        //foreach($files as $file) {
+        //    $product->addMedia($file)->toCollection('images');
+        //}
+
+        $category = new Category;      
         $categories = $category->get();
         return view('dashboard/createproduct')->with('success', 1)->with('categories', $categories);
     }
