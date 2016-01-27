@@ -35,7 +35,7 @@ class ProductController extends Controller
     {
         $category = new Category;
         $categories = $category->get();
-        return view('dashboard/createproduct')->with('categories', $categories);
+        return view('dashboard/create_product')->with('categories', $categories);
     }
 
     /**
@@ -67,7 +67,7 @@ class ProductController extends Controller
 
         $category = new Category;      
         $categories = $category->get();
-        return view('dashboard/createproduct')->with('success', 1)->with('categories', $categories);
+        return view('dashboard/create_product')->with('success', 1)->with('categories', $categories);
     }
 
     /**
