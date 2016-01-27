@@ -129,3 +129,4 @@ class ProductController extends Controller
         return view('dashboard/products')->with('products', $products)->with('categories', $categories)->with('deleted', 1);
     }
 }
+?>

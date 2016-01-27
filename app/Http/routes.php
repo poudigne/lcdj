@@ -39,16 +39,19 @@ Route::group(['as' => 'dashboard::','middleware' => 'auth', 'prefix' => 'dashboa
 
 	//Product
 	Route::get('/product/view/{id}', ['middleware' => 'auth', 'uses' => 'ProductController@show']);
-	Route::get('/create-product', ['as' => 'create_product', 'middleware' => 'auth', 'uses' => 'ProductController@create']);
-	Route::post('/create-product', ['as' => 'create_product.post', 'middleware' => 'auth', 'uses' => 'ProductController@store']);
+	Route::get('/product/create', ['as' => 'create_product', 'middleware' => 'auth', 'uses' => 'ProductController@create']);
+	Route::post('/product/create', ['as' => 'create_product.post', 'middleware' => 'auth', 'uses' => 'ProductController@store']);
 	Route::get('/products', ['as' => 'show_product', 'middleware' => 'auth', 'uses' => 'ProductController@index']);
 	Route::get("/products/delete/{id}", ['middleware' => 'auth', 'uses' => 'ProductController@destroy']);
 
 	//Category
-	Route::get('/create-category', ['as' => 'create_category', 'middleware' => 'auth', 'uses' => 'CategoryController@create']);
-	Route::post('/create-category', ['as' => 'create_category.post', 'middleware' => 'auth', 'uses' => 'CategoryController@store']);
+	Route::get('/category/create', ['as' => 'create_category', 'middleware' => 'auth', 'uses' => 'CategoryController@create']);
+	Route::post('/category/create', ['as' => 'create_category.post', 'middleware' => 'auth', 'uses' => 'CategoryController@store']);
 	Route::get('/categories', ['as' => 'show_categories', 'middleware' => 'auth', 'uses' => 'CategoryController@index']);
 	Route::get("/categories/delete/{id}", ['middleware' => 'auth', 'uses' => 'CategoryController@destroy']);
+
+	// News
+	Route::get('/news/create', ['as' => 'news.create', 'middleware' => 'auth', 'uses' => 'NewsController@index']);
 });
 
 Route::get("/CreateShenrokCredential", function(){

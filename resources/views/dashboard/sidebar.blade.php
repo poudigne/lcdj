@@ -133,7 +133,7 @@ body,html{
         <li class="active"><a href="{{ route('dashboard::home') }}">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
         <li ><a href="{{ route('dashboard::create_product') }}">Produits<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>
         <li ><a href="{{ route('dashboard::create_category') }}">Catégories<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>
-        <li ><a href="{{ route('dashboard::home') }}">News<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a></li>
+        <li ><a href="{{ route('dashboard::news.create') }}">News<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a></li>
         <li ><a href="{{ route('dashboard::home') }}">Évènements<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-calendar"></span></a></li>
       </ul>
     </div>
