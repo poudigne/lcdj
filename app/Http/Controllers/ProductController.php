@@ -19,11 +19,12 @@ class ProductController extends Controller
     public function index()
     {
         $product = new Product;
-        $products = $product
-            ->join('categories', 'products.category_id', '=', 'categories.id')
-            ->select('products.title', 'products.description', 'products.price','products.id','categories.name')
-            ->get();
-        return view('dashboard/products')->with('products', $products);
+        $products = $product->get();
+        $productArray = array();
+        foreach ($products as $prod){
+            $productArray[$prod->id] = array('product' => $prod, 'categories' => Product::find($prod->id)->categories);
+        }
+        return view('dashboard/products')->with('products', $productArray);
     }
 
     /**
@@ -33,9 +34,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $category = new Category;
-        $categories = $category->get();
-        return view('dashboard/create_product')->with('categories', $categories);
+        return view('dashboard/create_product')->with('categories', Category::get());
     }
 
     /**
@@ -65,9 +64,7 @@ class ProductController extends Controller
         //    $product->addMedia($file)->toCollection('images');
         //}
 
-        $category = new Category;      
-        $categories = $category->get();
-        return view('dashboard/create_product')->with('success', 1)->with('categories', $categories);
+        return view('dashboard/create_product')->with('success', 1)->with('categories', Category::get());
     }
 
     /**

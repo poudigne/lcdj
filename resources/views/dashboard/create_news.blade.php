@@ -9,13 +9,13 @@
     @endif
 
 
-    <h2 class="header">Create new products</h2>
-	<form method="post" action="{{ route('dashboard::create_product.post') }}" files="true" enctype="multipart/form-data">
+    <h2 class="header">Créé une nouvelle</h2>
+	<form method="post" action="{{ route('dashboard::news.create.post') }}">
         <!-- Titre du produit -->
         <div class="form-group row">
             <label for="product_title" class="col-sm-2 form-control-label">* Titre</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" name="news_title" id="product_title" placeholder="Titre du produit">
+                <input type="text" class="form-control" name="news_title" id="news_title" placeholder="Titre du produit">
             </div>
         </div>  
 

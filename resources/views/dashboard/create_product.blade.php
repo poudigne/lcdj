@@ -10,7 +10,7 @@
 
 
     <h2 class="header">Create new products</h2>
-	<form method="post" action="{{ route('dashboard::create_product.post') }}" files="true" enctype="multipart/form-data">
+	<form method="post" action="{{ route('dashboard::product.create.post') }}" files="true" enctype="multipart/form-data">
         <!-- Titre du produit -->
         <div class="form-group row">
             <label for="product_title" class="col-sm-2 form-control-label">* Titre</label>

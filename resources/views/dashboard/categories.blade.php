@@ -16,7 +16,7 @@
 @endif
 
 <h2 class="header">List of categories</h2>
-<a class="btn-floating disabled" href="/CreateCategory"><i class="small material-icons">add</i></a>
+<a class="btn-floating disabled" href="{{ route('dashboard::category.create.post') }}"><i class="small material-icons">add</i></a>
 <table class="highlight responsive-table bordered">
   <thead>
     <tr>
@@ -30,8 +30,7 @@
         <td>{{ $set->name }}</td>
         <td>{{ $set->description }}</td>
         <td>
-          <a href="/Categories/delete/{{ $set->id }}" data-method="delete" data-request="Are you sure?">Delete</a>
-          <a href=""></a>
+          <a href="{{ route('dashboard::category.delete', ['id' => $set->id]) }}" data-method="delete" data-request="Are you sure?">Delete</a>
         </td>
       </tr>
     @endforeach

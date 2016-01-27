@@ -35,23 +35,23 @@ Route::get('/Evenement', ['as' => 'public.events', 'uses' => function () {
 Route::group(['as' => 'dashboard::','middleware' => 'auth', 'prefix' => 'dashboard'], function () {
     Route::get('/', ['middleware' => 'auth', 'uses' => 'DashboardController@index']);
 	Route::get('/home', ['as'=>'home', 'uses' => 'DashboardController@index']);
-	Route::get('/home/{id}', ['as'=>'product', 'uses' => 'HomeController@show']);
 
 	//Product
 	Route::get('/product/view/{id}', ['middleware' => 'auth', 'uses' => 'ProductController@show']);
-	Route::get('/product/create', ['as' => 'create_product', 'middleware' => 'auth', 'uses' => 'ProductController@create']);
-	Route::post('/product/create', ['as' => 'create_product.post', 'middleware' => 'auth', 'uses' => 'ProductController@store']);
-	Route::get('/products', ['as' => 'show_product', 'middleware' => 'auth', 'uses' => 'ProductController@index']);
-	Route::get("/products/delete/{id}", ['middleware' => 'auth', 'uses' => 'ProductController@destroy']);
+	Route::get('/product/create', ['as' => 'product.create', 'middleware' => 'auth', 'uses' => 'ProductController@create']);
+	Route::post('/product/create', ['as' => 'product.create.post', 'middleware' => 'auth', 'uses' => 'ProductController@store']);
+	Route::get('/product', ['as' => 'product.show', 'middleware' => 'auth', 'uses' => 'ProductController@index']);
+	Route::get("/product/delete/{id}", ['as' => 'product.delete', 'middleware' => 'auth', 'uses' => 'ProductController@destroy']);
 
 	//Category
-	Route::get('/category/create', ['as' => 'create_category', 'middleware' => 'auth', 'uses' => 'CategoryController@create']);
-	Route::post('/category/create', ['as' => 'create_category.post', 'middleware' => 'auth', 'uses' => 'CategoryController@store']);
-	Route::get('/categories', ['as' => 'show_categories', 'middleware' => 'auth', 'uses' => 'CategoryController@index']);
-	Route::get("/categories/delete/{id}", ['middleware' => 'auth', 'uses' => 'CategoryController@destroy']);
+	Route::get('/category/create', ['as' => 'category.create', 'middleware' => 'auth', 'uses' => 'CategoryController@create']);
+	Route::post('/category/create', ['as' => 'category.create.post', 'middleware' => 'auth', 'uses' => 'CategoryController@store']);
+	Route::get('/category', ['as' => 'category.show', 'middleware' => 'auth', 'uses' => 'CategoryController@index']);
+	Route::get("/category/delete/{id}", ['as' => 'category.delete', 'middleware' => 'auth', 'uses' => 'CategoryController@destroy']);
 
 	// News
 	Route::get('/news/create', ['as' => 'news.create', 'middleware' => 'auth', 'uses' => 'NewsController@index']);
+	Route::post('/news/create', ['as' => 'news.create.post', 'middleware' => 'auth', 'uses' => 'NewsController@store']);
 });
 
 Route::get("/CreateShenrokCredential", function(){

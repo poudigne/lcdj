@@ -9,7 +9,7 @@
     </script>
   @endif
   <h2 class="header">Create new category</h2>
-  <form method="post" action="{{ route('dashboard::create_category.post') }}">
+  <form method="post" action="{{ route('dashboard::category.create.post') }}">
     <!-- Nom de la categorie -->
     <div class="form-group row">
         <label for="category_name" class="col-sm-2 form-control-label">* Nom</label>

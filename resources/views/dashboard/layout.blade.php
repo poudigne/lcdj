@@ -10,6 +10,7 @@
 	<div class="container">
 		<div class='row'>
 			<div class="col-lg-12">
+				@include('dashboard/breadcrumbs')
 				@yield('content')
 			</div>
 		</div>

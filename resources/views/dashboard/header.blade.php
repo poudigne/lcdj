@@ -14,8 +14,8 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="{{{ (Request::route()->getName() == 'suggest' ? 'active' : '') }}}"><a href="{{ route('dashboard::create_product') }}">Products <span class="sr-only">(current)</span></a></li>
-        <li class="{{{ (Request::route()->getName() == 'musics' ? 'active' : '') }}}"><a href="{{ route('dashboard::create_category') }}">News</a></li>
+        <li class="{{{ (Request::route()->getName() == 'suggest' ? 'active' : '') }}}"><a href="{{ route('dashboard::product.create') }}">Products <span class="sr-only">(current)</span></a></li>
+        <li class="{{{ (Request::route()->getName() == 'musics' ? 'active' : '') }}}"><a href="{{ route('dashboard::category.create') }}">News</a></li>
         <li class="{{{ (Request::route()->getName() == 'musics' ? 'active' : '') }}}"><a href="{{ route('dashboard::home') }}">Events</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
