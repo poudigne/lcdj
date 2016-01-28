@@ -1,5 +1,7 @@
 <?php
 use App\User;
+
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -52,6 +54,15 @@ Route::group(['as' => 'dashboard::','middleware' => 'auth', 'prefix' => 'dashboa
 	// News
 	Route::get('/news/create', ['as' => 'news.create', 'middleware' => 'auth', 'uses' => 'NewsController@index']);
 	Route::post('/news/create', ['as' => 'news.create.post', 'middleware' => 'auth', 'uses' => 'NewsController@store']);
+
+	Route::get('/inventory', ['as' => 'inventory', 'middleware' => 'auth', 'uses' => 'InventoryController@index']);
+    Route::get('/inventory/search', ['as' => 'inventory.search', 'middleware' => 'auth', 'uses' => 'InventoryController@index']);
+    Route::post('/inventory/search', ['as' => 'inventory.search.post', 'middleware' => 'auth', 'uses' => 'InventoryController@search']);
+    /*    function(Request $request){
+            dd($request->all());
+            Session::put("keyword", $request->keyword);
+        }
+    ]);*/
 });
 
 Route::get("/CreateShenrokCredential", function(){

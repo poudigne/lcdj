@@ -41,7 +41,6 @@
       <th data-field="player_range">Nombre de joueur</th>
       <th data-field="age_range">Ages</th>
       <th data-field="category_id">Item Category</th>
-      <th data-field="action">Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -58,7 +57,6 @@
             {{ $set['product']->min_age }} à {{ $set['product']->max_age }} ans
           @endif
         </td>
-        <td></td>
         <td>
           @foreach($set['categories'] as $cat)
             {{ $cat->name }},

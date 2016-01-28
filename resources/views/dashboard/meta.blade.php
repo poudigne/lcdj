@@ -1,6 +1,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
 
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="https://code.jquery.com/ui/1.10.2/jquery-ui.min.js"></script>
 
@@ -19,6 +20,10 @@
 <!-- Bootstrap Javascript -->
 <script src="/JS/bootstrap.js" type="text/javascript"></script>
 
+
+<!-- <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css" integrity="sha384-XXXXXXXX" crossorigin="anonymous">
+<script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js" integrity="sha384-XXXXXXXX" crossorigin="anonymous"></script>-->
+
 <!-- bootstrap Multiselect -->
 <link rel="stylesheet" href="/CSS/bootstrap-multiselect.min.css">
 <script src="/JS/bootstrap-multiselect.js" type="text/javascript"></script>
@@ -32,5 +37,11 @@
 	margin-left: 10px;
 }
 
-
+.float-right {
+	float:right !important;
+}
+.float-left {
+	float:left !important;
+	margin: 0 5px 0 0;
+}
 </style>
