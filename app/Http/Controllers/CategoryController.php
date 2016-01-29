@@ -29,7 +29,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('dashboard/create_category');
+        return view('dashboard/create_category')->with('category', new Category);
     }
 
     /**
@@ -49,7 +49,7 @@ class CategoryController extends Controller
         $category->description = $request->get('category_description');
         $category->save();
         Session::flash('flash_message', 'Category successfully added!');
-        return view('dashboard/create_category');
+        return view('dashboard/create_category')->with('category', new Category);
     }
 
     /**
@@ -71,7 +71,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+        return view('dashboard/edit_category')->with("category", $category);
     }
 
     /**
@@ -83,7 +84,15 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'category_name' => 'required'
+        ]);
+        $category = Category::find($id);
+        $category->name = $request->get('category_name');
+        $category->description = $request->get('category_description');
+        $category->save();
+        Session::flash('flash_message', 'Category successfully edited!');
+        return $this->edit($id);
     }
 
     /**

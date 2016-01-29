@@ -30,7 +30,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('dashboard/create_product')->with('categories', Category::get());
+        return view('dashboard/create_product')->with('categories', Category::get())->with('product', new Product);
     }
 
     /**
@@ -73,7 +73,7 @@ class ProductController extends Controller
 
         Session::flash('flash_message', 'Product successfully added!');
 
-        return view('dashboard/create_product')->with('categories', Category::get());
+        return view('dashboard/create_product')->with('categories', Category::get())->with('product', new Product);
     }
 
     /**
@@ -101,7 +101,8 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::with('categories')->where('id',$id)->first();
+        return view('dashboard/edit_product')->with('categories', Category::get())->with("product", $product);
     }
 
     /**
@@ -113,7 +114,39 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'product_title' => 'required'
+        ]);
+
+        $product = Product::find($id);
+        $product->title = $request->get('product_title');
+        $product->description = $request->get('product_description');
+        $product->price = 0;
+        $product->min_player = $request->get('product_input-players-min');
+        $product->max_player = $request->get('product_input-players-max');
+        $product->min_age = $request->get('product_input-age-min');
+        $product->max_age = $request->get('product_input-age-max');
+        $product->save();
+
+        $product->categories()->detach();
+
+        if ($request->get('product_categories') != null){
+            foreach ($request->get('product_categories') as $category_id) {
+                $product->categories()->attach($category_id);
+            }
+        }
+        $files = $request->file('product_images');
+        $count = 0;
+        foreach($files as $file) {
+            if ($file == null)
+                continue;
+            $product->addMedia($file)->usingFileName($product->id. "_" . $count . "." . $file->getClientOriginalExtension())->toCollection('images');
+            $count++;
+        }
+
+        Session::flash('flash_message', 'Product successfully edited!');
+
+        return $this->edit($id);
     }
 
     /**

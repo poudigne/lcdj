@@ -42,12 +42,16 @@ Route::group(['as' => 'dashboard::','middleware' => 'auth', 'prefix' => 'dashboa
 	Route::get('/product/view/{id}', ['middleware' => 'auth', 'uses' => 'ProductController@show']);
 	Route::get('/product/create', ['as' => 'product.create', 'middleware' => 'auth', 'uses' => 'ProductController@create']);
 	Route::post('/product/create', ['as' => 'product.create.post', 'middleware' => 'auth', 'uses' => 'ProductController@store']);
+    Route::get('/product/edit/{id}', ['as' => 'product.edit', 'middleware' => 'auth', 'uses' => 'productController@edit']);
+    Route::post('/product/edit/{id}', ['as' => 'product.edit.post', 'middleware' => 'auth', 'uses' => 'productController@update']);
 	Route::get('/product', ['as' => 'product.show', 'middleware' => 'auth', 'uses' => 'ProductController@index']);
 	Route::post("/product/delete", ['as' => 'product.delete.post', 'middleware' => 'auth', 'uses' => 'ProductController@multiple_delete']);
 
 	//Category
 	Route::get('/category/create', ['as' => 'category.create', 'middleware' => 'auth', 'uses' => 'CategoryController@create']);
 	Route::post('/category/create', ['as' => 'category.create.post', 'middleware' => 'auth', 'uses' => 'CategoryController@store']);
+    Route::get('/category/edit/{id}', ['as' => 'category.edit', 'middleware' => 'auth', 'uses' => 'CategoryController@edit']);
+    Route::post('/category/edit/{id}', ['as' => 'category.edit.post', 'middleware' => 'auth', 'uses' => 'CategoryController@update']);
 	Route::get('/category', ['as' => 'category.show', 'middleware' => 'auth', 'uses' => 'CategoryController@index']);
     Route::post("/category/delete", ['as' => 'category.delete.post', 'middleware' => 'auth', 'uses' => 'CategoryController@multiple_delete']);
 

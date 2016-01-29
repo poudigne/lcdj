@@ -3,10 +3,9 @@
 @section('title', 'Page Title')
 
 @section('content')
-    <h2 class="header">Create new category</h2>
+    <h2 class="header">Edit category</h2>
 
-  <form method="post" action="{{ route('dashboard::category.create.post') }}">
+  <form method="post" action="{{ route('dashboard::category.edit.post', ['id' => $category->id]) }}">
       @include("dashboard/partials/category_form")
-
   </form>
 @stop

@@ -30,7 +30,7 @@ class InventoryController extends Controller
      */
     public function create()
     {
-        return view('dashboard/create_product')->with('categories', Category::get());
+        return view('dashboard/create_product')->with('categories', Category::get())->with('product', new Product);
     }
 
     /**

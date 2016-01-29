@@ -36,6 +36,7 @@
   <thead>
     <tr>
       <th data-field="delete"><input type="checkbox" id="check-all" value="0"/></th>
+      <th></th>
       <th data-field="title">Name</th>
       <th data-field="description">Description</th>
       <th data-field="player_range">Nombre de joueur</th>
@@ -49,6 +50,7 @@
 
       <tr>
         <td style="width:3%;"><input type="checkbox" data-field-id="{{ $set->id }}" class="check-box" /></td>
+        <td style="width:3%;"><button type="button" class="btn btn-default btn-xs btn-edit glyphicon glyphicon-pencil" href="{{ route('dashboard::product.edit', ['id'=>$set->id]) }}"></button></td>
         <td>{{ $set->title }}</td>
         <td>{{ $set->description }}</td>
         <td>{{ $set->min_player }} à {{ $set->max_player }}</td>
@@ -77,6 +79,10 @@
 <script type="text/javascript">
   $("#btn_action_create_product").on('click',function(){
     window.location.href = "{{ route('dashboard::product.create') }}";
+  });
+  $(".btn-edit").click(function(){
+    var link = $(this).attr('href');
+    window.location.href = link;
   });
 </script>
 @stop
