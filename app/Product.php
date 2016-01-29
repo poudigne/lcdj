@@ -16,7 +16,7 @@ class Product extends Model implements HasMedia
 
     public function categories()
     {
-    	return $this->belongsToMany("App\Category", 'categories_products', 'product_id', 'category_id');
+    	return $this->belongsToMany("App\Category", 'category_product', 'product_id', 'category_id');
     }
 
     public function inventory()

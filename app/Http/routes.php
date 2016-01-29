@@ -43,13 +43,13 @@ Route::group(['as' => 'dashboard::','middleware' => 'auth', 'prefix' => 'dashboa
 	Route::get('/product/create', ['as' => 'product.create', 'middleware' => 'auth', 'uses' => 'ProductController@create']);
 	Route::post('/product/create', ['as' => 'product.create.post', 'middleware' => 'auth', 'uses' => 'ProductController@store']);
 	Route::get('/product', ['as' => 'product.show', 'middleware' => 'auth', 'uses' => 'ProductController@index']);
-	Route::post("/product/delete", ['as' => 'product.delete', 'middleware' => 'auth', 'uses' => 'ProductController@multiple_delete']);
+	Route::post("/product/delete", ['as' => 'product.delete.post', 'middleware' => 'auth', 'uses' => 'ProductController@multiple_delete']);
 
 	//Category
 	Route::get('/category/create', ['as' => 'category.create', 'middleware' => 'auth', 'uses' => 'CategoryController@create']);
 	Route::post('/category/create', ['as' => 'category.create.post', 'middleware' => 'auth', 'uses' => 'CategoryController@store']);
 	Route::get('/category', ['as' => 'category.show', 'middleware' => 'auth', 'uses' => 'CategoryController@index']);
-	Route::get("/category/delete/{id}", ['as' => 'category.delete', 'middleware' => 'auth', 'uses' => 'CategoryController@destroy']);
+    Route::post("/category/delete", ['as' => 'category.delete.post', 'middleware' => 'auth', 'uses' => 'CategoryController@multiple_delete']);
 
 	// News
 	Route::get('/news/create', ['as' => 'news.create', 'middleware' => 'auth', 'uses' => 'NewsController@index']);

@@ -18,13 +18,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $product = new Product;
-        $products = $product->get();
-        $productArray = array();
-        foreach ($products as $prod){
-            $productArray[$prod->id] = array('product' => $prod, 'categories' => Product::find($prod->id)->categories);
-        }
-        return view('dashboard/products')->with('products', $productArray);
+        return view('dashboard/products')->with('products', Product::with('categories')->paginate(50));
     }
 
     /**
@@ -117,10 +111,9 @@ class ProductController extends Controller
     {
         $product = new Product;
         Product::find($id)->delete();
-        $products = $product
-        ->join('categories', 'products.category_id', '=', 'categories.id')
-        ->select('products.title', 'products.description', 'products.price','products.id','categories.name')
-        ->get();
+        $products = $product->join('categories', 'products.category_id', '=', 'categories.id')
+                            ->select('products.title', 'products.description', 'products.price','products.id','categories.name')
+                            ->get();
         $category = new Category;
         $categories = $category->get();
         return view('dashboard/products')->with('products', $products)->with('categories', $categories)->with('deleted', 1);
@@ -129,22 +122,14 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  Request  $request
      * @return \Illuminate\Http\Response
      */
     public function multiple_delete(Request $request)
     {
-
-
-        $product = new Product;
-        Product::find($id)->delete();
-        $products = $product
-            ->join('categories', 'products.category_id', '=', 'categories.id')
-            ->select('products.title', 'products.description', 'products.price','products.id','categories.name')
-            ->get();
-        $category = new Category;
-        $categories = $category->get();
-        return view('dashboard/products')->with('products', $products)->with('categories', $categories)->with('deleted', 1);
+        Product::destroy($request->ids);
+        //Category::whereIn('product_id', $request->product_ids)->delete();
+        return $request->ids;
     }
 
 }

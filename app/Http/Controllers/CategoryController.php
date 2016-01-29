@@ -97,4 +97,17 @@ class CategoryController extends Controller
             return view('dashboard/categories')->with('categoryList',$category->get())->with('deleted','Category cannot be deleted because some products are associated to it.');
         }
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function multiple_delete(Request $request)
+    {
+        Category::destroy($request->ids);
+        //Category::whereIn('product_id', $request->product_ids)->delete();
+        return $request->ids;
+    }
 }

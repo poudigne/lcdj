@@ -18,8 +18,8 @@ class AddSoftdeletesToTables extends Migration
         Schema::table('media', function ($table) { $table->softDeletes(); });
         Schema::table('news', function ($table) { $table->softDeletes(); });
         Schema::table('products', function ($table) { $table->softDeletes(); });
-        Schema::table('categories_news', function ($table) { $table->softDeletes(); });
-        Schema::table('categories_products', function ($table) { $table->softDeletes(); });
+        Schema::table('category_news', function ($table) { $table->softDeletes(); });
+        Schema::table('category_product', function ($table) { $table->softDeletes(); });
     }
 
     /**
@@ -35,7 +35,7 @@ class AddSoftdeletesToTables extends Migration
         Schema::table('media', function ($table) { $table->dropColumn('deleted_at'); });
         Schema::table('news', function ($table) { $table->dropColumn('deleted_at'); });
         Schema::table('products', function ($table) { $table->dropColumn('deleted_at'); });
-        Schema::table('categories_news', function ($table) { $table->dropColumn('deleted_at'); });
-        Schema::table('categories_products', function ($table) { $table->dropColumn('deleted_at'); });
+        Schema::table('category_news', function ($table) { $table->dropColumn('deleted_at'); });
+        Schema::table('category_product', function ($table) { $table->dropColumn('deleted_at'); });
     }
 }
