@@ -5,7 +5,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="https://code.jquery.com/ui/1.10.2/jquery-ui.min.js"></script>
 
-
 <!-- Bootstrap Stylesheet -->
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="/CSS/bootstrap.css">
@@ -14,15 +13,11 @@
 <!-- Custom Stylesheet -->
 <link rel="stylesheet" href="/CSS/Navbar.css">
 <link rel="stylesheet" href="/CSS/Footer.css">
-<link rel="stylesheet" href="/CSS/Event.css">
+<link rel="stylesheet" href="/CSS/Events.css">
 <link rel="stylesheet" href="/CSS/Jumbotron.css">
 
 <!-- Bootstrap Javascript -->
 <script src="/JS/bootstrap.js" type="text/javascript"></script>
-
-
-<!-- <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css" integrity="sha384-XXXXXXXX" crossorigin="anonymous">
-<script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js" integrity="sha384-XXXXXXXX" crossorigin="anonymous"></script>-->
 
 <!-- bootstrap Multiselect -->
 <link rel="stylesheet" href="/CSS/bootstrap-multiselect.min.css">
@@ -34,6 +29,10 @@
 
 <!-- Bootbox -->
 <script src="/JS/bootbox.min.js" type="text/javascript"></script>
+
+<!-- toastr -->
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" crossorigin="anonymous">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js" crossorigin="anonymous"></script>
 
 
 <style>
@@ -51,19 +50,34 @@
 </style>
 
 <script type="text/javascript">
+	toastr.options = {
+		"closeButton": 			false,
+		"debug": 				false,
+		"newestOnTop": 			true,
+		"progressBar": 			false,
+		"positionClass": 		"toast-top-center",
+		"preventDuplicates": 	false,
+		"onclick": 				null,
+		"showDuration": 		"300",
+		"hideDuration": 		"1000",
+		"timeOut": 				"5000",
+		"extendedTimeOut": 		"1000",
+		"showEasing": 			"swing",
+		"hideEasing": 			"linear",
+		"showMethod": 			"fadeIn",
+		"hideMethod": 			"fadeOut"
+	}
+
 	$(document).ready(function(){
 		var bulk_action_json = [];
 		$("#check-all").click(function(){
-			console.log("check all triggered");
 			var is_checked = $(this).prop('checked');
 			$(".check-box").each(function(){
-				console.log("found a .check-box checked state : " + is_checked);
 				$(this).prop('checked', is_checked);
 				$(this).trigger("change");
 			});
 		});
 		$(".check-box").change(function() {
-			console.log("change triggered");
 			var product_id = $(this).attr("data-field-id");
 			if (this.checked){
 				bulk_action_json.push(product_id)
@@ -76,31 +90,42 @@
 					}
 				}
 			}
-			console.log(bulk_action_json);
-
 		});
 
 		$("#delete-request").click(function(){
-			console.log("ids list length : " + bulk_action_json.length);
 			if (bulk_action_json.length == 0)
 				return;
 			var link = $(this).attr("data-field-link");
-			console.log(link);
 			bootbox.confirm("Are you sure you want to delete "+ bulk_action_json.length +" elements?", function(result) {
-				if (!result)
-					return;
-				$.ajax({
-					url: link,
-					type: "post",
-					data: {
-						"ids"  : bulk_action_json,
-						"_token" : "{{ csrf_token() }}"
-					},
-					dataType: "json"
-				}).always(function(data) {
-					console.log("item deleted : " + data)
-				});
+				if (result) {
+					sendAjaxRequest(bulk_action_json, link);
+				}
 			});
 		});
 	});
+	var sendAjaxRequest = function(data, link){
+		$.ajax({
+			url: link,
+			type: "post",
+			data: {
+				"ids"  : data,
+				"_token" : "{{ csrf_token() }}"
+			},
+			dataType: "json"
+		}).done(function(response){
+			toastr["success"]("The "+response.model_type+" has been successfuly deleted!","Success !");
+		}).fail(function(response){
+			toastr["error"]("{{ session('error') }}","Error !");
+		}).always(function(response) {
+			deleteRowNode(response.ids);
+			bulk_action_json = [];
+		});
+	}
+	var deleteRowNode = function(ids){
+		for(var i = 0, j = ids.length; i < j; ++i) {
+			var product_id = ids[i];
+			var el = $("input[data-field-id='" + product_id + "']");
+			el.parent().parent().remove();
+		}
+	}
 </script>

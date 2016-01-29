@@ -53,11 +53,12 @@ class ProductController extends Controller
             $product->categories()->attach($category_id);
         }
 
-        //$files = $request->file('product_images');
-        //foreach($files as $file) {
-        //    $product->addMedia($file)->toCollection('images');
-        //}
-
+        $files = $request->file('product_images');
+        $count = 0;
+        foreach($files as $file) {
+            $product->addMedia($file)->usingFileName($product->id. "_" . $count . "." . $file->getClientOriginalExtension())->toCollection('images');
+            $count++;
+        }
         return view('dashboard/create_product')->with('success', 1)->with('categories', Category::get());
     }
 
@@ -128,9 +129,8 @@ class ProductController extends Controller
     public function multiple_delete(Request $request)
     {
         Product::destroy($request->ids);
-        //Category::whereIn('product_id', $request->product_ids)->delete();
-        return $request->ids;
+        $response = ['model_type' => 'Product', 'ids' => $request->ids];
+        return json_encode($response);
     }
-
 }
 ?>

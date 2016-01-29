@@ -107,7 +107,7 @@ class CategoryController extends Controller
     public function multiple_delete(Request $request)
     {
         Category::destroy($request->ids);
-        //Category::whereIn('product_id', $request->product_ids)->delete();
-        return $request->ids;
+        $response = ['model_type' => 'Category', 'ids' => $request->ids];
+        return json_encode($response);
     }
 }

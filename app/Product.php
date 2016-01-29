@@ -3,11 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Product extends Model implements HasMedia
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
+use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
+
+class Product extends Model implements HasMedia, HasMediaConversions
 {
     use HasMediaTrait, SoftDeletes;
     public function images() { 
@@ -22,6 +24,13 @@ class Product extends Model implements HasMedia
     public function inventory()
     {
         return $this->hasOne('App\Inventory');
+    }
+
+    public function registerMediaConversions()
+    {
+        $this->addMediaConversion('adminthumb')
+            ->setManipulations(['w' => 242, 'h' => 200])
+            ->performOnCollections('images');
     }
 
     /**
