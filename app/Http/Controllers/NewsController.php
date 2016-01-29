@@ -38,14 +38,23 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'news_title' => 'required',
+            'news_text' => 'required'
+        ]);
+
         $news = new News;
         $news->title = $request->get('news_title');
         $news->text = $request->get('news_text');
         $news->save();
-
-        foreach ($request->get('news_categories') as $category_id) {
-            $news->categories()->attach($category_id);
+        
+        if ($request->get('product_categories') != null) {
+            foreach ($request->get('news_categories') as $category_id) {
+                $news->categories()->attach($category_id);
+            }
         }
+
+        Session::flash('flash_message', 'Product successfully added!');
 
         return view('dashboard/create_news')->with('success', 1)->with('categories', Category::get());
     }

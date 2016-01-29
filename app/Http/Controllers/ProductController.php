@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Session;
+
 class ProductController extends Controller
 {
     /**
@@ -39,6 +41,10 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'product_title' => 'required'
+        ]);
+
         $product = new Product;
         $product->title = $request->get('product_title');
         $product->description = $request->get('product_description');
@@ -48,18 +54,26 @@ class ProductController extends Controller
         $product->min_age = $request->get('product_input-age-min');
         $product->max_age = $request->get('product_input-age-max');
         $product->save();
-                
-        foreach ($request->get('product_categories') as $category_id) {
-            $product->categories()->attach($category_id);
+
+        if ($request->get('product_categories') != null){
+            foreach ($request->get('product_categories') as $category_id) {
+                $product->categories()->attach($category_id);
+            }
         }
 
         $files = $request->file('product_images');
         $count = 0;
         foreach($files as $file) {
+            if ($file == null)
+                continue;
             $product->addMedia($file)->usingFileName($product->id. "_" . $count . "." . $file->getClientOriginalExtension())->toCollection('images');
             $count++;
         }
-        return view('dashboard/create_product')->with('success', 1)->with('categories', Category::get());
+
+
+        Session::flash('flash_message', 'Product successfully added!');
+
+        return view('dashboard/create_product')->with('categories', Category::get());
     }
 
     /**
@@ -110,6 +124,8 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
+
+
         $product = new Product;
         Product::find($id)->delete();
         $products = $product->join('categories', 'products.category_id', '=', 'categories.id')

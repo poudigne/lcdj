@@ -3,19 +3,26 @@
 @section('title', 'Page Title')
 
 @section('content')
-    @if (isset($success) && $success == '1')
-        <script type="text/javascript">
-        </script>
-    @endif
-
-
     <h2 class="header">Créé une nouvelle</h2>
+
+    @if($errors->any())
+        <div class="alert alert-danger">
+            @foreach($errors->all() as $error)
+                <p>{{ $error }}</p>
+            @endforeach
+        </div>
+    @endif
+    @if(Session::has('flash_message'))
+        <div class="alert alert-success">
+            {{ Session::get('flash_message') }}
+        </div>
+    @endif
 	<form method="post" action="{{ route('dashboard::news.create.post') }}">
         <!-- Titre du produit -->
         <div class="form-group row">
             <label for="product_title" class="col-sm-2 form-control-label">* Titre</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" name="news_title" id="news_title" placeholder="Titre du produit">
+                <input type="text" class="form-control" name="news_title" value="{{ old('news_title') }}" id="news_title" placeholder="Titre du produit">
             </div>
         </div>  
 
@@ -23,7 +30,7 @@
         <div class="form-group row">
             <label for="product_title" class="col-sm-2 form-control-label">* Texte</label>
             <div class="col-sm-10">
-                <textarea id="input_text" name="news_text" type="text" class="materialize-textarea form-control" placeHolder="Texte..."></textarea>
+                <textarea id="input_text" name="news_text" type="text" class="materialize-textarea form-control" placeHolder="Texte...">{!! old("news_text") !!}</textarea>
             </div>
         </div> 
 

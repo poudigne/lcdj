@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Session;
 class CategoryController extends Controller
 {
     /**
@@ -39,12 +40,16 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'category_name' => 'required'
+        ]);
+
         $category = new Category;
         $category->name = $request->get('category_name');
         $category->description = $request->get('category_description');
         $category->save();
-        return view('dashboard/create_category')->with('success',1);
-        //
+        Session::flash('flash_message', 'Category successfully added!');
+        return view('dashboard/create_category');
     }
 
     /**

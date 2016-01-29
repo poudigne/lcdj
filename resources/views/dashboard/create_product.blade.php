@@ -3,19 +3,27 @@
 @section('title', 'Page Title')
 
 @section('content')
-    @if (isset($success) && $success == '1')
-        <script type="text/javascript">
-        </script>
-    @endif
-
 
     <h2 class="header">Create new products</h2>
+
+    @if($errors->any())
+        <div class="alert alert-danger">
+            @foreach($errors->all() as $error)
+                <p>{{ $error }}</p>
+            @endforeach
+        </div>
+    @endif
+    @if(Session::has('flash_message'))
+        <div class="alert alert-success">
+            {{ Session::get('flash_message') }}
+        </div>
+    @endif
 	<form method="post" action="{{ route('dashboard::product.create.post') }}" files="true" enctype="multipart/form-data">
         <!-- Titre du produit -->
         <div class="form-group row">
             <label for="product_title" class="col-sm-2 form-control-label">* Titre</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" name="product_title" id="product_title" placeholder="Titre du produit">
+                <input type="text" class="form-control" name="product_title" value="{{ old("product_title") }}" id="product_title" placeholder="Titre du produit">
             </div>
         </div>  
 
@@ -35,7 +43,7 @@
         <div class="form-group row">
             <label for="product_title" class="col-sm-2 form-control-label">Upload images</label>
             <div class="col-sm-10">
-                <input type="file" name="product_images[]" class="form-control" multiple>
+                <input type="file" name="product_images[]" value="{{ old("product_images") }}" class="form-control" multiple>
             </div>
         </div> 
         <!-- Range du nombre de joueur --> 
@@ -56,11 +64,11 @@
             </div>
         </div> 
         
-        <!-- Range de l'age pour jouer -->
+        <!-- description du produit -->
         <div class="form-group row">
             <label for="product_title" class="col-sm-2 form-control-label">Description</label>
             <div class="col-sm-10">
-                <textarea id="inputGameDescription" name="product_description" type="text" class="materialize-textarea form-control" placeHolder="Description"></textarea>
+                <textarea id="inputGameDescription" name="product_description"  type="text" class="materialize-textarea form-control" placeHolder="Description">{!! old("product_description") !!}</textarea>
             </div>
         </div> 
 
