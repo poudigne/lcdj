@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use App\Category;
+use App\Inventory;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -19,7 +20,7 @@ class InventoryController extends Controller
      */
     public function index()
     {
-        return view('dashboard/inventory')->with('products', Product::with('categories')->paginate(1) );
+        return view('dashboard/inventory')->with('products', Product::with('categories')->paginate(20) );
     }
 
     /**
@@ -95,7 +96,27 @@ class InventoryController extends Controller
             ->where('title', 'like', '%'.$keyword.'%')
             ->orwhere('description', 'like', '%'.$keyword.'%')
             ->paginate(1);
-        return view('dashboard/inventory_search')->with('products',$product);
+        return view('dashboard/inventory')->with('products',$product);
+    }
+
+    public function increase(Request $request) {
+        return $this->modifyQuantity($request, 1);
+    }
+
+    public function decrease(Request $request) {
+        return $this->modifyQuantity($request, -1);
+    }
+
+    private function modifyQuantity(Request $request, $modifier){
+        // decrease by 1 the number in inventory of product $request->product_id
+        $inventory = new Inventory;
+        $item = $inventory->where("product_id", "=", $request->product_id)->first();
+        $item->quantity = $item->quantity + $modifier;
+        if($item->quantity < 0)
+            $item->quantity = 0;
+        $item->save();
+
+        return json_encode($item);
     }
 }
 ?>

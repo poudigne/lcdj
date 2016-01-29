@@ -3,10 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Category extends Model
 {
-    
+    use SoftDeletes;
+
     public function products() 
     {
     	return $this->belongsToMany("App\Product", 'categories_products', 'category_id', 'product_id');
@@ -16,4 +18,11 @@ class Category extends Model
     {
     	return $this->belongsToMany("App\News", 'categories_news', 'category_id', 'news_id');
     }
+
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
 }

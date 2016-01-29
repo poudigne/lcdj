@@ -125,5 +125,27 @@ class ProductController extends Controller
         $categories = $category->get();
         return view('dashboard/products')->with('products', $products)->with('categories', $categories)->with('deleted', 1);
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function multiple_delete(Request $request)
+    {
+
+
+        $product = new Product;
+        Product::find($id)->delete();
+        $products = $product
+            ->join('categories', 'products.category_id', '=', 'categories.id')
+            ->select('products.title', 'products.description', 'products.price','products.id','categories.name')
+            ->get();
+        $category = new Category;
+        $categories = $category->get();
+        return view('dashboard/products')->with('products', $products)->with('categories', $categories)->with('deleted', 1);
+    }
+
 }
 ?>

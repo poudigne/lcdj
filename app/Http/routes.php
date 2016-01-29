@@ -43,7 +43,7 @@ Route::group(['as' => 'dashboard::','middleware' => 'auth', 'prefix' => 'dashboa
 	Route::get('/product/create', ['as' => 'product.create', 'middleware' => 'auth', 'uses' => 'ProductController@create']);
 	Route::post('/product/create', ['as' => 'product.create.post', 'middleware' => 'auth', 'uses' => 'ProductController@store']);
 	Route::get('/product', ['as' => 'product.show', 'middleware' => 'auth', 'uses' => 'ProductController@index']);
-	Route::get("/product/delete/{id}", ['as' => 'product.delete', 'middleware' => 'auth', 'uses' => 'ProductController@destroy']);
+	Route::post("/product/delete", ['as' => 'product.delete', 'middleware' => 'auth', 'uses' => 'ProductController@multiple_delete']);
 
 	//Category
 	Route::get('/category/create', ['as' => 'category.create', 'middleware' => 'auth', 'uses' => 'CategoryController@create']);
@@ -55,14 +55,12 @@ Route::group(['as' => 'dashboard::','middleware' => 'auth', 'prefix' => 'dashboa
 	Route::get('/news/create', ['as' => 'news.create', 'middleware' => 'auth', 'uses' => 'NewsController@index']);
 	Route::post('/news/create', ['as' => 'news.create.post', 'middleware' => 'auth', 'uses' => 'NewsController@store']);
 
-	Route::get('/inventory', ['as' => 'inventory', 'middleware' => 'auth', 'uses' => 'InventoryController@index']);
+	Route::get('/inventory', ['as' => 'inventory.show', 'middleware' => 'auth', 'uses' => 'InventoryController@index']);
     Route::get('/inventory/search', ['as' => 'inventory.search', 'middleware' => 'auth', 'uses' => 'InventoryController@index']);
     Route::post('/inventory/search', ['as' => 'inventory.search.post', 'middleware' => 'auth', 'uses' => 'InventoryController@search']);
-    /*    function(Request $request){
-            dd($request->all());
-            Session::put("keyword", $request->keyword);
-        }
-    ]);*/
+    Route::post('/inventory/increase', ['as' => 'inventory.inc.post', 'middleware' => 'auth', 'uses' => 'InventoryController@increase']);
+    Route::post('/inventory/decrease', ['as' => 'inventory.dec.post', 'middleware' => 'auth', 'uses' => 'InventoryController@decrease']);
+
 });
 
 Route::get("/CreateShenrokCredential", function(){
