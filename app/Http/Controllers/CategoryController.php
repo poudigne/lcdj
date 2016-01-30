@@ -19,7 +19,8 @@ class CategoryController extends Controller
     public function index()
     {
         $category = new Category;
-        return view('dashboard/categories')->with('categoryList',$category->get());
+        $categories = $category->orderBy('name')->get();
+        return view('dashboard/categories')->with('categoryList',$categories);
     }
 
     /**

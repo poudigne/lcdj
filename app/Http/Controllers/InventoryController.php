@@ -20,7 +20,10 @@ class InventoryController extends Controller
      */
     public function index()
     {
-        return view('dashboard/inventory')->with('products', Product::with('categories')->paginate(20) );
+        $product = new Product;
+        $products = $product->with('categories')->orderBy('title')->paginate(20);
+
+        return view('dashboard/inventory')->with('products', $products);
     }
 
     /**
@@ -30,7 +33,9 @@ class InventoryController extends Controller
      */
     public function create()
     {
-        return view('dashboard/create_product')->with('categories', Category::get())->with('product', new Product);
+        $category = new Category;
+        $categories = $category->orderBy('name')->get();
+        return view('dashboard/create_product')->with('categories', $categories)->with('product', new Product);
     }
 
     /**

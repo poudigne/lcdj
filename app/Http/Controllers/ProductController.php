@@ -20,7 +20,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('dashboard/products')->with('products', Product::with('categories')->paginate(50));
+        $product = new Product;
+        $products = $product->with('categories')->orderBy('title')->paginate(50);
+
+        return view('dashboard/products')->with('products', $products);
     }
 
     /**
@@ -30,7 +33,10 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('dashboard/create_product')->with('categories', Category::get())->with('product', new Product);
+        $category = new Category;
+        $categories = $category->orderBy('name')->get();
+
+        return view('dashboard/create_product')->with('categories', $categories)->with('product', new Product);
     }
 
     /**
@@ -163,9 +169,10 @@ class ProductController extends Controller
         Product::find($id)->delete();
         $products = $product->join('categories', 'products.category_id', '=', 'categories.id')
                             ->select('products.title', 'products.description', 'products.price','products.id','categories.name')
+                            ->orderBy('products.title',asc)
                             ->get();
         $category = new Category;
-        $categories = $category->get();
+        $categories = $category->orderBy('name', asc)->get();
         return view('dashboard/products')->with('products', $products)->with('categories', $categories)->with('deleted', 1);
     }
 

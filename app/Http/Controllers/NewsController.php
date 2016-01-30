@@ -18,7 +18,9 @@ class NewsController extends Controller
      */
     public function index()
     {
-        return view('dashboard/create_news')->with('categories', Category::get());
+        $category = new Category;
+        $categories = $category->orderBy('title')->get();
+        return view('dashboard/create_news')->with('categories', $categories);
     }
 
     /**
