@@ -52,7 +52,7 @@
 	position: 	absolute;
 	top: 		10px;
 	right: 		25px;
-	display:	hidden;
+	visibility:	hidden;
 }
 </style>
 

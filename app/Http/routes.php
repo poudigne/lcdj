@@ -42,8 +42,9 @@ Route::group(['as' => 'dashboard::','middleware' => 'auth', 'prefix' => 'dashboa
 	Route::get('/product/view/{id}', ['middleware' => 'auth', 'uses' => 'ProductController@show']);
 	Route::get('/product/create', ['as' => 'product.create', 'middleware' => 'auth', 'uses' => 'ProductController@create']);
 	Route::post('/product/create', ['as' => 'product.create.post', 'middleware' => 'auth', 'uses' => 'ProductController@store']);
-    Route::get('/product/edit/{id}', ['as' => 'product.edit', 'middleware' => 'auth', 'uses' => 'productController@edit']);
-    Route::post('/product/edit/{id}', ['as' => 'product.edit.post', 'middleware' => 'auth', 'uses' => 'productController@update']);
+    Route::get('/product/edit/{id}', ['as' => 'product.edit', 'middleware' => 'auth', 'uses' => 'ProductController@edit']);
+    Route::post('/product/delete/media', ['as' => 'product.delete.media.post', 'middleware' => 'auth', 'uses' => 'ProductController@delete_media']);
+    Route::post('/product/edit/{id}', ['as' => 'product.edit.post', 'middleware' => 'auth', 'uses' => 'ProductController@update']);
 	Route::get('/product', ['as' => 'product.show', 'middleware' => 'auth', 'uses' => 'ProductController@index']);
 	Route::post("/product/delete", ['as' => 'product.delete.post', 'middleware' => 'auth', 'uses' => 'ProductController@multiple_delete']);
 

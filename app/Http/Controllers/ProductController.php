@@ -181,5 +181,22 @@ class ProductController extends Controller
         $response = ['model_type' => 'Product', 'ids' => $request->ids];
         return json_encode($response);
     }
+
+    public function delete_media(Request $request){
+        $media = $this->getMediaByID($request->product_id, $request->media_id);
+        $media->delete();
+        return $request->media_id;
+    }
+
+
+    private function getMediaByID($product_id,$media_id){
+        $product = Product::find($product_id);
+
+        foreach($product->getMedia() as $media){
+            if ($media->id == $product_id)
+                return $media;
+        }
+        return $media;
+    }
 }
 ?>
