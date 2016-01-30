@@ -47,6 +47,13 @@
 	float:left !important;
 	margin: 0 5px 0 0;
 }
+
+.btn-delete-image {
+	position: 	absolute;
+	top: 		10px;
+	right: 		25px;
+	display:	hidden;
+}
 </style>
 
 <script type="text/javascript">
