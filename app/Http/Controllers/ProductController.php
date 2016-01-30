@@ -188,12 +188,11 @@ class ProductController extends Controller
         return $request->media_id;
     }
 
-
     private function getMediaByID($product_id,$media_id){
         $product = Product::find($product_id);
 
         foreach($product->getMedia() as $media){
-            if ($media->id == $product_id)
+            if ($media->id == $media_id)
                 return $media;
         }
         return $media;

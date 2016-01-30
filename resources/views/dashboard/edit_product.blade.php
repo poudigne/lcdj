@@ -57,7 +57,6 @@
             var link = $(this).attr('href');
             var media_id = $(this).parents().closest('div[data-field-media]').attr('data-field-media');
             var product_id = $(this).parents().closest('div[data-field-product]').attr('data-field-product');
-
             $.ajax({
                 url: link,
                 type: "post",
@@ -72,10 +71,7 @@
             }).fail(function(response){
                 toastr["error"]("{{ session('error') }}","Error !");
             }).always(function(response) {
-                console.log("div.thumbnail[data-field-media='"+response+"']");
-                console.log($("#medias-thumbnail").find("div.thumbnail[data-field-media='"+response+"']"));
                 $("#medias-thumbnail").find("div.thumbnail[data-field-media='"+response+"']").parent().remove();
-
             });
         });
     </script>
