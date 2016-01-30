@@ -109,6 +109,12 @@
 				}
 			});
 		});
+
+		$(".btn-edit").click(function(){
+			var link = $(this).attr('href');
+			console.log("Edit called " + link);
+			window.location.href = link;
+		});
 	});
 	var sendAjaxRequest = function(data, link){
 		$.ajax({
@@ -135,4 +141,6 @@
 			el.parent().parent().remove();
 		}
 	}
+
+
 </script>

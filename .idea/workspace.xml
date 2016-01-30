@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7006909f-cda7-4351-bd56-dcad05cb60a0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/dashboard/edit_product.blade.php" afterPath="$PROJECT_DIR$/resources/views/dashboard/edit_product.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/dashboard/inventory.blade.php" afterPath="$PROJECT_DIR$/resources/views/dashboard/inventory.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/dashboard/meta.blade.php" afterPath="$PROJECT_DIR$/resources/views/dashboard/meta.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/dashboard/products.blade.php" afterPath="$PROJECT_DIR$/resources/views/dashboard/products.blade.php" />
     </list>
     <ignored path="lcdj.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,8 +34,8 @@
       <file leaf-file-name="ProductController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProductController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-23.192308">
-              <caret line="189" column="0" selection-start-line="189" selection-start-column="0" selection-end-line="189" selection-end-column="0" />
+            <state vertical-scroll-proportion="-25.807692">
+              <caret line="193" column="36" selection-start-line="193" selection-start-column="26" selection-end-line="193" selection-end-column="36" />
               <folding>
                 <element signature="e#40#56#0#PHP" expanded="true" />
               </folding>
@@ -43,8 +46,18 @@
       <file leaf-file-name="products.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/dashboard/products.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.5">
-              <caret line="52" column="183" selection-start-line="52" selection-start-column="30" selection-end-line="52" selection-end-column="183" />
+            <state vertical-scroll-proportion="-9.461538">
+              <caret line="52" column="181" selection-start-line="52" selection-start-column="125" selection-end-line="52" selection-end-column="181" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/dashboard/header.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -55,16 +68,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-13.792453">
               <caret line="46" column="22" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="create_category.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/dashboard/create_category.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.2692308">
-              <caret line="5" column="47" selection-start-line="5" selection-start-column="47" selection-end-line="5" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -85,8 +88,8 @@
       <file leaf-file-name="meta.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/dashboard/meta.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.692307">
-              <caret line="113" column="8" selection-start-line="113" selection-start-column="8" selection-end-line="128" selection-end-column="11" />
+            <state vertical-scroll-proportion="-27.76923">
+              <caret line="114" column="47" selection-start-line="114" selection-start-column="47" selection-end-line="114" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -95,8 +98,8 @@
       <file leaf-file-name="edit_product.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/dashboard/edit_product.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7903587">
-              <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.67600894">
+              <caret line="67" column="32" selection-start-line="67" selection-start-column="32" selection-end-line="67" selection-end-column="32" />
               <folding>
                 <element signature="e#506#544#0#HTML" expanded="true" />
                 <element signature="e#736#772#0#HTML" expanded="true" />
@@ -120,11 +123,13 @@
       <file leaf-file-name="inventory.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/dashboard/inventory.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.807693">
-              <caret line="52" column="1" selection-start-line="52" selection-start-column="1" selection-end-line="74" selection-end-column="8" />
+            <state vertical-scroll-proportion="-19.923077">
+              <caret line="70" column="51" selection-start-line="70" selection-start-column="51" selection-end-line="70" selection-end-column="51" />
               <folding>
-                <marker date="1454028539426" expanded="true" signature="3596:3696" placeholder="..." />
-                <marker date="1454028539426" expanded="true" signature="3615:3691" placeholder="..." />
+                <element signature="e#2496#2547#0#HTML" expanded="true" />
+                <element signature="e#2752#2773#0#HTML" expanded="true" />
+                <marker date="1454176652218" expanded="true" signature="3777:3877" placeholder="..." />
+                <marker date="1454176652218" expanded="true" signature="3796:3872" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -156,7 +161,6 @@
         <option value="$PROJECT_DIR$/database/migrations/2016_01_28_211346_create_on_product_insert_trigger.php" />
         <option value="$PROJECT_DIR$/app/Http/test.html" />
         <option value="$PROJECT_DIR$/storage/logs/laravel.log" />
-        <option value="$PROJECT_DIR$/resources/views/dashboard/inventory.blade.php" />
         <option value="$PROJECT_DIR$/app/Inventory.php" />
         <option value="$PROJECT_DIR$/app/User.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_01_27_135542_create_association_table_cat_prod.php" />
@@ -175,13 +179,14 @@
         <option value="$PROJECT_DIR$/resources/views/dashboard/create_category.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" />
         <option value="$PROJECT_DIR$/resources/views/dashboard/partials/category_form.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/dashboard/products.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/dashboard/edit_category.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/dashboard/partials/product_form.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/dashboard/categories.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/dashboard/meta.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" />
+        <option value="$PROJECT_DIR$/resources/views/dashboard/products.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/dashboard/meta.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/dashboard/inventory.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/dashboard/edit_product.blade.php" />
       </list>
     </option>
@@ -521,13 +526,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/layout.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/menu.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -855,22 +853,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/dashboard/inventory.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProductController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.807693">
-          <caret line="52" column="1" selection-start-line="52" selection-start-column="1" selection-end-line="74" selection-end-column="8" />
+        <state vertical-scroll-proportion="-25.807692">
+          <caret line="193" column="36" selection-start-line="193" selection-start-column="26" selection-end-line="193" selection-end-column="36" />
           <folding>
-            <marker date="1454028539426" expanded="true" signature="3596:3696" placeholder="..." />
-            <marker date="1454028539426" expanded="true" signature="3615:3691" placeholder="..." />
+            <element signature="e#40#56#0#PHP" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/dashboard/products.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.5">
-          <caret line="52" column="183" selection-start-line="52" selection-start-column="30" selection-end-line="52" selection-end-column="183" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -894,9 +883,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/dashboard/meta.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.692307">
-          <caret line="113" column="8" selection-start-line="113" selection-start-column="8" selection-end-line="128" selection-end-column="11" />
+        <state vertical-scroll-proportion="-27.76923">
+          <caret line="114" column="47" selection-start-line="114" selection-start-column="47" selection-end-line="114" selection-end-column="47" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/dashboard/products.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.461538">
+          <caret line="52" column="181" selection-start-line="52" selection-start-column="125" selection-end-line="52" selection-end-column="181" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/dashboard/header.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/dashboard/inventory.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.923077">
+          <caret line="70" column="51" selection-start-line="70" selection-start-column="51" selection-end-line="70" selection-end-column="51" />
+          <folding>
+            <element signature="e#2496#2547#0#HTML" expanded="true" />
+            <element signature="e#2752#2773#0#HTML" expanded="true" />
+            <marker date="1454176652218" expanded="true" signature="3777:3877" placeholder="..." />
+            <marker date="1454176652218" expanded="true" signature="3796:3872" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -910,20 +928,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProductController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-23.192308">
-          <caret line="189" column="0" selection-start-line="189" selection-start-column="0" selection-end-line="189" selection-end-column="0" />
-          <folding>
-            <element signature="e#40#56#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/dashboard/edit_product.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7903587">
-          <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.67600894">
+          <caret line="67" column="32" selection-start-line="67" selection-start-column="32" selection-end-line="67" selection-end-column="32" />
           <folding>
             <element signature="e#506#544#0#HTML" expanded="true" />
             <element signature="e#736#772#0#HTML" expanded="true" />

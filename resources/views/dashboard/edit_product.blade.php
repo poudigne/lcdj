@@ -15,7 +15,7 @@
         <div class="col-sm-5 col-lg-3" style="display:flex; flex-wrap: wrap;">
             <div class="thumbnail" data-field-product="{{ $product->id }}" data-field-media="{{ $media->id }}">
                 <img data-holder-rendered="true" src="{{ $media->getUrl() }}" style="width: 100%; display: block;"  alt="100%x200">
-                <button type="button" class="btn-delete-image btn btn-default btn-xs btn-edit glyphicon glyphicon-trash" href="{{ route('dashboard::product.delete.media.post') }}" />
+                <button type="button" class="btn-delete-image btn btn-default btn-xs glyphicon glyphicon-trash" href="{{ route('dashboard::product.delete.media.post') }}" />
             </div>
         </div>
     @endforeach

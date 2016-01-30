@@ -80,9 +80,6 @@
   $("#btn_action_create_product").on('click',function(){
     window.location.href = "{{ route('dashboard::product.create') }}";
   });
-  $(".btn-edit").click(function(){
-    var link = $(this).attr('href');
-    window.location.href = link;
-  });
+
 </script>
 @stop
