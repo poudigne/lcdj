@@ -119,7 +119,7 @@ class InventoryController extends Controller
 
         $product = Product::leftJoin('inventories','products.id','=', 'inventories.id');
         $products = $this->sortInventory($product, $sorttype);
-        return view('dashboard/inventory')->with('products', $products->paginate(20));
+        return view('dashboard/inventory')->with('products', $products->paginate(20))->with('sorttype',$sorttype);
     }
 
     public function increase(Request $request) {

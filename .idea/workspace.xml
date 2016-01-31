@@ -6,6 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7006909f-cda7-4351-bd56-dcad05cb60a0" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/InventoryController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/InventoryController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/dashboard/inventory.blade.php" afterPath="$PROJECT_DIR$/resources/views/dashboard/inventory.blade.php" />
     </list>
@@ -41,31 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="products.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/dashboard/products.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.384615">
-              <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="create_product.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/dashboard/create_product.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.576923">
-              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="InventoryController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/InventoryController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.076923">
-              <caret line="133" column="35" selection-start-line="133" selection-start-column="35" selection-end-line="133" selection-end-column="35" />
+            <state vertical-scroll-proportion="-8.153846">
+              <caret line="121" column="112" selection-start-line="121" selection-start-column="112" selection-end-line="121" selection-end-column="112" />
               <folding />
             </state>
           </provider>
@@ -74,8 +55,8 @@
       <file leaf-file-name="meta.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/dashboard/meta.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.730769">
-              <caret line="118" column="47" selection-start-line="118" selection-start-column="47" selection-end-line="118" selection-end-column="47" />
+            <state vertical-scroll-proportion="-30.73077">
+              <caret line="48" column="1" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -96,18 +77,31 @@
       <file leaf-file-name="inventory.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/dashboard/inventory.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.17152466">
-              <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.6289238">
+              <caret line="54" column="50" selection-start-line="54" selection-start-column="50" selection-end-line="54" selection-end-column="50" />
               <folding>
-                <element signature="e#3484#3535#0#HTML" expanded="true" />
-                <element signature="e#3750#3771#0#HTML" expanded="true" />
-                <marker date="1454261406588" expanded="true" signature="4773:4873" placeholder="..." />
-                <marker date="1454261406588" expanded="true" signature="4792:4868" placeholder="..." />
-                <marker date="1454261406588" expanded="true" signature="6700:6759" placeholder="..." />
-                <marker date="1454261406588" expanded="true" signature="6716:6758" placeholder="..." />
-                <marker date="1454261406588" expanded="true" signature="6768:6829" placeholder="..." />
-                <marker date="1454261406588" expanded="true" signature="6784:6828" placeholder="..." />
-                <marker date="1454261406588" expanded="true" signature="6886:7024" placeholder="..." />
+                <element signature="e#2681#2719#0#HTML" expanded="true" />
+                <element signature="e#3926#3977#0#HTML" expanded="true" />
+                <element signature="e#4192#4213#0#HTML" expanded="true" />
+                <marker date="1454263988311" expanded="true" signature="5215:5315" placeholder="..." />
+                <marker date="1454263988311" expanded="true" signature="5234:5310" placeholder="..." />
+                <marker date="1454263988311" expanded="true" signature="5234:5314" placeholder="..." />
+                <marker date="1454263988311" expanded="true" signature="5343:5547" placeholder="..." />
+                <marker date="1454263988311" expanded="true" signature="5354:5546" placeholder="..." />
+                <marker date="1454263988311" expanded="true" signature="5574:5749" placeholder="..." />
+                <marker date="1454263988311" expanded="true" signature="5585:5748" placeholder="..." />
+                <marker date="1454263988311" expanded="true" signature="5811:6265" placeholder="..." />
+                <marker date="1454263988311" expanded="true" signature="6275:6478" placeholder="..." />
+                <marker date="1454263988311" expanded="true" signature="6291:6477" placeholder="..." />
+                <marker date="1454263988311" expanded="true" signature="6516:7279" placeholder="..." />
+                <marker date="1454263988311" expanded="true" signature="6527:6788" placeholder="..." />
+                <marker date="1454263988311" expanded="true" signature="6796:7135" placeholder="..." />
+                <marker date="1454263988311" expanded="true" signature="6811:7134" placeholder="..." />
+                <marker date="1454263988311" expanded="true" signature="7142:7201" placeholder="..." />
+                <marker date="1454263988311" expanded="true" signature="7158:7200" placeholder="..." />
+                <marker date="1454263988311" expanded="true" signature="7210:7271" placeholder="..." />
+                <marker date="1454263988311" expanded="true" signature="7226:7270" placeholder="..." />
+                <marker date="1454263988311" expanded="true" signature="7328:7466" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -177,7 +171,6 @@
         <option value="$PROJECT_DIR$/resources/views/dashboard/edit_category.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/dashboard/categories.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/dashboard/products.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/dashboard/meta.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/dashboard/edit_product.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" />
@@ -187,6 +180,9 @@
         <option value="$PROJECT_DIR$/resources/views/dashboard/header.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Product.php" />
+        <option value="$PROJECT_DIR$/public/JS/dropdowns-enhancement.js.htm" />
+        <option value="$PROJECT_DIR$/public/CSS/dropdowns-enhancement.min.css" />
+        <option value="$PROJECT_DIR$/resources/views/dashboard/meta.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/InventoryController.php" />
         <option value="$PROJECT_DIR$/resources/views/dashboard/inventory.blade.php" />
       </list>
@@ -310,16 +306,18 @@
               <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
+              <option name="myItemId" value="lcdj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lcdj" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="partials" />
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -333,7 +331,47 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="media" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lcdj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lcdj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lcdj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lcdj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CSS" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -428,11 +466,11 @@
       <recent name="C:\Users\poudigne\Documents\GitHub\lcdj\resources\views\dashboard" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\poudigne\Documents\GitHub\lcdj\public\CSS" />
       <recent name="C:\Users\poudigne\Documents\GitHub\lcdj\resources\views\dashboard\partials" />
       <recent name="C:\Users\poudigne\Documents\GitHub\lcdj\resources\views\dashboard" />
       <recent name="C:\Users\poudigne\Documents\GitHub\lcdj\app" />
       <recent name="C:\Users\poudigne\Desktop" />
-      <recent name="C:\Users\poudigne\Documents" />
     </key>
   </component>
   <component name="RunManager">
@@ -528,20 +566,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/meta.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.407314">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Desktop/test.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="62.03846">
@@ -900,14 +924,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/InventoryController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.076923">
-          <caret line="133" column="35" selection-start-line="133" selection-start-column="35" selection-end-line="133" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProductController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-37.923077">
@@ -920,26 +936,47 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/dashboard/meta.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.730769">
-          <caret line="118" column="47" selection-start-line="118" selection-start-column="47" selection-end-line="118" selection-end-column="47" />
+        <state vertical-scroll-proportion="-30.73077">
+          <caret line="48" column="1" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/InventoryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.153846">
+          <caret line="121" column="112" selection-start-line="121" selection-start-column="112" selection-end-line="121" selection-end-column="112" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/dashboard/inventory.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17152466">
-          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.6289238">
+          <caret line="54" column="50" selection-start-line="54" selection-start-column="50" selection-end-line="54" selection-end-column="50" />
           <folding>
-            <element signature="e#3484#3535#0#HTML" expanded="true" />
-            <element signature="e#3750#3771#0#HTML" expanded="true" />
-            <marker date="1454261406588" expanded="true" signature="4773:4873" placeholder="..." />
-            <marker date="1454261406588" expanded="true" signature="4792:4868" placeholder="..." />
-            <marker date="1454261406588" expanded="true" signature="6700:6759" placeholder="..." />
-            <marker date="1454261406588" expanded="true" signature="6716:6758" placeholder="..." />
-            <marker date="1454261406588" expanded="true" signature="6768:6829" placeholder="..." />
-            <marker date="1454261406588" expanded="true" signature="6784:6828" placeholder="..." />
-            <marker date="1454261406588" expanded="true" signature="6886:7024" placeholder="..." />
+            <element signature="e#2681#2719#0#HTML" expanded="true" />
+            <element signature="e#3926#3977#0#HTML" expanded="true" />
+            <element signature="e#4192#4213#0#HTML" expanded="true" />
+            <marker date="1454263988311" expanded="true" signature="5215:5315" placeholder="..." />
+            <marker date="1454263988311" expanded="true" signature="5234:5310" placeholder="..." />
+            <marker date="1454263988311" expanded="true" signature="5234:5314" placeholder="..." />
+            <marker date="1454263988311" expanded="true" signature="5343:5547" placeholder="..." />
+            <marker date="1454263988311" expanded="true" signature="5354:5546" placeholder="..." />
+            <marker date="1454263988311" expanded="true" signature="5574:5749" placeholder="..." />
+            <marker date="1454263988311" expanded="true" signature="5585:5748" placeholder="..." />
+            <marker date="1454263988311" expanded="true" signature="5811:6265" placeholder="..." />
+            <marker date="1454263988311" expanded="true" signature="6275:6478" placeholder="..." />
+            <marker date="1454263988311" expanded="true" signature="6291:6477" placeholder="..." />
+            <marker date="1454263988311" expanded="true" signature="6516:7279" placeholder="..." />
+            <marker date="1454263988311" expanded="true" signature="6527:6788" placeholder="..." />
+            <marker date="1454263988311" expanded="true" signature="6796:7135" placeholder="..." />
+            <marker date="1454263988311" expanded="true" signature="6811:7134" placeholder="..." />
+            <marker date="1454263988311" expanded="true" signature="7142:7201" placeholder="..." />
+            <marker date="1454263988311" expanded="true" signature="7158:7200" placeholder="..." />
+            <marker date="1454263988311" expanded="true" signature="7210:7271" placeholder="..." />
+            <marker date="1454263988311" expanded="true" signature="7226:7270" placeholder="..." />
+            <marker date="1454263988311" expanded="true" signature="7328:7466" placeholder="..." />
           </folding>
         </state>
       </provider>
