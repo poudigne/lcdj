@@ -23,31 +23,33 @@
           line-height:  25px;
           margin:       0 0 0 3px;
       }
+      .top-spacer
+      {
+        margin-top: 15px;
+      }
   </style>
 
-<h2 class="header">Inventory</h2>
 
+  <h2 class="header">Inventory</h2>
 <div class="row">
   <div class="col-lg-3 btn-group">
     <button type="button" class="btn btn-default" id="btn_action_create_product">Create new product</button>
   </div>
-
   <div class="col-lg-4 float-right">
       <form method="POST" action="{{ route('dashboard::inventory.search.post') }}">
-    <div class="input-group">
+            <div class="input-group">
 
-        <input type="text" class="form-control" id="search-product" placeholder="Search for...">
-        <span class="input-group-btn">
-            <button id="btn-search" class="btn btn-default" type="button">Go!</button>
-        </span>
-        {!! csrf_field() !!}
-    </div>
+                <input type="text" class="form-control" id="search-product" placeholder="Search for...">
+                <span class="input-group-btn">
+                    <button id="btn-search" class="btn btn-default" type="button">Go!</button>
+                </span>
+                {!! csrf_field() !!}
+            </div>
       </form>
-
   </div>
 </div>
 
-  <div id="product-content" class="row">
+<div id="product-content" class="row top-spacer">
 
 @foreach ($products as $set)
   <div class="col-sm-5 col-lg-3" style="display:flex; flex-wrap: wrap;">
@@ -74,14 +76,12 @@
       </div>
     </div>
   </div>
-
 @endforeach
     <div class="row">
       <div class="col-lg-12">
         {!! $products->render() !!}
       </div>
     </div>
-
 </div>
 <script type="text/javascript">
     $("#btn_action_create_product").on('click',function(){
