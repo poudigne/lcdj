@@ -14,9 +14,14 @@ class Category extends Model
     	return $this->belongsToMany("App\Product", 'category_product', 'category_id', 'product_id');
     }
 
-    public function news() 
+    public function news()
     {
     	return $this->belongsToMany("App\News", 'category_news', 'category_id', 'news_id');
+    }
+
+    public function events()
+    {
+        return $this->belongsToMany("App\Event", 'category_event', 'category_id', 'event_id');
     }
 
     /**
