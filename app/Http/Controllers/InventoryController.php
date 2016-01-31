@@ -104,6 +104,23 @@ class InventoryController extends Controller
             ->paginate(20)->toJson();
         return $product;
     }
+    /**
+     * 0 = A to Z
+     * 1 = Z to A
+     * 2 = Stock Asc
+     * 3 = Stock desc
+     * 4 = Show out of stock only
+     *
+     * @param $sorttype
+     * @return $this
+     */
+    public function sort($sorttype){
+        Session::put("sort_type", $sorttype);
+
+        $product = Product::leftJoin('inventories','products.id','=', 'inventories.id');
+        $products = $this->sortInventory($product, $sorttype);
+        return view('dashboard/inventory')->with('products', $products->paginate(20));
+    }
 
     public function increase(Request $request) {
         return $this->modifyQuantity($request, 1);
@@ -123,6 +140,30 @@ class InventoryController extends Controller
         $item->save();
 
         return json_encode($item);
+    }
+
+    private function sortInventory($products, $sorttype){
+
+        switch($sorttype){
+            case 0:
+                return $products->orderBy("products.title",'asc');
+                break;
+            case 1:
+                return $products->orderBy("products.title",'desc');
+                break;
+            case 2:
+                return $products->orderBy("inventories.quantity",'asc');
+                break;
+            case 3:
+                return $products->orderBy("inventories.quantity",'desc');
+                break;
+            case 4:
+                return $products->where("inventories.quantity", 0);
+                break;
+            default:
+                return $products;
+                break;
+        }
     }
 }
 ?>

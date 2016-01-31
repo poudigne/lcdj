@@ -62,6 +62,7 @@ Route::group(['as' => 'dashboard::','middleware' => 'auth', 'prefix' => 'dashboa
 
 	Route::get('/inventory', ['as' => 'inventory.show', 'middleware' => 'auth', 'uses' => 'InventoryController@index']);
     Route::get('/inventory/search', ['as' => 'inventory.search', 'middleware' => 'auth', 'uses' => 'InventoryController@index']);
+    Route::get('/inventory/sort/{sorttype}', ['as' => 'inventory.sort', 'middleware' => 'auth', 'uses' => 'InventoryController@sort']);
     Route::post('/inventory/search', ['as' => 'inventory.search.post', 'middleware' => 'auth', 'uses' => 'InventoryController@search']);
     Route::post('/inventory/increase', ['as' => 'inventory.inc.post', 'middleware' => 'auth', 'uses' => 'InventoryController@increase']);
     Route::post('/inventory/decrease', ['as' => 'inventory.dec.post', 'middleware' => 'auth', 'uses' => 'InventoryController@decrease']);

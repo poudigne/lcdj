@@ -35,15 +35,31 @@
   <div class="col-lg-3 btn-group">
     <button type="button" class="btn btn-default" id="btn_action_create_product">Create new product</button>
   </div>
+
   <div class="col-lg-4 float-right">
     <div class="input-group">
         <input type="text" class="form-control" id="search-product" placeholder="Search for...">
         <span class="input-group-btn">
             <button id="btn-search" class="btn btn-default" type="button" href="{{ route('dashboard::inventory.search.post') }}">Go!</button>
         </span>
-        {!! csrf_field() !!}
     </div>
   </div>
+
+    <!-- Single button -->
+    <div class="input-group  col-lg-2 float-right">
+        <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="{{ route('dashboard::inventory.sort',['sorttype'=>0]) }}">A to Z</a></li>
+                <li><a href="{{ route('dashboard::inventory.sort',['sorttype'=>1]) }}">Z to A</a></li>
+                <li><a href="{{ route('dashboard::inventory.sort',['sorttype'=>2]) }}">Stock Asc</a></li>
+                <li><a href="{{ route('dashboard::inventory.sort',['sorttype'=>3]) }}">Stock Desc</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="{{ route('dashboard::inventory.sort',['sorttype'=>4]) }}">Show out of stock only</a></li>
+            </ul>
+        </div>
+    </div>
 </div>
 
 <div id="product-content" class="row top-spacer">
