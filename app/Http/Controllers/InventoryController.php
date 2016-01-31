@@ -95,13 +95,14 @@ class InventoryController extends Controller
     }
 
     public function search(Request $request){
-        $keyword = $request->get('keyword');
+
+        $keyword = $request->get('keywordz');
         Session::put("keyword", $keyword);
         $product = Product::with('categories')
             ->where('title', 'like', '%'.$keyword.'%')
             ->orwhere('description', 'like', '%'.$keyword.'%')
-            ->paginate(1);
-        return view('dashboard/inventory')->with('products',$product);
+            ->paginate(20)->toJson();
+        return $product;
     }
 
     public function increase(Request $request) {

@@ -36,16 +36,13 @@
     <button type="button" class="btn btn-default" id="btn_action_create_product">Create new product</button>
   </div>
   <div class="col-lg-4 float-right">
-      <form method="POST" action="{{ route('dashboard::inventory.search.post') }}">
-            <div class="input-group">
-
-                <input type="text" class="form-control" id="search-product" placeholder="Search for...">
-                <span class="input-group-btn">
-                    <button id="btn-search" class="btn btn-default" type="button">Go!</button>
-                </span>
-                {!! csrf_field() !!}
-            </div>
-      </form>
+    <div class="input-group">
+        <input type="text" class="form-control" id="search-product" placeholder="Search for...">
+        <span class="input-group-btn">
+            <button id="btn-search" class="btn btn-default" type="button" href="{{ route('dashboard::inventory.search.post') }}">Go!</button>
+        </span>
+        {!! csrf_field() !!}
+    </div>
   </div>
 </div>
 
@@ -92,14 +89,14 @@
         // decrease quantity
         var found = $(this).closest("div[data-field-id]");
         var product_id = found.attr('data-field-id')
-        sendAjaxRequest('dec', product_id);
+        sendSearchRequest('dec', product_id);
     });
     $('.inv-inc').click(function(){
         var found = $(this).closest("div[data-field-id]");
         var product_id = found.attr('data-field-id')
-        sendAjaxRequest('inc', product_id);
+        sendSearchRequest('inc', product_id);
     });
-    var sendAjaxRequest = function(modifier, product_id){
+    var sendSearchRequest = function(modifier, product_id){
         var link = '';
         if (modifier == 'inc')
             link = '{{ route("dashboard::inventory.inc.post") }}'
@@ -121,6 +118,30 @@
         });
     };
 
+    $("#btn-search").click(function(){
+        $.ajax({
+            url: $(this).attr('href'),
+            type: "post",
+            data: {
+                "keywords"  : $("#search-product").val(),
+                "_token" : "{{ csrf_token() }}"
+            },
+            dataType: "json"
+        }).done(function(data){
+            $("#product-content").html("");
+            console.log("length : "+ data.data.length)
+            for(var i = 0, j =  data.data.length; i < j; ++i) {
+                var product_data = data.data[i];
+                card_html = ""
+                $("#product-content").append(card_html);
+            }
+        }).fail(function(data) {
+            console.log("fail");
+        }).always(function(data) {
+            console.log("always");
+        });
+    });
+
     var getStockString = function($quantity){
         var string = $quantity + " in stock";
         if ($quantity == 0)
@@ -129,4 +150,5 @@
     }
 
 </script>
+
 @stop
