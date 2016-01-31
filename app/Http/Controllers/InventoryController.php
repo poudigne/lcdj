@@ -131,7 +131,6 @@ class InventoryController extends Controller
     }
 
     private function modifyQuantity(Request $request, $modifier){
-        // decrease by 1 the number in inventory of product $request->product_id
         $inventory = new Inventory;
         $item = $inventory->where("product_id", "=", $request->product_id)->first();
         $item->quantity = $item->quantity + $modifier;
@@ -146,23 +145,17 @@ class InventoryController extends Controller
 
         switch($sorttype){
             case 0:
-                return $products->orderBy("products.title",'asc');
-                break;
+                return $products->orderBy("products.title",'asc');break;
             case 1:
-                return $products->orderBy("products.title",'desc');
-                break;
+                return $products->orderBy("products.title",'desc');break;
             case 2:
-                return $products->orderBy("inventories.quantity",'asc');
-                break;
+                return $products->orderBy("inventories.quantity",'asc');break;
             case 3:
-                return $products->orderBy("inventories.quantity",'desc');
-                break;
+                return $products->orderBy("inventories.quantity",'desc');break;
             case 4:
-                return $products->where("inventories.quantity", 0);
-                break;
+                return $products->where("inventories.quantity", 0);break;
             default:
-                return $products;
-                break;
+                return $products;break;
         }
     }
 }

@@ -2,12 +2,11 @@
 <project version="4">
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/resources/views/dashboard/create_news.blade.php" line="32" />
+    <bookmark url="file://$PROJECT_DIR$/resources/views/dashboard/inventory.blade.php" line="9" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7006909f-cda7-4351-bd56-dcad05cb60a0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/InventoryController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/InventoryController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/dashboard/inventory.blade.php" afterPath="$PROJECT_DIR$/resources/views/dashboard/inventory.blade.php" />
     </list>
     <ignored path="lcdj.iws" />
@@ -30,6 +29,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="ProductController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProductController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-37.923077">
+              <caret line="58" column="74" selection-start-line="58" selection-start-column="74" selection-end-line="58" selection-end-column="74" />
+              <folding>
+                <element signature="e#40#56#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="products.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/dashboard/products.blade.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -50,23 +61,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="product_form.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/dashboard/partials/product_form.blade.php">
+      <file leaf-file-name="InventoryController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/InventoryController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-21.884615">
-              <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-              <folding>
-                <marker date="1454097823163" expanded="true" signature="1062:1063" placeholder="..." />
-              </folding>
+            <state vertical-scroll-proportion="-12.076923">
+              <caret line="133" column="35" selection-start-line="133" selection-start-column="35" selection-end-line="133" selection-end-column="35" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InventoryController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/InventoryController.php">
+      <file leaf-file-name="meta.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/dashboard/meta.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.73318386">
-              <caret line="160" column="0" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
+            <state vertical-scroll-proportion="-13.730769">
+              <caret line="118" column="47" selection-start-line="118" selection-start-column="47" selection-end-line="118" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -84,21 +93,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="inventory.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="inventory.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/dashboard/inventory.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.576923">
-              <caret line="58" column="80" selection-start-line="58" selection-start-column="80" selection-end-line="58" selection-end-column="80" />
+            <state vertical-scroll-proportion="0.17152466">
+              <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
               <folding>
-                <element signature="e#3480#3531#0#HTML" expanded="true" />
-                <element signature="e#3736#3757#0#HTML" expanded="true" />
-                <marker date="1454260742942" expanded="true" signature="4759:4859" placeholder="..." />
-                <marker date="1454260742942" expanded="true" signature="4778:4854" placeholder="..." />
-                <marker date="1454260742942" expanded="true" signature="6686:6745" placeholder="..." />
-                <marker date="1454260742942" expanded="true" signature="6702:6744" placeholder="..." />
-                <marker date="1454260742942" expanded="true" signature="6754:6815" placeholder="..." />
-                <marker date="1454260742942" expanded="true" signature="6770:6814" placeholder="..." />
-                <marker date="1454260742942" expanded="true" signature="6872:7010" placeholder="..." />
+                <element signature="e#3484#3535#0#HTML" expanded="true" />
+                <element signature="e#3750#3771#0#HTML" expanded="true" />
+                <marker date="1454261406588" expanded="true" signature="4773:4873" placeholder="..." />
+                <marker date="1454261406588" expanded="true" signature="4792:4868" placeholder="..." />
+                <marker date="1454261406588" expanded="true" signature="6700:6759" placeholder="..." />
+                <marker date="1454261406588" expanded="true" signature="6716:6758" placeholder="..." />
+                <marker date="1454261406588" expanded="true" signature="6768:6829" placeholder="..." />
+                <marker date="1454261406588" expanded="true" signature="6784:6828" placeholder="..." />
+                <marker date="1454261406588" expanded="true" signature="6886:7024" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -131,16 +140,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-17.0">
               <caret line="26" column="38" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="inventory_card.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/dashboard/partials/inventory_card.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.384615">
-              <caret line="22" column="6" selection-start-line="0" selection-start-column="0" selection-end-line="22" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -188,8 +187,8 @@
         <option value="$PROJECT_DIR$/resources/views/dashboard/header.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Product.php" />
-        <option value="$PROJECT_DIR$/resources/views/dashboard/inventory.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/InventoryController.php" />
+        <option value="$PROJECT_DIR$/resources/views/dashboard/inventory.blade.php" />
       </list>
     </option>
   </component>
@@ -823,28 +822,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProductController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.576923">
-          <caret line="58" column="74" selection-start-line="58" selection-start-column="74" selection-end-line="58" selection-end-column="74" />
-          <folding>
-            <element signature="e#40#56#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/dashboard/layout.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.8461537">
           <caret line="12" column="49" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/dashboard/meta.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.730769">
-          <caret line="118" column="47" selection-start-line="118" selection-start-column="47" selection-end-line="118" selection-end-column="47" />
           <folding />
         </state>
       </provider>
@@ -919,29 +900,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/dashboard/inventory.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/InventoryController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.576923">
-          <caret line="58" column="80" selection-start-line="58" selection-start-column="80" selection-end-line="58" selection-end-column="80" />
+        <state vertical-scroll-proportion="-12.076923">
+          <caret line="133" column="35" selection-start-line="133" selection-start-column="35" selection-end-line="133" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProductController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-37.923077">
+          <caret line="58" column="74" selection-start-line="58" selection-start-column="74" selection-end-line="58" selection-end-column="74" />
           <folding>
-            <element signature="e#3480#3531#0#HTML" expanded="true" />
-            <element signature="e#3736#3757#0#HTML" expanded="true" />
-            <marker date="1454260742942" expanded="true" signature="4759:4859" placeholder="..." />
-            <marker date="1454260742942" expanded="true" signature="4778:4854" placeholder="..." />
-            <marker date="1454260742942" expanded="true" signature="6686:6745" placeholder="..." />
-            <marker date="1454260742942" expanded="true" signature="6702:6744" placeholder="..." />
-            <marker date="1454260742942" expanded="true" signature="6754:6815" placeholder="..." />
-            <marker date="1454260742942" expanded="true" signature="6770:6814" placeholder="..." />
-            <marker date="1454260742942" expanded="true" signature="6872:7010" placeholder="..." />
+            <element signature="e#40#56#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/InventoryController.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/dashboard/meta.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.73318386">
-          <caret line="160" column="0" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
+        <state vertical-scroll-proportion="-13.730769">
+          <caret line="118" column="47" selection-start-line="118" selection-start-column="47" selection-end-line="118" selection-end-column="47" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/dashboard/inventory.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17152466">
+          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+          <folding>
+            <element signature="e#3484#3535#0#HTML" expanded="true" />
+            <element signature="e#3750#3771#0#HTML" expanded="true" />
+            <marker date="1454261406588" expanded="true" signature="4773:4873" placeholder="..." />
+            <marker date="1454261406588" expanded="true" signature="4792:4868" placeholder="..." />
+            <marker date="1454261406588" expanded="true" signature="6700:6759" placeholder="..." />
+            <marker date="1454261406588" expanded="true" signature="6716:6758" placeholder="..." />
+            <marker date="1454261406588" expanded="true" signature="6768:6829" placeholder="..." />
+            <marker date="1454261406588" expanded="true" signature="6784:6828" placeholder="..." />
+            <marker date="1454261406588" expanded="true" signature="6886:7024" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
