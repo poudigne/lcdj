@@ -25,8 +25,8 @@
   </button>
   <ul class="dropdown-menu">
     <li><a id="delete-request" data-field-link="{{ route('dashboard::product.delete.post') }}">Delete</a></li>
-    {{-- <li><a href="#">Publish</a></li>
-    <li><a href="#">Unpublish</a></li> --}}
+    <li><a id="publish-request" data-field-link="{{ route('dashboard::product.publish.post') }}">Publish</a></li>
+    <li><a id="unpublish-request" data-field-link="{{ route('dashboard::product.unpublish.post') }}">Unpublish</a></li>
   </ul>
 </div>
 
@@ -47,8 +47,7 @@
   <tbody>
 
     @foreach ($products as $set)
-
-      <tr>
+      <tr class="@if ($set->is_published == 0) warning @endif">
         <td style="width:3%;"><input type="checkbox" data-field-id="{{ $set->id }}" class="check-box" /></td>
         <td style="width:3%;"><button type="button" class="btn btn-default btn-xs btn-edit glyphicon glyphicon-pencil" href="{{ route('dashboard::product.edit', ['id'=>$set->id]) }}"></button></td>
         <td>{{ $set->title }}</td>

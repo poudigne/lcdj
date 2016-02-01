@@ -48,6 +48,9 @@ Route::group(['as' => 'dashboard::','middleware' => 'auth', 'prefix' => 'dashboa
 	Route::get('/product', ['as' => 'product.show', 'middleware' => 'auth', 'uses' => 'ProductController@index']);
 	Route::post("/product/delete", ['as' => 'product.delete.post', 'middleware' => 'auth', 'uses' => 'ProductController@multiple_delete']);
 
+    Route::post("/product/publish", ['as' => 'product.publish.post', 'middleware' => 'auth', 'uses' => 'ProductController@multiple_publish']);
+    Route::post("/product/unpublish", ['as' => 'product.unpublish.post', 'middleware' => 'auth', 'uses' => 'ProductController@multiple_unpublish']);
+
 	//Category
 	Route::get('/category/create', ['as' => 'category.create', 'middleware' => 'auth', 'uses' => 'CategoryController@create']);
 	Route::post('/category/create', ['as' => 'category.create.post', 'middleware' => 'auth', 'uses' => 'CategoryController@store']);

@@ -187,7 +187,7 @@ class ProductController extends Controller
     public function multiple_delete(Request $request)
     {
         Product::destroy($request->ids);
-        $response = ['model_type' => 'Product', 'ids' => $request->ids];
+        $response = ['model_type' => 'Product', 'ids' => $request->ids, 'action_type' => 'delete'];
         return json_encode($response);
     }
 
@@ -205,6 +205,18 @@ class ProductController extends Controller
                 return $media;
         }
         return $media;
+    }
+
+    public function multiple_publish(Request $request){
+        return $this->dopublish($request, 1);
+    }
+    public function multiple_unpublish(Request $request){
+        return $this->dopublish($request, 0);
+    }
+    private function dopublish(Request $request, $value){
+        $product = Product::whereIn('id', $request->ids)->update(array('is_published' => $value));
+        $response = ['model_type' => 'Product', 'ids' => $request->ids, 'action_type' => ($value == 1 ? "Publish" : "Unpublish")];
+        return json_encode($response);
     }
 }
 ?>

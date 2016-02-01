@@ -115,7 +115,7 @@ class EventController extends Controller
     public function multiple_delete(Request $request)
     {
         Product::destroy($request->ids);
-        $response = ['model_type' => 'Product', 'ids' => $request->ids];
+        $response = ['model_type' => 'Product', 'ids' => $request->ids, 'action_type' => 'delete'];
         return json_encode($response);
     }
 }

@@ -110,9 +110,9 @@ class CategoryController extends Controller
         $category = new Category;
         try {
             Category::find($id)->delete();
-            return view('dashboard/categories')->with('categoryList',$category->get())->with('deleted',1);
+            return view('dashboard/categories')->with('categoryList', $category->get())->with('deleted',1);
         }catch(\Exception $e){
-            return view('dashboard/categories')->with('categoryList',$category->get())->with('deleted','Category cannot be deleted because some products are associated to it.');
+            return view('dashboard/categories')->with('categoryList', $category->get())->with('deleted','Category cannot be deleted because some products are associated to it.');
         }
     }
 
@@ -125,7 +125,7 @@ class CategoryController extends Controller
     public function multiple_delete(Request $request)
     {
         Category::destroy($request->ids);
-        $response = ['model_type' => 'Category', 'ids' => $request->ids];
+        $response = ['model_type' => 'Category', 'ids' => $request->ids, 'action_type' => 'delete'];
         return json_encode($response);
     }
 }

@@ -119,6 +119,29 @@
 			});
 		});
 
+		$("#publish-request").click(function(){
+			if (bulk_action_json.length == 0)
+				return;
+			var link = $(this).attr("data-field-link");
+			bootbox.confirm("Are you sure you want to publish "+ bulk_action_json.length +" elements?", function(result) {
+				if (result) {
+					sendAjaxRequest(bulk_action_json, link,[{'value' : 1}]);
+				}
+			});
+		});
+
+		$("#unpublish-request").click(function(){
+			if (bulk_action_json.length == 0)
+				return;
+			var link = $(this).attr("data-field-link");
+			bootbox.confirm("Are you sure you want to unpublish "+ bulk_action_json.length +" elements?", function(result) {
+				if (result) {
+					sendAjaxRequest(bulk_action_json, link,[{'value' : 0}]);
+				}
+			});
+		});
+
+
 		$(".btn-edit").click(function(){
 			var link = $(this).attr('href');
 			console.log("Edit called " + link);
@@ -139,7 +162,11 @@
 		}).fail(function(response){
 			toastr["error"]("{{ session('error') }}","Error !");
 		}).always(function(response) {
-			deleteRowNode(response.ids);
+			if (response.action_type == 'delete')
+				deleteRowNode(response.ids);
+			else
+				dopublish(response.ids, response.action_type == 'Publish' ? 1 :0);
+
 			bulk_action_json = [];
 		});
 	}
@@ -148,6 +175,16 @@
 			var product_id = ids[i];
 			var el = $("input[data-field-id='" + product_id + "']");
 			el.parent().parent().remove();
+		}
+	}
+	var dopublish = function(ids, action){
+		for(var i = 0, j = ids.length; i < j; ++i) {
+			var product_id = ids[i];
+			var el = $("input[data-field-id='" + product_id + "']");
+			if (action == 0)
+				el.parent().parent().addClass("warning");
+			else
+				el.parent().parent().removeClass("warning");
 		}
 	}
 
