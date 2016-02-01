@@ -158,7 +158,7 @@
 			},
 			dataType: "json"
 		}).done(function(response){
-			toastr["success"]("The "+response.model_type+" has been successfuly deleted!","Success !");
+			toastr["success"]("The "+response.model_type+" has been successfuly "+response.action_type+"!","Success !");
 		}).fail(function(response){
 			toastr["error"]("{{ session('error') }}","Error !");
 		}).always(function(response) {
