@@ -126,7 +126,6 @@
                 link = '{{ route("dashboard::inventory.inc.post") }}'
             else if (modifier == 'dec')
                 link = '{{ route("dashboard::inventory.dec.post") }}'
-
             $.ajax({
                 url: link,
                 type: "post",

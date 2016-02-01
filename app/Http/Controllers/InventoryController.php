@@ -110,10 +110,9 @@ class InventoryController extends Controller
                             ->orWhere('categories.name','like', '%'.Session::get("keyword").'%');
                     })
                     ->groupBy('products.id')
-                    ->select("products.title",'products.description', DB::Raw('GROUP_CONCAT(categories.name SEPARATOR \' \') AS categories'));
+                    ->select("products.id as id","products.title",'products.description', 'inventories.quantity as quantity', DB::Raw('GROUP_CONCAT(categories.name SEPARATOR \', \') AS categories'));
 
         $products = $this->sortInventory($products);
-
         $view = View::make('dashboard.inventory')->with("products", $products->paginate(20));
         return json_encode($view->renderSections()['cards']);
     }
@@ -130,6 +129,8 @@ class InventoryController extends Controller
     public function sort($sorttype){
         Session::put("sort_type", $sorttype);
 
+
+
         $product = Product::leftJoin('inventories','products.id','=', 'inventories.product_id')->where('products.is_published', 1);
         $products = $this->sortInventory($product, $sorttype);
         return view('dashboard/inventory')->with('products', $products->paginate(20))->with('sorttype',$sorttype);
@@ -145,6 +146,7 @@ class InventoryController extends Controller
 
     private function modifyQuantity(Request $request, $modifier){
         $inventory = new Inventory;
+
         $item = $inventory->where("product_id", "=", $request->product_id)->first();
         $item->quantity = $item->quantity + $modifier;
         if($item->quantity < 0)
