@@ -10,6 +10,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Session;
+use View;
 
 class InventoryController extends Controller
 {
@@ -94,19 +95,24 @@ class InventoryController extends Controller
 
     }
 
-    public function search(Request $request){
-
-        $keyword = $request->get('keywordz');
+    public function search(Request $request)
+    {
+        $keyword = $request->get('keywords');
         Session::put("keyword", $keyword);
-        $product = Product::with('categories')
+        $product = new Product;
+        $products = $product->leftJoin('inventories','products.id','=', 'inventories.product_id')
+                    ->leftJoin('category_product', 'category_product.product_id', '=', 'products.id')
+                    ->leftjoin('categories', 'category_product.category_id', '=', 'categories.id')
+                    ->where(function ($query) {
+                        $query->where('products.description', 'like', '%'.Session::get("keyword").'%')
+                            ->orwhere('products.title', 'like', '%'.Session::get("keyword").'%');
+                    });
 
-            ->where('is_published', 1)
-            ->orWhere(function ($query, $keyword) {
-                $query->where('description', 'like', '%'.$keyword.'%')
-                    ->orwhere('title', 'like', '%'.$keyword.'%');
-            })
-            ->paginate(20)->toJson();
-        return $product;
+        $products = $this->sortInventory($products);
+        //return dd($products->toSql());
+
+        $view = View::make('dashboard.inventory')->with("products", $products->paginate(20));
+        return json_encode($view->renderSections()['cards']);
     }
     /**
      * 0 = A to Z
@@ -121,7 +127,7 @@ class InventoryController extends Controller
     public function sort($sorttype){
         Session::put("sort_type", $sorttype);
 
-        $product = Product::leftJoin('inventories','products.id','=', 'inventories.id')->where('products.is_published', 1);
+        $product = Product::leftJoin('inventories','products.id','=', 'inventories.product_id')->where('products.is_published', 1);
         $products = $this->sortInventory($product, $sorttype);
         return view('dashboard/inventory')->with('products', $products->paginate(20))->with('sorttype',$sorttype);
     }
@@ -142,24 +148,25 @@ class InventoryController extends Controller
             $item->quantity = 0;
         $item->save();
 
+
         return json_encode($item);
     }
 
-    private function sortInventory($products, $sorttype){
+    private function sortInventory($query){
 
-        switch($sorttype){
+        switch(Session::get("sort_type")){
             case 0:
-                return $products->orderBy("products.title",'asc');break;
+                return $query->orderBy("products.title",'asc');break;
             case 1:
-                return $products->orderBy("products.title",'desc');break;
+                return $query->orderBy("products.title",'desc');break;
             case 2:
-                return $products->orderBy("inventories.quantity",'asc');break;
+                return $query->orderBy("inventories.quantity",'asc');break;
             case 3:
-                return $products->orderBy("inventories.quantity",'desc');break;
+                return $query->orderBy("inventories.quantity",'desc');break;
             case 4:
-                return $products->where("inventories.quantity", 0);break;
+                return $query->where("inventories.quantity", 0);break;
             default:
-                return $products;break;
+                return $query;break;
         }
     }
 }
