@@ -128,9 +128,6 @@ class InventoryController extends Controller
      */
     public function sort($sorttype){
         Session::put("sort_type", $sorttype);
-
-
-
         $product = Product::leftJoin('inventories','products.id','=', 'inventories.product_id')->where('products.is_published', 1);
         $products = $this->sortInventory($product, $sorttype);
         return view('dashboard/inventory')->with('products', $products->paginate(20))->with('sorttype',$sorttype);

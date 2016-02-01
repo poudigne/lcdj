@@ -1,12 +1,11 @@
 @include('dashboard.partials.error')
 
-
 <?php
     $catIds = array_map( function($val){ return $val['id']; }, $product->categories->toarray() );
 ?>
+
 <div class="form-group row">
     <label for="is_published" class="col-sm-2 form-control-label">is published</label>
-
     <div class="col-sm-10">
         <input type="checkbox" class="" id="is_published" name="is_published" {{ old('is_published') == "" ? ($product->is_published == 1 ? "checked" : "") : (old('is_published') == 1 ? "checked" : "" )}}>
     </div>

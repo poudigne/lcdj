@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Session;
+
 class NewsController extends Controller
 {
     /**
@@ -18,9 +20,8 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $category = new Category;
-        $categories = $category->orderBy('title')->get();
-        return view('dashboard/create_news')->with('categories', $categories);
+        $news = News::with('categories')->paginate(50);
+        return view('dashboard/news')->with('news', $news);
     }
 
     /**
@@ -30,6 +31,9 @@ class NewsController extends Controller
      */
     public function create()
     {
+        $category = new Category;
+        $categories = $category->orderBy('name')->get();
+        return view('dashboard/create_news')->with('categories', $categories)->with("news", new News);
     }
 
     /**
@@ -56,10 +60,8 @@ class NewsController extends Controller
                 $news->categories()->attach($category_id);
             }
         }
-
-        Session::flash('flash_message', 'Product successfully added!');
-
-        return view('dashboard/create_news')->with('success', 1)->with('categories', Category::get());
+        Session::flash('flash_message', 'Event successfully added!');
+        return view('dashboard/create_news')->with('success', 1)->with('categories', Category::get())->with('news', new News);
     }
 
     /**
@@ -81,7 +83,8 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $news = News::with('categories')->where('id',$id)->first();
+        return view('dashboard/edit_news')->with('categories', Category::get())->with("news", $news);
     }
 
     /**
@@ -93,7 +96,26 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'news_title' => 'required',
+            'news_text' => 'required'
+        ]);
+
+        $news = News::find($id);
+        $news->is_published = ($request->get('is_published') == 'on' ? 1 : 0);
+        $news->title = $request->get('news_title');
+        $news->text = $request->get('news_text');
+        $news->save();
+
+        $news->categories()->detach();
+        if ($request->get('news_categories') != null) {
+            foreach ($request->get('news_categories') as $category_id) {
+                $news->categories()->attach($category_id);
+            }
+        }
+
+        Session::flash('flash_message', 'Event successfully added!');
+        return view('dashboard/create_news')->with('success', 1)->with('categories', Category::get())->with('news', $news);
     }
 
     /**
@@ -105,6 +127,32 @@ class NewsController extends Controller
     public function destroy($id)
     {
         
+    }
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function multiple_delete(Request $request)
+    {
+        News::destroy($request->ids);
+        $response = ['model_type' => 'News', 'ids' => $request->ids, 'action_type' => 'delete'];
+        return json_encode($response);
+    }
+
+    public function multiple_publish(Request $request){
+        return $this->dopublish($request, 1);
+    }
+
+    public function multiple_unpublish(Request $request){
+        return $this->dopublish($request, 0);
+    }
+
+    private function dopublish(Request $request, $value){
+        $product = News::whereIn('id', $request->ids)->update(array('is_published' => $value));
+        $response = ['model_type' => 'News', 'ids' => $request->ids, 'action_type' => ($value == 1 ? "Publish" : "Unpublish")];
+        return json_encode($response);
     }
 }
 ?>
