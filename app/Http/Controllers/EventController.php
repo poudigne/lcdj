@@ -114,8 +114,20 @@ class EventController extends Controller
      */
     public function multiple_delete(Request $request)
     {
-        Product::destroy($request->ids);
-        $response = ['model_type' => 'Product', 'ids' => $request->ids, 'action_type' => 'delete'];
+        Event::destroy($request->ids);
+        $response = ['model_type' => 'Event', 'ids' => $request->ids, 'action_type' => 'delete'];
+        return json_encode($response);
+    }
+
+    public function multiple_publish(Request $request){
+        return $this->dopublish($request, 1);
+    }
+    public function multiple_unpublish(Request $request){
+        return $this->dopublish($request, 0);
+    }
+    private function dopublish(Request $request, $value){
+        $event = Event::whereIn('id', $request->ids)->update(array('is_published' => $value));
+        $response = ['model_type' => 'Event', 'ids' => $request->ids, 'action_type' => ($value == 1 ? "Publish" : "Unpublish")];
         return json_encode($response);
     }
 }

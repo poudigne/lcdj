@@ -13,6 +13,8 @@
   </button>
   <ul class="dropdown-menu">
     <li><a id="delete-request" data-field-link="{{ route('dashboard::event.delete.post') }}">Delete</a></li>
+    <li><a id="publish-request" data-field-link="{{ route('dashboard::event.publish.post') }}">Publish</a></li>
+    <li><a id="unpublish-request" data-field-link="{{ route('dashboard::event.unpublish.post') }}">Unpublish</a></li>
   </ul>
 </div>
 
@@ -28,9 +30,9 @@
   </thead>
   <tbody>
     @foreach ($events as $set)
-      <tr>
+      <tr class="@if ($set->is_published == 0) warning @endif">
         <td style="width:3%;"><input type="checkbox" data-field-id="{{ $set->id }}" class="check-box" /></td>
-        <td style="width:3%;"><button type="button" class="btn btn-default btn-xs btn-edit glyphicon glyphicon-pencil" href="{{ route('dashboard::category.edit', ['id'=>$set->id]) }}"></button></td>
+        <td style="width:3%;"><button type="button" class="btn btn-default btn-xs btn-edit glyphicon glyphicon-pencil" href="{{ route('dashboard::event.edit', ['id'=>$set->id]) }}"></button></td>
         <td>{{ $set->name }}</td>
         <td>{{ $set->datetime }}</td>
         <td>{{ $set->description }}</td>
