@@ -165,8 +165,6 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-
-
         $product = new Product;
         Product::find($id)->delete();
         $products = $product->join('categories', 'products.category_id', '=', 'categories.id')

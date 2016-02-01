@@ -135,7 +135,7 @@ body,html{
         <li class="{{{ (Request::route()->getName() == 'dashboard::product.show' ? 'active' : '') }}}"><a href="{{ route('dashboard::product.show') }}">Products<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>
         <li class="{{{ (Request::route()->getName() == 'dashboard::category.show' ? 'active' : '') }}}"><a href="{{ route('dashboard::category.show') }}">Categories<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>
         <li class="{{{ (Request::route()->getName() == 'dashboard::news.create' ? 'active' : '') }}}"><a href="{{ route('dashboard::news.create') }}">News<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a></li>
-        <li class="{{{ (Request::route()->getName() == 'dashboard::event' ? 'active' : '') }}}"><a href="{{ route('dashboard::event.create') }}">Events<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-calendar"></span></a></li>
+        <li class="{{{ (Request::route()->getName() == 'dashboard::event' ? 'active' : '') }}}"><a href="{{ route('dashboard::event') }}">Events<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-calendar"></span></a></li>
       </ul>
     </div>
   </div>
