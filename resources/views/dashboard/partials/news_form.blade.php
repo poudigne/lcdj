@@ -22,7 +22,7 @@
 <div class="form-group row">
     <label for="news_text" class="col-sm-2 form-control-label">* Texte</label>
     <div class="col-sm-10">
-        <textarea id="input_text" name="news_text" type="text" class="materialize-textarea form-control" placeHolder="Texte...">{!! old('news_title') == "" ? $news->title : old('news_title') !!}</textarea>
+        <textarea id="input_text" name="news_text" type="text" class="materialize-textarea form-control" placeHolder="Texte...">{!! old('news_text') == "" ? $news->text : old('news_text') !!}</textarea>
     </div>
 </div>
 
