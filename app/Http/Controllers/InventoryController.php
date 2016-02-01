@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Session;
 use View;
+use DB;
 
 class InventoryController extends Controller
 {
@@ -105,11 +106,13 @@ class InventoryController extends Controller
                     ->leftjoin('categories', 'category_product.category_id', '=', 'categories.id')
                     ->where(function ($query) {
                         $query->where('products.description', 'like', '%'.Session::get("keyword").'%')
-                            ->orwhere('products.title', 'like', '%'.Session::get("keyword").'%');
-                    });
+                            ->orwhere('products.title', 'like', '%'.Session::get("keyword").'%')
+                            ->orWhere('categories.name','like', '%'.Session::get("keyword").'%');
+                    })
+                    ->groupBy('products.id')
+                    ->select("products.title",'products.description', DB::Raw('GROUP_CONCAT(categories.name SEPARATOR \' \') AS categories'));
 
         $products = $this->sortInventory($products);
-        //return dd($products->toSql());
 
         $view = View::make('dashboard.inventory')->with("products", $products->paginate(20));
         return json_encode($view->renderSections()['cards']);
