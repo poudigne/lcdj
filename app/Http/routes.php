@@ -59,6 +59,9 @@ Route::group(['as' => 'dashboard::','middleware' => 'auth', 'prefix' => 'dashboa
 	Route::get('/category', ['as' => 'category.show', 'middleware' => 'auth', 'uses' => 'CategoryController@index']);
     Route::post("/category/delete", ['as' => 'category.delete.post', 'middleware' => 'auth', 'uses' => 'CategoryController@multiple_delete']);
 
+    Route::post("/category/publish", ['as' => 'category.publish.post', 'middleware' => 'auth', 'uses' => 'CategoryController@multiple_publish']);
+    Route::post("/category/unpublish", ['as' => 'category.unpublish.post', 'middleware' => 'auth', 'uses' => 'CategoryController@multiple_unpublish']);
+
 	// News
 	Route::get('/news/create', ['as' => 'news.create', 'middleware' => 'auth', 'uses' => 'NewsController@index']);
 	Route::post('/news/create', ['as' => 'news.create.post', 'middleware' => 'auth', 'uses' => 'NewsController@store']);

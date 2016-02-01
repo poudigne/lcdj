@@ -128,4 +128,16 @@ class CategoryController extends Controller
         $response = ['model_type' => 'Category', 'ids' => $request->ids, 'action_type' => 'delete'];
         return json_encode($response);
     }
+
+    public function multiple_publish(Request $request){
+        return $this->dopublish($request, 1);
+    }
+    public function multiple_unpublish(Request $request){
+        return $this->dopublish($request, 0);
+    }
+    private function dopublish(Request $request, $value){
+        $category = Category::whereIn('id', $request->ids)->update(array('is_published' => $value));
+        $response = ['model_type' => 'Category', 'ids' => $request->ids, 'action_type' => ($value == 1 ? "Publish" : "Unpublish")];
+        return json_encode($response);
+    }
 }
