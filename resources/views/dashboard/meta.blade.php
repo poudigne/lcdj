@@ -42,6 +42,7 @@
 
 <!-- bootstrap datetime picker -->
 <script src="/JS/bs-datetimepicker.js"></script>
+<link rel="stylesheet" href="/CSS/bootstrap-datetimepicker.css">
 
 
 <style>

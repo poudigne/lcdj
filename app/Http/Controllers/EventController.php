@@ -47,6 +47,12 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'event_name' => 'required',
+            'event_description' => 'required',
+            'event_datetime' => 'required'
+        ]);
+
         $event = new Event;
         $event->is_published = ($request->get('is_published') == 'on' ? 1 : 0);
         $event->name = $request->event_name;
@@ -83,6 +89,8 @@ class EventController extends Controller
      */
     public function edit($id)
     {
+        $event = Event::find($id);
+        return view('dashboard/edit_event')->with('categories', Category::get())->with("event", $event);
     }
 
     /**
@@ -94,6 +102,30 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            'event_name' => 'required',
+            'event_description' => 'required',
+            'event_datetime' => 'required'
+        ]);
+
+        $event = Event::find($id);
+        $event->is_published = ($request->get('is_published') == 'on' ? 1 : 0);
+        $event->name = $request->event_name;
+        $event->description = $request->event_description;
+        $event->datetime = Carbon::parse($request->event_datetime);
+        $event->save();
+
+        $event->categories()->detach();
+
+        if ($request->get('event_categories') != null){
+            foreach ($request->get('event_categories') as $category_id) {
+                $event->categories()->attach($category_id);
+            }
+        }
+
+        Session::flash('flash_message', 'Event successfully edited!');
+
+        return $this->edit($id);
     }
 
     /**
