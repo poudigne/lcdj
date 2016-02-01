@@ -67,6 +67,12 @@ Route::group(['as' => 'dashboard::','middleware' => 'auth', 'prefix' => 'dashboa
     Route::post('/inventory/increase', ['as' => 'inventory.inc.post', 'middleware' => 'auth', 'uses' => 'InventoryController@increase']);
     Route::post('/inventory/decrease', ['as' => 'inventory.dec.post', 'middleware' => 'auth', 'uses' => 'InventoryController@decrease']);
 
+    // Event
+    Route::get('/event', ['as' => 'event', 'middleware' => 'auth', 'uses' => 'EventController@index']);
+    Route::get('/event/create', ['as' => 'event.create', 'middleware' => 'auth', 'uses' => 'EventController@create']);
+    Route::post('/event/create', ['as' => 'event.create.post', 'middleware' => 'auth', 'uses' => 'EventController@store']);
+    Route::post("/event/delete", ['as' => 'event.delete.post', 'middleware' => 'auth', 'uses' => 'EventController@multiple_delete']);
+
 });
 
 Route::get("/CreateShenrokCredential", function(){

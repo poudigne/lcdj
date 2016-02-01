@@ -1,4 +1,12 @@
 @include('dashboard.partials.error')
+<div class="form-group row">
+    <label for="is_published" class="col-sm-2 form-control-label">is published</label>
+
+    <div class="col-sm-10">
+        <input type="checkbox" class="" id="is_published" name="is_published" {{ old('is_published') == "" ? ($category->is_published == 1 ? "checked" : "") : (old('is_published') == 1 ? "checked" : "" )}}>
+    </div>
+</div>
+
 <!-- Nom de la categorie -->
 <div class="form-group row">
     <label for="category_name" class="col-sm-2 form-control-label">* Nom</label>

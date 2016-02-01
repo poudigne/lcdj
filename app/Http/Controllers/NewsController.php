@@ -46,6 +46,7 @@ class NewsController extends Controller
         ]);
 
         $news = new News;
+        $news->is_published = ($request->get('is_published') == 'on' ? 1 : 0);
         $news->title = $request->get('news_title');
         $news->text = $request->get('news_text');
         $news->save();

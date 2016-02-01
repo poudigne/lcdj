@@ -46,6 +46,7 @@ class CategoryController extends Controller
         ]);
 
         $category = new Category;
+        $category->is_published = ($request->get('is_published') == 'on' ? 1 : 0);
         $category->name = $request->get('category_name');
         $category->description = $request->get('category_description');
         $category->save();
@@ -89,6 +90,8 @@ class CategoryController extends Controller
             'category_name' => 'required'
         ]);
         $category = Category::find($id);
+
+        $category->is_published = ($request->get('is_published') == 'on' ? 1 : 0);
         $category->name = $request->get('category_name');
         $category->description = $request->get('category_description');
         $category->save();

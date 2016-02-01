@@ -21,7 +21,7 @@ class InventoryController extends Controller
     public function index()
     {
         $product = new Product;
-        $products = $product->with('categories')->orderBy('title')->paginate(20);
+        $products = $product->with('categories')->where('products.is_published', 1)->orderBy('title')->paginate(20);
 
         return view('dashboard/inventory')->with('products', $products);
     }
@@ -35,7 +35,7 @@ class InventoryController extends Controller
     {
         $category = new Category;
         $categories = $category->orderBy('name')->get();
-        return view('dashboard/create_product')->with('categories', $categories)->with('product', new Product);
+        return view('dashboard/create_product')->with('categories', $categories)->where('products.is_published', 1)->with('product', new Product);
     }
 
     /**
@@ -99,8 +99,12 @@ class InventoryController extends Controller
         $keyword = $request->get('keywordz');
         Session::put("keyword", $keyword);
         $product = Product::with('categories')
-            ->where('title', 'like', '%'.$keyword.'%')
-            ->orwhere('description', 'like', '%'.$keyword.'%')
+
+            ->where('is_published', 1)
+            ->orWhere(function ($query, $keyword) {
+                $query->where('description', 'like', '%'.$keyword.'%')
+                    ->orwhere('title', 'like', '%'.$keyword.'%');
+            })
             ->paginate(20)->toJson();
         return $product;
     }
@@ -117,7 +121,7 @@ class InventoryController extends Controller
     public function sort($sorttype){
         Session::put("sort_type", $sorttype);
 
-        $product = Product::leftJoin('inventories','products.id','=', 'inventories.id');
+        $product = Product::leftJoin('inventories','products.id','=', 'inventories.id')->where('products.is_published', 1);
         $products = $this->sortInventory($product, $sorttype);
         return view('dashboard/inventory')->with('products', $products->paginate(20))->with('sorttype',$sorttype);
     }

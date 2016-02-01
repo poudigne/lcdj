@@ -7,6 +7,12 @@
 
 <!-- Bootstrap Stylesheet -->
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<!-- moment -->
+<script src="/JS/moment.min.js" crossorigin="anonymous"></script>
+<!-- bootstrap transition and collapse -->
+<script src="/JS/transition.js"></script>
+<script src="/JS/collapse.js"></script>
+
 <link rel="stylesheet" href="/CSS/bootstrap.css">
 <link rel="stylesheet" href="/CSS/bootstrap-theme.css">
 
@@ -33,6 +39,9 @@
 <!-- toastr -->
 <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" crossorigin="anonymous">
 <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js" crossorigin="anonymous"></script>
+
+<!-- bootstrap datetime picker -->
+<script src="/JS/bs-datetimepicker.js"></script>
 
 
 <style>

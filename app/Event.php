@@ -11,9 +11,8 @@ class Event extends Model
 
     public function categories()
     {
-    	return $this->belongsToMany("App\Category", 'category_event', 'category_id', 'event_id');
+    	return $this->belongsToMany("App\Category", 'category_event', 'event_id', 'category_id');
     }
-
 
     /**
      * The attributes that should be mutated to dates.

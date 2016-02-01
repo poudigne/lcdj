@@ -34,7 +34,7 @@ class ProductController extends Controller
     public function create()
     {
         $category = new Category;
-        $categories = $category->orderBy('name')->get();
+        $categories = $category->where('is_published', 1)->orderBy('name')->get();
 
         return view('dashboard/create_product')->with('categories', $categories)->with('product', new Product);
     }
@@ -52,6 +52,7 @@ class ProductController extends Controller
         ]);
 
         $product = new Product;
+        $product->is_published = ($request->get('is_published') == 'on' ? 1 : 0);
         $product->title = $request->get('product_title');
         $product->description = $request->get('product_description');
         $product->price = 0;
@@ -125,6 +126,7 @@ class ProductController extends Controller
         ]);
 
         $product = Product::find($id);
+        $product->is_published = ($request->get('is_published') == 'on' ? 1 : 0);
         $product->title = $request->get('product_title');
         $product->description = $request->get('product_description');
         $product->price = 0;
