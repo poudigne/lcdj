@@ -63,9 +63,18 @@ Route::group(['as' => 'dashboard::','middleware' => 'auth', 'prefix' => 'dashboa
     Route::post("/category/unpublish", ['as' => 'category.unpublish.post', 'middleware' => 'auth', 'uses' => 'CategoryController@multiple_unpublish']);
 
 	// News
-	Route::get('/news/create', ['as' => 'news.create', 'middleware' => 'auth', 'uses' => 'NewsController@index']);
-	Route::post('/news/create', ['as' => 'news.create.post', 'middleware' => 'auth', 'uses' => 'NewsController@store']);
+	Route::get('/news', ['as' => 'news.show', 'middleware' => 'auth', 'uses' => 'NewsController@index']);
+    Route::get('/news/create', ['as' => 'news.create', 'middleware' => 'auth', 'uses' => 'NewsController@create']);
+    Route::post('/news/create', ['as' => 'news.create.post', 'middleware' => 'auth', 'uses' => 'NewsController@store']);
+    Route::get('/news/edit/{id}', ['as' => 'news.edit', 'middleware' => 'auth', 'uses' => 'NewsController@edit']);
+    Route::post('/news/edit/{id}', ['as' => 'news.edit.post', 'middleware' => 'auth', 'uses' => 'NewsController@update']);
 
+    Route::post("/news/delete", ['as' => 'news.delete.post', 'middleware' => 'auth', 'uses' => 'NewsController@multiple_delete']);
+
+    Route::post("/news/publish", ['as' => 'news.publish.post', 'middleware' => 'auth', 'uses' => 'NewsController@multiple_publish']);
+    Route::post("/news/unpublish", ['as' => 'news.unpublish.post', 'middleware' => 'auth', 'uses' => 'NewsController@multiple_unpublish']);
+
+    // Inventory
 	Route::get('/inventory', ['as' => 'inventory.show', 'middleware' => 'auth', 'uses' => 'InventoryController@index']);
     Route::get('/inventory/search', ['as' => 'inventory.search', 'middleware' => 'auth', 'uses' => 'InventoryController@index']);
     Route::get('/inventory/sort/{sorttype}', ['as' => 'inventory.sort', 'middleware' => 'auth', 'uses' => 'InventoryController@sort']);
@@ -74,16 +83,27 @@ Route::group(['as' => 'dashboard::','middleware' => 'auth', 'prefix' => 'dashboa
     Route::post('/inventory/decrease', ['as' => 'inventory.dec.post', 'middleware' => 'auth', 'uses' => 'InventoryController@decrease']);
 
     // Event
-    Route::get('/event', ['as' => 'event', 'middleware' => 'auth', 'uses' => 'EventController@index']);
+    Route::get('/event', ['as' => 'event.show', 'middleware' => 'auth', 'uses' => 'EventController@index']);
+
+    Route::post("/event/delete", ['as' => 'event.delete.post', 'middleware' => 'auth', 'uses' => 'EventController@multiple_delete']);
+
     Route::get('/event/create', ['as' => 'event.create', 'middleware' => 'auth', 'uses' => 'EventController@create']);
     Route::post('/event/create', ['as' => 'event.create.post', 'middleware' => 'auth', 'uses' => 'EventController@store']);
-    Route::post("/event/delete", ['as' => 'event.delete.post', 'middleware' => 'auth', 'uses' => 'EventController@multiple_delete']);
 
     Route::get('/event/edit/{id}', ['as' => 'event.edit', 'middleware' => 'auth', 'uses' => 'EventController@edit']);
     Route::post('/event/edit/{id}', ['as' => 'event.edit.post', 'middleware' => 'auth', 'uses' => 'EventController@update']);
 
     Route::post("/event/publish", ['as' => 'event.publish.post', 'middleware' => 'auth', 'uses' => 'EventController@multiple_publish']);
     Route::post("/event/unpublish", ['as' => 'event.unpublish.post', 'middleware' => 'auth', 'uses' => 'EventController@multiple_unpublish']);
+
+
+    // receipt
+    Route::get('/sale', ['as' => 'sale.show', 'middleware' => 'auth', 'uses' => 'SaleController@index']);
+    Route::post("/sale/delete", ['as' => 'sale.delete.post', 'middleware' => 'auth', 'uses' => 'SaleController@multiple_delete']);
+    Route::get('/sale/create', ['as' => 'sale.create', 'middleware' => 'auth', 'uses' => 'SaleController@create']);
+    Route::post('/sale/create', ['as' => 'sale.create.post', 'middleware' => 'auth', 'uses' => 'SaleController@store']);
+    Route::get('/sale/edit/{id}', ['as' => 'sale.edit', 'middleware' => 'auth', 'uses' => 'SaleController@edit']);
+    Route::post('/sale/edit/{id}', ['as' => 'sale.edit.post', 'middleware' => 'auth', 'uses' => 'SaleController@update']);
 
 });
 
