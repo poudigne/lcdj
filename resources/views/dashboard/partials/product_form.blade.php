@@ -64,6 +64,22 @@
     </div>
 </div>
 
+<div class="form-group row">
+    <label for="product_title" class="col-sm-2 form-control-label">Cost price</label>
+    <div class="col-sm-10 input-group">
+        <span class="input-group-addon">$</span>
+        <input type="text" name="product_costprice" class="form-control" placeholder="Cost price" value="{{ old('product_costprice') == "" ? $product->price : old('product_costprice') }}"/>
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="product_title" class="col-sm-2 form-control-label">Sale price</label>
+    <div class="col-sm-10 input-group">
+        <span class="input-group-addon">$</span>
+        <input type="text" name="product_saleprice" class="form-control" placeholder="Sale price" value="{{ old('product_saleprice') == "" ? $product->sale_price : old('product_saleprice') }}"/>
+    </div>
+</div>
+
 <div class="row">
     <div class="input-field col s6">
 
