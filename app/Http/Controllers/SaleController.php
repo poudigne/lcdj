@@ -19,7 +19,7 @@ class SaleController extends Controller
      */
     public function index()
     {
-        return view('dashboard/sales')->with('sales', Sale::paginate(50));
+        return view('dashboard/sales')->with('sales', Sale::with('product')->paginate(50));
     }
 
     /**
@@ -40,6 +40,13 @@ class SaleController extends Controller
      */
     public function store(Request $request)
     {
+        $sale = new Sale;
+        $sale->product_id = $$request->product_id;
+        $sale->quantity = $request->item_quantity;
+        $sale->unit_price = $request->item_price;
+        $sale->save();
+
+        return view('dashboard/create_sale')->with('products', Product::where('is_published', 1)->orderBy("title")->get());
     }
 
     /**
@@ -50,6 +57,7 @@ class SaleController extends Controller
      */
     public function show($id)
     {
+
     }
 
     /**
@@ -60,6 +68,7 @@ class SaleController extends Controller
      */
     public function edit($id)
     {
+        return view('dashboard/edit_sale')->with('sale', Sale::find($id))->with('products', Product::where('is_published', 1)->orderBy("title")->get());
     }
 
     /**

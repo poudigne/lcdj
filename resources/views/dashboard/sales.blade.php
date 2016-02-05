@@ -35,11 +35,10 @@
     <tr>
       <th data-field="delete"><input type="checkbox" id="check-all" value="0"/></th>
       <th></th>
-      <th data-field="title">Name</th>
-      <th data-field="description">Description</th>
-      <th data-field="player_range">Nombre de joueur</th>
-      <th data-field="age_range">Ages</th>
-      <th data-field="category_id">Item Category</th>
+      <th data-field="product_name">Product name</th>
+      <th data-field="quantity">Quantity</th>
+      <th data-field="unit_price">Unit Price</th>
+      <th data-field="date">Date</th>
     </tr>
   </thead>
   <tbody>
@@ -48,19 +47,11 @@
       <tr class="@if ($set->is_published == 0) warning @endif">
         <td style="width:3%;"><input type="checkbox" data-field-id="{{ $set->id }}" class="check-box" /></td>
         <td style="width:3%;"><button type="button" class="btn btn-default btn-xs btn-edit glyphicon glyphicon-pencil" href="{{ route('dashboard::sale.edit', ['id'=>$set->id]) }}"></button></td>
-        <td>{{ $set->title }}</td>
-        <td>{{ $set->description }}</td>
-        <td>{{ $set->min_player }} à {{ $set->max_player }}</td>
-        <td>
-          @if ($set->max_age >= 18)
-            {{ $set->min_age }} ans et +
-          @else
-            {{ $set->min_age }} à {{ $set->max_age }} ans
-          @endif
-        </td>
-        <td>
 
-        </td>
+        <td>{{ $set->product->title }}</td>
+        <td>{{ $set->quantity }}</td>
+        <td>{{ $set->unit_price }}</td>
+        <td>{{ $set->created_at }}</td>
       </tr>
     @endforeach
   </tbody>
