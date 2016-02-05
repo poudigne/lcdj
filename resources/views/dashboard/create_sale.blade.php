@@ -12,14 +12,10 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('#example-getting-started').multiselect();
-
-            $("#add").on('click', function() {
-                $('#sale-table tbody>tr:last').clone(true).insertAfter('#sale-table tbody>tr:last');
-                return false;
-            });
-            $("#remove").on('click', function() {
-                $('#sale-table tbody>tr:last').remove();
-                return false;
+            $("input[type='text']").bind("change paste keyup", function() {
+                var qty = $("input[name='item_quantity']").val();
+                var unit_price = $("input[name='item_price']").val();
+                $("#total_price").val(qty * unit_price);
             });
         });
     </script>

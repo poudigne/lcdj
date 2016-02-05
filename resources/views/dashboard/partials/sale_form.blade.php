@@ -2,11 +2,14 @@
 
 <?php
     $option = "<option value=''></option>";
+        $checked = '';
     foreach ($products as $set)
     {
-        $option .= "<option value='".$set->id."'>".$set->title."</option>";
+        if ($sale->product_id == $set->id)
+            $checked = 'selected';
+        $option .= "<option value='".$set->id."' ".$checked.">".$set->title."</option>";
     }
-    $input = "<select class='form-control'>".$option."</select>";
+    $input = "<select class='form-control' name='product_id'>".$option."</select>";
 ?>
 
 <table id="sale-table" class="table table-striped table-hover">
@@ -20,15 +23,13 @@
     </thead>
     <tbody>
         <tr>
-            <th>{!! $input  !!}</th>
-            <th><input type="text" name="item_quantity" class="form-control" /></th>
-            <th><input type="text" name="item_price" class="form-control" /></th>
-            <th></th>
+            <th>{!! $input !!}</th>
+            <th><input type="text" name="item_quantity" class="form-control" value="{{ old('item_quantity') == "" ? $sale->quantity : old('item_quantity') }}"/></th>
+            <th><input type="text" name="item_price" class="form-control" value="{{ old('item_price') == "" ? $sale->unit_price : old('item_price') }}"/></th>
+            <th><span id="total_price"></span></th>
         </tr>
     </tbody>
 </table>
-<button type="button" id="remove" class="btn btn-default float-right glyphicon glyphicon-minus"></button>
-<button type="button" id="add" class="btn btn-default float-right glyphicon glyphicon-plus"></button>
 
 <button type="submit" class="btn btn-primary">Submit</button>
 {!! csrf_field() !!}

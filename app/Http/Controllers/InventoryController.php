@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use App\Category;
 use App\Inventory;
+use App\Sale;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -138,7 +139,15 @@ class InventoryController extends Controller
     }
 
     public function decrease(Request $request) {
-        return $this->modifyQuantity($request, -1);
+        $view = $this->modifyQuantity($request, -1);
+        if ($view == false)
+            return;
+        $sale = new Sale;
+        $sale->product_id = $request->product_id;
+        $sale->quantity = 1;
+        $sale->unit_price = Product::find($request->product_id)->sale_price;
+        $sale->save();
+        return $view;
     }
 
     private function modifyQuantity(Request $request, $modifier){
@@ -147,7 +156,10 @@ class InventoryController extends Controller
         $item = $inventory->where("product_id", "=", $request->product_id)->first();
         $item->quantity = $item->quantity + $modifier;
         if($item->quantity < 0)
+        {
             $item->quantity = 0;
+            return false;
+        }
         $item->save();
 
 

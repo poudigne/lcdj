@@ -9,9 +9,9 @@ class Sale extends Model
 {
     use SoftDeletes;
 
-    public function products() 
+    public function product()
     {
-    	return $this->belongsToMany("App\Product", 'category_product', 'category_id', 'product_id');
+        return $this->belongsTo("App\Product");
     }
 
     /**
