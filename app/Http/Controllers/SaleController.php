@@ -90,6 +90,8 @@ class SaleController extends Controller
      */
     public function destroy($id)
     {
+        Sale::destroy($id);
+        return $this->index();
     }
 
 }

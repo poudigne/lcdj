@@ -100,10 +100,10 @@ Route::group(['as' => 'dashboard::','middleware' => 'auth', 'prefix' => 'dashboa
     // receipt
     Route::get('/sale', ['as' => 'sale.show', 'middleware' => 'auth', 'uses' => 'SaleController@index']);
     Route::post("/sale/delete", ['as' => 'sale.delete.post', 'middleware' => 'auth', 'uses' => 'SaleController@multiple_delete']);
+    Route::post("/sale/delete", ['as' => 'sale.delete.post', 'middleware' => 'auth', 'uses' => 'SaleController@multiple_delete']);
     Route::get('/sale/create', ['as' => 'sale.create', 'middleware' => 'auth', 'uses' => 'SaleController@create']);
     Route::post('/sale/create', ['as' => 'sale.create.post', 'middleware' => 'auth', 'uses' => 'SaleController@store']);
-    Route::get('/sale/edit/{id}', ['as' => 'sale.edit', 'middleware' => 'auth', 'uses' => 'SaleController@edit']);
-    Route::post('/sale/edit/{id}', ['as' => 'sale.edit.post', 'middleware' => 'auth', 'uses' => 'SaleController@update']);
+    Route::get('/sale/delete/{id}', ['as' => 'sale.delete', 'middleware' => 'auth', 'uses' => 'SaleController@destroy']);
 
 });
 

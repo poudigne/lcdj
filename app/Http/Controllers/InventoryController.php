@@ -142,6 +142,7 @@ class InventoryController extends Controller
         $view = $this->modifyQuantity($request, -1);
         if ($view == false)
             return;
+
         $sale = new Sale;
         $sale->product_id = $request->product_id;
         $sale->quantity = 1;
@@ -161,8 +162,6 @@ class InventoryController extends Controller
             return false;
         }
         $item->save();
-
-
         return json_encode($item);
     }
 

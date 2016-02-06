@@ -18,14 +18,7 @@
 <h2 class="header">List of products</h2>
 
 <div class="btn-group">
-  <button type="button" class="btn btn-default" id="btn_action_create_sale" data-field-link="">Create new</button>
-  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <span class="caret"></span>
-    <span class="sr-only">Toggle Dropdown</span>
-  </button>
-  <ul class="dropdown-menu">
-    <li><a id="delete-request" data-field-link="{{ route('dashboard::sale.delete.post') }}">Delete</a></li>
-  </ul>
+  <button type="button" class="btn btn-default" id="btn_action_delete_sale" data-field-link="{{ route('dashboard::sale.delete.post') }}">Delete selected</button>
 </div>
 
 
@@ -44,9 +37,9 @@
   <tbody>
 
     @foreach ($sales as $set)
-      <tr class="@if ($set->is_published == 0) warning @endif">
+      <tr>
         <td style="width:3%;"><input type="checkbox" data-field-id="{{ $set->id }}" class="check-box" /></td>
-        <td style="width:3%;"><button type="button" class="btn btn-default btn-xs btn-edit glyphicon glyphicon-pencil" href="{{ route('dashboard::sale.edit', ['id'=>$set->id]) }}"></button></td>
+        <td style="width:3%;"><button type="button" class="btn btn-default btn-xs btn-edit glyphicon glyphicon-trash" href="{{ route('dashboard::sale.delete', ['id'=>$set->id]) }}"></button></td>
 
         <td>{{ $set->product->title }}</td>
         <td>{{ $set->quantity }}</td>
@@ -63,9 +56,7 @@
   </div>
 </div>
 <script type="text/javascript">
-  $("#btn_action_create_sale").on('click',function(){
-    window.location.href = "{{ route('dashboard::sale.create') }}";
-  });
+
 
 </script>
 @stop
