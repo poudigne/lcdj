@@ -68,7 +68,7 @@
     <label for="product_title" class="col-sm-2 form-control-label">Cost price</label>
     <div class="col-sm-10 input-group">
         <span class="input-group-addon">$</span>
-        <input type="text" name="product_costprice" class="form-control" placeholder="Cost price" value="{{ old('product_costprice') == "" ? $product->price : old('product_costprice') }}"/>
+        <input type="text" name="product_costprice" class="form-control" placeholder="Cost price" value="{{ old('product_costprice') == "" ? $product->cost_price : old('product_costprice') }}"/>
     </div>
 </div>
 
