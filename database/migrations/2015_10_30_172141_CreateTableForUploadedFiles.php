@@ -14,7 +14,7 @@ class CreateTableForUploadedFiles extends Migration
     {
         Schema::create('uploaded_files', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('product_id')->references('id')->on('products')->unsigned();
+            $table->integer('product_id')->unsigned();
             $table->string('image_path');
             $table->timestamps();
         });

@@ -14,21 +14,12 @@ class CreateSaleTable extends Migration
     {
         Schema::create('sales', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('product_id')->unsigned()->index();
-            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->integer('product_id')->unsigned();
             $table->integer('quantity');
             $table->float('unit_price');
             $table->timestamps();
             $table->softDeletes();
         });
-
-        /* Schema::create('product_sale', function (Blueprint $table) {
-           $table->integer('product_id')->unsigned()->index();
-            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
-
-            $table->integer('sale_id')->unsigned()->index();
-            $table->foreign('sale_id')->references('id')->on('sales')->onDelete('cascade');
-        });*/
     }
 
     /**

@@ -12,9 +12,10 @@ class AddingSalePriceToProductTable extends Migration
      */
     public function up()
     {
-        Schema::table('products', function ($table) {
-            //$table->renameColumn('price', 'cost_price');
-            $table->decimal('sale_price', 5,2)->nullable();
+       Schema::table('products', function ($table) {
+           $table->dropColumn('price');
+           $table->decimal('sale_price', 5,2)->default(0.00);
+            $table->decimal('cost_price', 5,2)->default(0.00);
         });
     }
 
@@ -26,8 +27,9 @@ class AddingSalePriceToProductTable extends Migration
     public function down()
     {
         Schema::table('products', function ($table) {
-            //$table->renameColumn('cost_price', 'price');
+            $table->decimal('price', 5,2)->nullable();
             $table->dropColumn('sale_price');
+            $table->dropColumn('cost_price');
         });
     }
 }

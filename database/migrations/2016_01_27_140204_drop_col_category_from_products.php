@@ -14,7 +14,6 @@ class DropColCategoryFromProducts extends Migration
     {
         Schema::table('products', function($table)
         {
-            $table->dropForeign('products_category_id_foreign');
             $table->dropColumn('category_id');
         });  
     }

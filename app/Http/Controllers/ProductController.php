@@ -55,12 +55,11 @@ class ProductController extends Controller
         $product->is_published = ($request->get('is_published') == 'on' ? 1 : 0);
         $product->title = $request->get('product_title');
         $product->description = $request->get('product_description');
-        $product->price = 0;
         $product->min_player = $request->get('product_input-players-min');
         $product->max_player = $request->get('product_input-players-max');
         $product->min_age = $request->get('product_input-age-min');
         $product->max_age = $request->get('product_input-age-max');
-        $product->price = $request->get('product_costprice');
+        $product->cost_price = $request->get('product_costprice');
         $product->sale_price = $request->get('product_saleprice');
         $product->save();
 
@@ -131,12 +130,11 @@ class ProductController extends Controller
         $product->is_published = ($request->get('is_published') == 'on' ? 1 : 0);
         $product->title = $request->get('product_title');
         $product->description = $request->get('product_description');
-        $product->price = 0;
         $product->min_player = $request->get('product_input-players-min');
         $product->max_player = $request->get('product_input-players-max');
         $product->min_age = $request->get('product_input-age-min');
         $product->max_age = $request->get('product_input-age-max');
-        $product->price = $request->get('product_costprice');
+        $product->cost_price = $request->get('product_costprice');
         $product->sale_price = $request->get('product_saleprice');
         $product->save();
 
@@ -172,7 +170,7 @@ class ProductController extends Controller
         $product = new Product;
         Product::find($id)->delete();
         $products = $product->join('categories', 'products.category_id', '=', 'categories.id')
-                            ->select('products.title', 'products.description', 'products.price','products.id','categories.name')
+                            ->select('products.title', 'products.description', 'products.cost_price','products.id','categories.name')
                             ->orderBy('products.title',asc)
                             ->get();
         $category = new Category;
