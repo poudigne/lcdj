@@ -37,6 +37,7 @@
     <tr>
       <th data-field="delete"><input type="checkbox" id="check-all" value="0"/></th>
       <th></th>
+      <th data-field="quantity">Qty</th>
       <th data-field="title">Name</th>
       <th data-field="description">Description</th>
       <th data-field="player_range">Nombre de joueur</th>
@@ -50,6 +51,7 @@
       <tr class="@if ($set->is_published == 0) warning @endif">
         <td style="width:3%;"><input type="checkbox" data-field-id="{{ $set->id }}" class="check-box" /></td>
         <td style="width:3%;"><button type="button" class="btn btn-default btn-xs btn-edit glyphicon glyphicon-pencil" href="{{ route('dashboard::product.edit', ['id'=>$set->id]) }}"></button></td>
+        <td style="width:3%;">{{ $set->inventory->quantity }}</td>
         <td>{{ $set->title }}</td>
         <td>{{ $set->description }}</td>
         <td>{{ $set->min_player }} à {{ $set->max_player }}</td>
