@@ -30,7 +30,7 @@
 <script src="/JS/bootstrap-multiselect.js" type="text/javascript"></script>
 
 <!-- Bootstrap slider -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/6.0.9/bootstrap-slider.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/6.0.16/bootstrap-slider.js" type="text/javascript"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/6.0.9/css/bootstrap-slider.min.css">
 
 <!-- Bootbox -->

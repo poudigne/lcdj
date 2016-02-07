@@ -54,11 +54,7 @@
         <td>{{ $set->description }}</td>
         <td>{{ $set->min_player }} à {{ $set->max_player }}</td>
         <td>
-          @if ($set->max_age >= 18)
-            {{ $set->min_age }} ans et +
-          @else
-            {{ $set->min_age }} à {{ $set->max_age }} ans
-          @endif
+            {{ $set->min_age }}+ yrs
         </td>
         <td>
           @foreach($set->categories as $cat)

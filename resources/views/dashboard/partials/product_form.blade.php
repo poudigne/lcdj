@@ -42,7 +42,7 @@
 <div class="form-group row">
     <label for="product_title" class="col-sm-2 form-control-label">Nombre de joueurs</label>
     <div class="col-sm-10">
-        <input type="text"  id="player_range" class="form-control slider" data-slider-value="[2,5]" data-slider-min="1" data-slider-max="15" />
+        <input type="text"  id="player_range" class="form-control" data-slider-value="[2,6]" data-slider-min="1" data-slider-max="20" />
         <span class="flavor-text" id="input-players"></span>
     </div>
 </div>
@@ -51,7 +51,7 @@
 <div class="form-group row">
     <label for="product_title" class="col-sm-2 form-control-label">Ages</label>
     <div class="col-sm-10">
-        <input type="text" id="age_range" class="form-control slider" data-slider-value="[6,12]" data-slider-min="0" data-slider-max="50">
+        <input type="text" id="age_range" class="form-control">
         <span class="flavor-text" id="input-age"></span>
     </div>
 </div>

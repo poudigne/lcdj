@@ -58,7 +58,6 @@ class ProductController extends Controller
         $product->min_player = $request->get('product_input-players-min');
         $product->max_player = $request->get('product_input-players-max');
         $product->min_age = $request->get('product_input-age-min');
-        $product->max_age = $request->get('product_input-age-max');
         $product->cost_price = $request->get('product_costprice');
         $product->sale_price = $request->get('product_saleprice');
         $product->save();
@@ -133,7 +132,6 @@ class ProductController extends Controller
         $product->min_player = $request->get('product_input-players-min');
         $product->max_player = $request->get('product_input-players-max');
         $product->min_age = $request->get('product_input-age-min');
-        $product->max_age = $request->get('product_input-age-max');
         $product->cost_price = $request->get('product_costprice');
         $product->sale_price = $request->get('product_saleprice');
         $product->save();
