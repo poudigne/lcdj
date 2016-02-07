@@ -24,7 +24,7 @@ class InventoryController extends Controller
     public function index()
     {
         $product = new Product;
-        $products = $product->with('categories')->where('products.is_published', 1)->orderBy('title')->paginate(20);
+        $products = $product->with('categories')->orderBy('title')->paginate(20);
 
         return view('dashboard/inventory')->with('products', $products);
     }
@@ -38,7 +38,7 @@ class InventoryController extends Controller
     {
         $category = new Category;
         $categories = $category->orderBy('name')->get();
-        return view('dashboard/create_product')->with('categories', $categories)->where('products.is_published', 1)->with('product', new Product);
+        return view('dashboard/create_product')->with('categories', $categories)->with('product', new Product);
     }
 
     /**
@@ -129,7 +129,7 @@ class InventoryController extends Controller
      */
     public function sort($sorttype){
         Session::put("sort_type", $sorttype);
-        $product = Product::leftJoin('inventories','products.id','=', 'inventories.product_id')->where('products.is_published', 1);
+        $product = Product::leftJoin('inventories','products.id','=', 'inventories.product_id');
         $products = $this->sortInventory($product, $sorttype);
         return view('dashboard/inventory')->with('products', $products->paginate(20))->with('sorttype',$sorttype);
     }

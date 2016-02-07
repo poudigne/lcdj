@@ -86,12 +86,12 @@
 
             $(document).on('click', '.inv-dec', function () {
                 var found = $(this).closest("div[data-field-id]");
-                var product_id = found.attr('data-field-id')
+                var product_id = found.attr('data-field-id');
                 sendSearchRequest('dec', product_id);
             });
             $(document).on('click', '.inv-inc', function () {
                 var found = $(this).closest("div[data-field-id]");
-                var product_id = found.attr('data-field-id')
+                var product_id = found.attr('data-field-id');
                 sendSearchRequest('inc', product_id);
             });
 
@@ -106,7 +106,6 @@
                     },
                     dataType: "json"
                 }).done(function (data) {
-                    $("#product-content").html("");
                     $("#product-content").html(data);
                 }).fail(function (data) {
                     console.log("fail");
@@ -117,15 +116,15 @@
         var getStockString = function ($quantity) {
             var string = $quantity + " in stock";
             if ($quantity == 0)
-                string = 'out of stock'
+                string = 'out of stock';
             return string;
         }
         var sendSearchRequest = function (modifier, product_id) {
             var link = '';
             if (modifier == 'inc')
-                link = '{{ route("dashboard::inventory.inc.post") }}'
+                link = '{{ route("dashboard::inventory.inc.post") }}';
             else if (modifier == 'dec')
-                link = '{{ route("dashboard::inventory.dec.post") }}'
+                link = '{{ route("dashboard::inventory.dec.post") }}';
             $.ajax({
                 url: link,
                 type: "post",
