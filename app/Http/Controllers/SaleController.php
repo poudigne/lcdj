@@ -19,7 +19,7 @@ class SaleController extends Controller
      */
     public function index()
     {
-        return view('dashboard/sales')->with('sales', Sale::with('product')->paginate(50));
+        return view('dashboard/sales')->with('sales', Sale::with('product')->orderBy("created_at", 'desc')->paginate(50));
     }
 
     /**
