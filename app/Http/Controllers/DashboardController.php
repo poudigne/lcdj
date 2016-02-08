@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Sale;
+use App\Product;
+
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use DB;
 
 class DashboardController extends Controller
 {
@@ -15,7 +19,17 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard/dashboard');
+        $first = date('Y-m-d', mktime(0, 0, 0, date('m'), 1, date('Y')));
+        $last = date('Y-m-t', mktime(0, 0, 0, date('m'), 1, date('Y')));
+
+        $top_product = Sale::select('products.title','sales.product_id', DB::raw('count(sales.product_id) as sales_count'))
+            ->join('products','products.id', '=','sales.product_id')
+            ->whereBetween('sales.created_at',array($first,$last))
+            ->groupBy('sales.product_id')
+            ->orderBy('sales_count', 'desc')
+            ->take(10)
+            ->get();
+        return view('dashboard/dashboard')->with('top_product',$top_product);
     }
 
     /**

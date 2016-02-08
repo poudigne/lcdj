@@ -64,6 +64,9 @@
 	right: 		25px;
 	visibility:	hidden;
 }
+.borderless td, .borderless th {
+	border: none !important;
+}
 </style>
 
 <script type="text/javascript">
