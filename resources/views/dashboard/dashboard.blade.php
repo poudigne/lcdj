@@ -15,14 +15,26 @@
                     <table class="table borderless table-condensed">
                         <thead></thead>
                         <tbody>
-                    @foreach($top_product as $set)
-                        <tr><td><b>{{ $count++ }}</b><td>{{ $set->title }}</td><td>{{ $set->sales_count }}</td></tr>
-                    @endforeach
+                        @foreach($top_product as $set)
+                            <tr><td><b>{{ $count++ }}</b><td>{{ $set->title }}</td><td>{{ $set->sales_count }}</td></tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
+        <div class="col-sm-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Inventory value</h3>
+                </div>
+                <div class="panel-body">
+
+                    {{ $total_value->first()->total_value }}$ CAD
+                </div>
+            </div>
+        </div>
+
     </div>
 
 

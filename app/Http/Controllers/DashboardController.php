@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Sale;
 use App\Product;
+use App\Inventory;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -22,6 +23,10 @@ class DashboardController extends Controller
         $first = date('Y-m-d', mktime(0, 0, 0, date('m'), 1, date('Y')));
         $last = date('Y-m-t', mktime(0, 0, 0, date('m'), 1, date('Y')));
 
+        $inventory_value = Inventory::select(DB::Raw('SUM(products.cost_price * inventories.quantity) as total_value'))
+            ->join('products', 'products.id','=','inventories.product_id')
+            ->get();
+
         $top_product = Sale::select('products.title','sales.product_id', DB::raw('count(sales.product_id) as sales_count'))
             ->join('products','products.id', '=','sales.product_id')
             ->whereBetween('sales.created_at',array($first,$last))
@@ -29,7 +34,7 @@ class DashboardController extends Controller
             ->orderBy('sales_count', 'desc')
             ->take(10)
             ->get();
-        return view('dashboard/dashboard')->with('top_product',$top_product);
+        return view('dashboard/dashboard')->with('top_product',$top_product)->with('total_value',$inventory_value);
     }
 
     /**
