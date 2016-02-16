@@ -29,7 +29,6 @@
                     <h3 class="panel-title">Inventory value</h3>
                 </div>
                 <div class="panel-body">
-
                     {{ $total_value->first()->total_value }}$ CAD
                 </div>
             </div>
@@ -37,7 +36,16 @@
 
     </div>
 
-
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Update 02/15/2016</h3>
+        </div>
+        <div class="panel-body">
+            <ul><b>Added:</b>
+                <li>Added the total value of the inventory on the dashboard main page.  <a target="_blank" href="https://github.com/poudigne/lcdj/commit/7a9de7a66beff957da33df08afa688ef1e5b9ef6">[7a9de7a]</a></li>
+            </ul>
+        </div>
+    </div>
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title">Update 02/07/2016</h3>
